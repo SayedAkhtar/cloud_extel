@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Airtel",
+        "image": "/public/images/our-solutions/airtel.png"
+    },
+    {
+        "name": "VI",
+        "image": "/public/images/our-solutions/vi.png"
+    },
+    {
+        "name": "Sify",
+        "image": "/public/images/our-solutions/sify.png"
+    },
+    {
+        "name": "jio",
+        "image": "/public/images/our-solutions/jio.png"
+    },
+    {
+        "name": "RailTel",
+        "image": "/public/images/our-solutions/railtel.png"
+    },
+    {
+        "name": "PowerGrid",
+        "image": "/public/images/our-solutions/powergrid.png"
+    },
+    {
+        "name": "Tata Communications",
+        "image": "/public/images/our-solutions/tata.png"
+    },
+    {
+        "name": "Tata Teleservices Limited",
+        "image": "/public/images/our-solutions/tata-tele.png"
+    },
+    {
+        "name": "Tata Play",
+        "image": "/public/images/our-solutions/tata-play.png"
+    },
+    {
+        "name": "Lightstorm",
+        "image": "/public/images/our-solutions/lightstorm.png"
+    }
+]

@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainSectionComponent from "../components/MainSectionComponent.astro";
+---
+
+<Layout title="Life at CloudExtel | CloudExtel">
+  <MainSectionComponent
+    title="Life at CloudExtel"
+    subtext="We believe in empowering our employees with the autonomy to explore, experiment, and excel. Here, your ideas are valued, your growth is supported, and your impact is real."
+    image="/images/life-at.png"
+  />
+
+  <section class="container">
+    <div class="w-full max-w-[1090px] mx-auto py-[120px]">
+      <img src="/images/gallery-collage.png" alt="" />
+    </div>
+  </section>
+
+  <section class="container">
+    <img src="/images/our-values.png" alt="" />
+  </section>
+  <section class="bg-[#233852]">
+    <div class="container py-[120px]">
+      <h1 class="heading-1 mx-auto text-white text-center">CEO's Awards</h1>
+      <img src="/images/award-collage-1.png" class="mt-20" alt="" />
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="py-[120px]">
+      <h1 class="heading-1 text-center">Career Opportunities</h1>
+      <p class="para text-center mt-6">
+        Employees are the heart and soul of an organisation. Want to contribute
+        to the<br />
+        ever-changing networking landscape? Reach out to us at <a
+          class="underline text-primary-color">careers@cloudextel.com</a
+        >
+      </p>
+      <div
+        class="w-full max-w-[700px] mx-auto flex border border-[#728090A3] p-3 mt-6"
+      >
+        <input
+          type="text"
+          placeholder="Search by location, keyword or job title"
+          class="flex-1"
+        />
+        <img src="/images/Search.png" alt="" />
+      </div>
+      <div class="py-8">
+        <table class="w-full border-collapse border-spacing-0">
+          <tbody class="divide-y divide-gray-300 space-y-11">
+            <!-- Row 1 -->
+            {
+              new Array(5).fill(null).map(() => {
+                return (
+                  <tr>
+                    <td class="py-12 px-6 text-gray-900 font-medium">
+                      <h6 class="heading-6">
+                        Manager - Fixed Asset & Inventory
+                      </h6>
+                    </td>
+                    <td class="py-4 px-6 text-gray-600">
+                      Location
+                      <b>Mumbai</b>
+                    </td>
+                    <td class="py-4 px-6 text-gray-600">
+                      Department
+                      <b>Operations</b>
+                    </td>
+                    <td class="py-4 px-6 text-gray-600">
+                      Posted On
+                      <b>24 Aug, 2024</b>
+                    </td>
+                    <td class="py-4 px-6">
+                      <button class="min-w-[158px] gap-2 flex justify-center items-center px-4 py-4 bg-primary-color text-white text-xs font-medium rounded-full">
+                        Know more
+                        <svg
+                          width="17"
+                          height="8"
+                          viewBox="0 0 17 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M16.3536 4.35355C16.5488 4.15829 16.5488 3.84171 16.3536 3.64645L13.1716 0.464466C12.9763 0.269204 12.6597 0.269204 12.4645 0.464466C12.2692 0.659728 12.2692 0.976311 12.4645 1.17157L15.2929 4L12.4645 6.82843C12.2692 7.02369 12.2692 7.34027 12.4645 7.53553C12.6597 7.7308 12.9763 7.7308 13.1716 7.53553L16.3536 4.35355ZM0 4.5H16V3.5H0V4.5Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+      </div>
+      <span class="text-center font-semibold text-primary-color flex justify-center items-center gap-2">Load More <img src="/images/arrow-down.png" alt="" class="h-[14px]"></span>
+    </div>
+  </section>
+
+</Layout>

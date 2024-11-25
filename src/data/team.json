@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Kunal Bajaj",
+      "position": "CEO & Co-Founder",
+      "image": "/images/kunal.png",
+      "linkedin": "#",
+      "details": "Read More"
+    },
+    {
+      "name": "Vishal S Raghuvanshi",
+      "position": "Chief Operating Officer",
+      "image": "/images/vishal.png",
+      "linkedin": "#",
+      "details": "Read More"
+    },
+    {
+      "name": "Deepak Saxena",
+      "position": "EVP - Wireline Operations",
+      "image": "/images/deepak.png",
+      "linkedin": "#",
+      "details": "Read More"
+    },
+    {
+      "name": "Balkishan Chandak",
+      "position": "Chief Financial Officer",
+      "image": "/images/balkishan.png",
+      "linkedin": "#",
+      "details": "Read More"
+    },
+    {
+      "name": "Shashank Goenka",
+      "position": "SVP - Business Development & Sales",
+      "image": "/images/shashank.png",
+      "linkedin": "#",
+      "details": "Read More"
+    },
+    {
+      "name": "Rashmin Vyawahare",
+      "position": "SVP - Strategy and BIS",
+      "image": "/images/rashmin.png",
+      "linkedin": "#",
+      "details": "Read More"
+    }
+  ]
+  

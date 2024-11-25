@@ -1,0 +1,494 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainSectionComponent from "../components/MainSectionComponent.astro";
+import teamData from "../data/team.json";
+import communityData from "../data/community.json";
+---
+
+<Layout title="About Us | Cloud Extel">
+  <MainSectionComponent title="About Us" image="/images/about-us/main.png" />
+  <div id="about-nav">
+    <section class="container bg-white">
+      <div class="pt-8">
+        <nav
+          class="flex space-x-8 border-b border-gray-300w-full justify-between"
+        >
+          <a
+            href="#who-we-are"
+            class="text-primary-color font-semibold border-b-4 border-primary-color pb-4"
+            >Who We Are</a
+          >
+          <a href="#why-cloudextel" class="text-gray-500 hover:text-primary-color pb-4"
+            >Why CloudExtel</a
+          >
+          <a href="#our-legacy" class="text-gray-500 hover:text-primary-color pb-4"
+            >Our Legacy</a
+          >
+          <a href="#our-team" class="text-gray-500 hover:text-primary-color pb-4"
+            >Our Team</a
+          >
+          <a href="#our-board" class="text-gray-500 hover:text-primary-color pb-4"
+            >Our Board</a
+          >
+        </nav>
+      </div>
+    </section>
+  </div>
+
+  <section class="bg-[#F5FAFE]" id="who-we-are">
+    <div class="max-w-[60rem] w-full mx-auto section-small py-20">
+      <h1 class="heading-1 text-center pb-8">Who We Are</h1>
+      <div class="space-y-6 font-semibold text-[18px]">
+        <p>
+          CloudExtel is India’s first full-stack Network as a Service (NaaS)
+          provider offering digital infrastructure services such as Small Cell
+          Hosting, Fiber to the Home (FTTH), Intra-City Fiber, & Virtualized
+          Networks. We cater to telecom operators, internet service providers,
+          data centers, enterprises, & large content providers to address the
+          challenges emerging from the hypergrowth of data consumption in India.
+        </p>
+        <p>
+          With our pioneering neutral host network solutions, we are enabling
+          the densification of 4G networks & accelerating the transition to 5G
+          networks. We own & operate networks that address critical points of
+          network stress, facilitate sharing, & adopt emerging heterogeneous
+          network technologies.
+        </p>
+        <p>
+          In 2023, Macquarie Capital, the corporate advisory, capital markets, &
+          principal investment arm of Macquarie Group, and Advencap, a strategic
+          investor in digital infrastructure acquired a majority stake in
+          CloudExtel to enhance our portfolio of services. In 2024, we secured
+          our first external debt from NIIF Infrastructure Finance Ltd. & Aditya
+          Birla Finance Ltd.
+        </p>
+        <p>
+          CloudExtel is associated with the Neutral Host & Infra Sharing Project
+          Group at Telecom Infra Project (TIP) which aims to promote innovative
+          business models, in collaboration amongst a broad set of stakeholders,
+          to accelerate neutral host connectivity solutions. We are also one of
+          the associate members of the Digital Infrastructure Providers
+          Association (DIPA), which represents India’s digital infrastructure
+          players that develop, build, own, & operate the nation’s wireless
+          infrastructure.
+        </p>
+        <p>
+          With a strong backing of institutional investors, CloudExtel is on the
+          path to Reinventing Digital Infrastructure connectivity in India, with
+          enhanced coverage, capacity & speed.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="continer pt-[120px] pb-24" id="why-cloudextel">
+    <h1 class="heading-1 text-center">Why CloudExtel</h1>
+    <img src="/images/Infographic.png" class="max-w-[750px] mx-auto" alt="" />
+  </section>
+  <section class="container" >
+    <div class="mx-auto py-12 px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.6 12.2C9.99994 10.6 3.19997 10.2001 0.999938 10C0.799969 10 0.599906 10 0.399937 10.2C0.199969 10.4 0 10.8001 0 11V29C0 29.6 0.400031 30.0001 1.00003 30.0001H7.00003C7.40006 30.0001 7.8 29.8001 8.00006 29.4001C8.00006 28.8001 11.6001 18.2 12.0001 13.0001C12 12.8 12 12.4001 11.6 12.2Z"
+                fill="#1456A2"></path>
+              <path
+                d="M33.0001 16.9999C31.0001 16.3999 29.2001 15.6 27.6001 15C24.0001 13.3999 22.4001 14.2 19.2001 17.4C17.8001 18.7999 16.8001 20.8 17.0001 21.6C17.0001 21.7999 17.0001 21.7999 17.4001 22C18.4001 22.4 19.8001 22.6 21.2001 20.4C21.4001 20.2 21.6001 19.9999 22.0001 19.9999C22.6001 19.9999 22.8 19.8 23.4 19.5999C23.8001 19.3999 24.2 19.1999 24.8 18.9999C25 18.9999 25 18.9999 25.2 18.9999C25.4 18.9999 25.8 19.1999 26 19.1999C27.0001 20.2 28.8001 21.6 30.6001 23.2C33.4001 25.4 36.2001 27.8 37.6001 29.6H37.8001C36.4001 25.6 34.0001 18.7999 33.0001 16.9999Z"
+                fill="#1456A2"></path>
+              <path
+                d="M47 12C39.2 12 34.8001 14 34.6 14C34.4 14.1999 34.2 14.4 34 14.6C34 14.7999 34 15.2 34.2 15.3999C35.4 17.3999 39.4 28.4 40 31.1999C40.2 31.5999 40.6 31.9999 41 31.9999H47C47.6 31.9999 48.0001 31.5998 48.0001 30.9998V12.9998C48.0001 12.4 47.6 12 47 12Z"
+                fill="#1456A2"></path>
+              <path
+                d="M36.1998 31.6C35.3998 29.8 31.9998 27.2 28.9998 24.8C27.3999 23.4 25.7998 22.2 24.5998 21.1999C24.3999 21.3999 23.9998 21.3999 23.9998 21.6C23.3998 21.7999 23.1999 22 22.3998 22C20.7999 24 18.7998 24.7999 16.5999 24C15.5998 23.8 14.9998 22.9999 14.7999 22.2C14.3998 20.2 16.1998 17.4 17.5999 16H13.5999C12.7999 20 11.3998 25.2 10.3999 28C11.1999 28.8 11.9999 29.8 12.5999 30.2C16.3999 33.4 20.8 36.6001 21.5999 37.2001C22.1999 37.6001 23.3999 38 23.9999 38C24.1999 38 24.4 38 24.5999 38L21.3999 34.8C20.9998 34.3999 20.9998 33.7999 21.3999 33.4C21.7999 33.0001 22.3999 33 22.7998 33.4L26.7999 37.4C27.1999 37.8001 27.5998 37.6 27.9999 37.6C28.5999 37.4 28.7998 37 28.9999 36.4L24.3999 31.8C23.9998 31.3999 23.9998 30.7999 24.3999 30.4C24.7999 30.0001 25.3999 30 25.7998 30.4L30.7998 35.4C30.9998 35.5999 31.7998 35.5999 32.3998 35.4C32.5998 35.2 32.9998 34.9999 33.1998 34.6L27.5998 28.9999C27.1998 28.5999 27.1998 27.9999 27.5998 27.6C27.9999 27.2 28.5999 27.1999 28.9998 27.6L34.7998 33.4C35.1999 33.6 35.5998 33.4 35.9998 33.2C36.1998 33 36.5998 32.4 36.1998 31.6Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">
+            Commitment to <br />Excellence
+          </h3>
+          <p class="text-gray-600">
+            Our advanced skills and expertise redefine networking and NaaS
+            solutions, setting new standards of commitment and excellence in the
+            industry.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 20.3359C27.5661 20.3359 30.457 17.445 30.457 13.8789C30.457 10.3128 27.5661 7.42188 24 7.42188C20.4339 7.42188 17.543 10.3128 17.543 13.8789C17.543 17.445 20.4339 20.3359 24 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M37.0625 20.3359C39.3169 20.3359 41.1445 18.5084 41.1445 16.2539C41.1445 13.9995 39.3169 12.1719 37.0625 12.1719C34.8081 12.1719 32.9805 13.9995 32.9805 16.2539C32.9805 18.5084 34.8081 20.3359 37.0625 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M10.9375 20.3359C13.1919 20.3359 15.0195 18.5084 15.0195 16.2539C15.0195 13.9995 13.1919 12.1719 10.9375 12.1719C8.68306 12.1719 6.85547 13.9995 6.85547 16.2539C6.85547 18.5084 8.68306 20.3359 10.9375 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M14.9594 24.0017C13.3526 22.6852 11.8974 22.8594 10.0395 22.8594C7.2607 22.8594 5 25.1068 5 27.8685V35.9739C5 37.1733 5.97895 38.1485 7.18277 38.1485C12.38 38.1485 11.7539 38.2425 11.7539 37.9244C11.7539 32.1809 11.0736 27.9689 14.9594 24.0017Z"
+                fill="#1456A2"></path>
+              <path
+                d="M25.7669 22.8891C22.5217 22.6184 19.7011 22.8922 17.2681 24.9004C13.1967 28.1616 13.9802 32.5526 13.9802 37.9243C13.9802 39.3455 15.1365 40.5235 16.5793 40.5235C32.2456 40.5235 32.8691 41.0288 33.7981 38.9716C34.1028 38.2758 34.0193 38.4969 34.0193 31.8414C34.0193 26.5551 29.442 22.8891 25.7669 22.8891Z"
+                fill="#1456A2"></path>
+              <path
+                d="M37.9607 22.8593C36.0926 22.8593 34.6455 22.6868 33.0408 24.0015C36.8975 27.9392 36.2463 31.8638 36.2463 37.9242C36.2463 38.2444 35.7265 38.1483 40.7395 38.1483C41.9864 38.1483 43.0002 37.1382 43.0002 35.8965V27.8683C43.0002 25.1066 40.7395 22.8593 37.9607 22.8593Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">People</h3>
+          <p class="text-gray-600">
+            At CloudExtel, we believe in a culture where our people feel valued,
+            supported, and inspired. We nurture growth by valuing every voice.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="flex flex-col gap-4 p-6 bg-white border-none border-gray-200"
+        >
+          <div class="text-blue-600">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 20.3359C27.5661 20.3359 30.457 17.445 30.457 13.8789C30.457 10.3128 27.5661 7.42188 24 7.42188C20.4339 7.42188 17.543 10.3128 17.543 13.8789C17.543 17.445 20.4339 20.3359 24 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M25.7669 22.8888C22.5217 22.6182 19.7011 22.892 17.2681 24.9002C13.1967 28.1613 13.9802 32.5523 13.9802 37.9241C13.9802 39.3453 15.1365 40.5232 16.5793 40.5232C32.2456 40.5232 32.8691 41.0286 33.7981 38.9713C34.1028 38.2756 34.0193 38.4967 34.0193 31.8411C34.0193 26.5548 29.442 22.8888 25.7669 22.8888Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Customer-Centric</h3>
+          <p class="text-gray-600">
+            We don’t just understand your pain points; we anticipate them. Our
+            solutions are designed with your satisfaction in mind.
+          </p>
+        </div>
+        <!-- Card 4 -->
+        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="44"
+              height="44"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32.1437 20.7756C31.5704 16.098 27.8787 12.4156 23.1997 11.8541C22.7968 11.8082 22.3917 11.7851 21.9862 11.785C17.851 11.7914 14.1277 14.2905 12.5552 18.1149C10.9827 21.9394 11.8714 26.3348 14.8062 29.248C16.3668 30.7425 17.2606 32.8021 17.2861 34.9628V36.143H26.7146V34.9567C26.7218 32.8369 27.5841 30.8097 29.1064 29.3343C31.4055 27.116 32.5301 23.9473 32.1436 20.7759V20.7756H32.1437Z"
+                fill="#1456A2"></path>
+              <path
+                d="M21.9998 44.0002C22.9984 43.999 23.8882 43.3698 24.2223 42.4287H19.7773C20.1113 43.3698 21.0012 43.999 21.9998 44.0002Z"
+                fill="#1456A2"></path>
+              <path
+                d="M18.0718 40.0715C18.0724 40.5053 18.4238 40.8567 18.8575 40.8573H25.1432C25.577 40.8567 25.9284 40.5053 25.929 40.0715V37.7144H18.0718V40.0715Z"
+                fill="#1456A2"></path>
+              <path
+                d="M21.9997 7.07158C22.8676 7.07158 23.5711 6.368 23.5711 5.50012V1.57158C23.5711 0.703692 22.8676 0.00012207 21.9997 0.00012207C21.1318 0.00012207 20.4282 0.703692 20.4282 1.57158V5.50012C20.4282 6.368 21.1318 7.07158 21.9997 7.07158Z"
+                fill="#1456A2"></path>
+              <path
+                d="M8.73804 10.9606C9.35988 11.5545 10.3387 11.5545 10.9606 10.9606C11.2553 10.6659 11.4209 10.2661 11.4209 9.84933C11.4209 9.43254 11.2553 9.03276 10.9606 8.73808L8.18245 5.96049C7.88786 5.66572 7.48816 5.50012 7.07145 5.50012C6.65474 5.50012 6.25505 5.66572 5.96037 5.96049C5.6656 6.25508 5.5 6.65478 5.5 7.07158C5.5 7.48837 5.6656 7.88798 5.96037 8.18266L8.73804 10.9606Z"
+                fill="#1456A2"></path>
+              <path
+                d="M7.07145 22.0002C7.07145 21.1323 6.36788 20.4287 5.5 20.4287H1.57145C0.703914 20.4296 0.000859375 21.1326 0 22.0002C0.000859375 22.8677 0.703914 23.5708 1.57145 23.5716H5.5C6.36788 23.5716 7.07145 22.868 7.07145 22.0002Z"
+                fill="#1456A2"></path>
+              <path
+                d="M10.2571 32.6305C9.71395 32.4853 9.13473 32.6413 8.73795 33.0396L5.96037 35.8176C5.6656 36.1122 5.5 36.5119 5.5 36.9287C5.5 37.3455 5.6656 37.7451 5.96037 38.0398C6.58204 38.6337 7.56078 38.6337 8.18245 38.0398L10.9605 35.2622C11.3587 34.8655 11.5148 34.2862 11.3696 33.7431C11.2245 33.2 10.8002 32.7756 10.2571 32.6305Z"
+                fill="#1456A2"></path>
+              <path
+                d="M35.2621 33.0397C34.8653 32.6415 34.2861 32.4854 33.7429 32.6306C33.1998 32.7757 32.7756 33.1999 32.6305 33.743C32.4853 34.2862 32.6413 34.8654 33.0396 35.2622L35.8176 38.0397C36.4393 38.6337 37.4181 38.6337 38.0397 38.0397C38.3345 37.7452 38.5001 37.3455 38.5001 36.9287C38.5001 36.5119 38.3345 36.1123 38.0397 35.8176L35.2621 33.0397Z"
+                fill="#1456A2"></path>
+              <path
+                d="M42.4282 20.4287H38.4997C37.6318 20.4287 36.9282 21.1323 36.9282 22.0002C36.9282 22.868 37.6318 23.5716 38.4997 23.5716H42.4282C43.2961 23.5716 43.9997 22.868 43.9997 22.0002C43.9997 21.1323 43.2961 20.4287 42.4282 20.4287Z"
+                fill="#1456A2"></path>
+              <path
+                d="M35.2616 10.9607L38.0392 8.18266C38.4361 7.78572 38.5911 7.20719 38.4458 6.66492C38.3005 6.12266 37.877 5.69916 37.3347 5.55384C36.7925 5.40851 36.2139 5.56355 35.817 5.96049L33.039 8.73808C32.7442 9.03276 32.5786 9.43254 32.5786 9.84934C32.5786 10.2661 32.7442 10.6659 33.039 10.9606C33.6609 11.5546 34.6398 11.5546 35.2616 10.9607Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Innovative</h3>
+          <p class="text-gray-600">
+            Staying ahead of industry trends, we continuously develop new
+            services that keep you at the cutting edge of technology.
+          </p>
+        </div>
+        <!-- Card 5 -->
+        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.8 31.8001L11.6 24.0001L17.2 29.6001L26.4 20.4001L30 24.0001V14.0001H20L23.6 17.6001L17.2 24.0001L11.6 18.4001L1.8 28.2001C0.6 25.6001 0 22.8001 0 20.0001C0 9.00012 9 0.00012207 20 0.00012207C31 0.00012207 40 9.00012 40 20.0001C40 31.0001 31 40.0001 20 40.0001C13.6 40.0001 7.6 37.0001 3.8 31.8001Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Customer-Centric</h3>
+          <p class="text-gray-600">
+            We don’t just understand your pain points; we anticipate them. Our
+            solutions are designed with your satisfaction in mind.
+          </p>
+        </div>
+        <!-- Card 6 -->
+        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.5312 33.297C13.5312 33.9532 14.0468 34.4689 14.7031 34.4689H22.9062V25.0939H13.5312V33.297Z"
+                fill="#1456A2"></path>
+              <path
+                d="M42.8281 4.00012H14.7031C14.0468 4.00012 13.5312 4.51567 13.5312 5.172V22.7501H24.0781C24.7345 22.7501 25.25 23.2657 25.25 23.922V34.4689H42.8281C43.4845 34.4689 44 33.9532 44 33.297V5.172C44 4.51567 43.4845 4.00012 42.8281 4.00012ZM39.3125 16.8907C39.3125 17.5469 38.797 18.0626 38.1406 18.0626C37.4843 18.0626 36.9688 17.5469 36.9688 16.8907V12.6954L29.5859 20.0547C29.375 20.2892 29.0703 20.4064 28.7656 20.4064C28.4609 20.4064 28.1563 20.2892 27.9454 20.0547C27.4766 19.6094 27.4766 18.8594 27.9454 18.4141L35.3046 11.0314H31.1094C30.453 11.0314 29.9375 10.5157 29.9375 9.8595C29.9375 9.20317 30.453 8.68762 31.1094 8.68762H38.1406C38.3047 8.68762 38.4453 8.71106 38.5859 8.78129C38.8672 8.89848 39.1015 9.13294 39.2188 9.41418C39.2891 9.55481 39.3125 9.69543 39.3125 9.8595V16.8907Z"
+                fill="#1456A2"></path>
+              <path
+                d="M22.9062 34.4689V41.6564H6.34375V25.0939H13.5312V22.7501H5.17188C4.51555 22.7501 4 23.2657 4 23.922V42.8282C4 43.4844 4.51555 44.0001 5.17188 44.0001H24.0781C24.7345 44.0001 25.25 43.4844 25.25 42.8282V34.4689H22.9062Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Scalability</h3>
+          <p class="text-gray-600">
+            We leverage our extensive operational experience to provide scalable
+            services, ensuring that as your needs grow, we grow with you.
+          </p>
+        </div>
+      </div>
+      <style>
+        .section-small {
+          max-width: 60rem;
+        }
+      </style>
+    </div>
+  </section>
+  <section class="bg-primary-color py-12" id="our-team">
+    <div class="max-w-screen-xl mx-auto text-center text-white">
+      <h2 class="heading-1">Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {
+          teamData.map((member) => (
+            <div class="bg-white p-6 ">
+              <div class="flex flex-col items-center gap-4">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="w-[260px] h-[260px] rounded-full object-cover"
+                />
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {member.name}
+                </h3>
+                <p class="text-sm text-gray-600">{member.position}</p>
+                <div class="flex items-center gap-2 mt-4 justify-between w-full">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    class="text-blue-600 hover:text-blue-800"
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        y="0.000976562"
+                        width="40"
+                        height="40"
+                        rx="19.7256"
+                        fill="#1456A2"
+                        fill-opacity="0.06"
+                      />
+                      <path
+                        d="M13.0616 12.001C11.815 12.001 11 12.8195 11 13.8954C11 14.9475 11.7907 15.7894 13.0138 15.7894H13.0374C14.3084 15.7894 15.0993 14.9475 15.0993 13.8954C15.0756 12.8195 14.3084 12.001 13.0616 12.001Z"
+                        fill="#1456A2"
+                      />
+                      <path
+                        d="M11.2153 17.2861H14.8596V28.2499H11.2153V17.2861Z"
+                        fill="#1456A2"
+                      />
+                      <path
+                        d="M23.8045 17.0291C21.8386 17.0291 20.5203 18.8764 20.5203 18.8764V17.2864H16.876V28.2502H20.5201V22.1276C20.5201 21.7998 20.5439 21.4725 20.6401 21.2381C20.9036 20.5836 21.5031 19.9056 22.5099 19.9056C23.8286 19.9056 24.356 20.911 24.356 22.3849V28.2502H27.9999V21.9637C27.9999 18.5961 26.2019 17.0291 23.8045 17.0291Z"
+                        fill="#1456A2"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-primary-color font-medium text-sm mt-4 hover:underline"
+                  >
+                    {member.details}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="bg-[#F5FAFE] py-12" id="our-board">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <h2 class="heading-1">Our Board Members</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {
+          communityData.map((member) => (
+            <div class="bg-white p-6 ">
+              <div class="flex flex-col items-center gap-4">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="w-full h-[280px] object-cover"
+                />
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {member.name}
+                </h3>
+                <div class="flex items-center gap-2 mt-4 justify-between w-full">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    class="text-blue-600 hover:text-blue-800"
+                  >
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        y="0.000976562"
+                        width="40"
+                        height="40"
+                        rx="19.7256"
+                        fill="#1456A2"
+                        fill-opacity="0.06"
+                      />
+                      <path
+                        d="M13.0616 12.001C11.815 12.001 11 12.8195 11 13.8954C11 14.9475 11.7907 15.7894 13.0138 15.7894H13.0374C14.3084 15.7894 15.0993 14.9475 15.0993 13.8954C15.0756 12.8195 14.3084 12.001 13.0616 12.001Z"
+                        fill="#1456A2"
+                      />
+                      <path
+                        d="M11.2153 17.2861H14.8596V28.2499H11.2153V17.2861Z"
+                        fill="#1456A2"
+                      />
+                      <path
+                        d="M23.8045 17.0291C21.8386 17.0291 20.5203 18.8764 20.5203 18.8764V17.2864H16.876V28.2502H20.5201V22.1276C20.5201 21.7998 20.5439 21.4725 20.6401 21.2381C20.9036 20.5836 21.5031 19.9056 22.5099 19.9056C23.8286 19.9056 24.356 20.911 24.356 22.3849V28.2502H27.9999V21.9637C27.9999 18.5961 26.2019 17.0291 23.8045 17.0291Z"
+                        fill="#1456A2"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-primary-color font-medium text-sm mt-4 hover:underline"
+                  >
+                    {member.details}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+<script>
+  document.addEventListener("readystatechange", function () {
+    const pageNav = document.querySelector<HTMLDivElement>("#about-nav");
+    const navHeight = pageNav?.offsetHeight || 0;
+    if (pageNav) {
+      const placeholder = document.createElement("div");
+      placeholder.style.height = `${navHeight}px`;
+      placeholder.style.display = "none"; // Initially hidden
+      // Insert the placeholder before the navigation element
+      pageNav.parentNode?.insertBefore(placeholder, pageNav);
+      const navInitialPosition =
+        pageNav.getBoundingClientRect().top + window.scrollY;
+      window.addEventListener("scroll", () => {
+        // Check the current scroll position
+        if (window.scrollY >= navInitialPosition) {
+          pageNav.classList.add(
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50",
+            "shadow-md",
+            "bg-white",
+            "transition",
+            "ease-in-out",
+            "duration-300",
+            "translate-y-0"
+          );
+          pageNav.classList.remove("-translate-y-full");
+          placeholder.style.display = "block";
+        } else {
+          pageNav.classList.remove(
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50",
+            "shadow-md",
+            "bg-white",
+            "translate-y-0"
+          );
+          pageNav.classList.add(
+            "-translate-y-0",
+            "transition",
+            "ease-in-out",
+            "duration-300"
+          );
+          placeholder.style.display = "none";
+        }
+      });
+    }
+
+
+    // Code for scrolling to specific Div
+    const navElements = document.querySelectorAll<HTMLAnchorElement>('nav > a');
+        const clearAnchors = () => {
+            navElements.forEach((element: HTMLAnchorElement) => {
+                element.classList.remove('border-b-4', 'border-primary-color');
+            })
+        }
+        navElements.forEach((element: HTMLAnchorElement) => {
+            element.addEventListener('click', function(event: MouseEvent){
+                event.preventDefault();
+                clearAnchors();
+                const anchorElement = event.target as HTMLAnchorElement;
+                const divName = anchorElement.href.split('#')[1] as string;
+                window.scrollTo({
+                    top: ((document.querySelector(`#${divName}`)?.getBoundingClientRect().top || 0) + window.scrollY - navHeight),
+                    left: 0,
+                    behavior: 'smooth'
+                });
+                element.classList.add('border-b-4', 'border-primary-color');
+            });
+        })
+  });
+</script>

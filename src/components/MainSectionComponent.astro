@@ -1,0 +1,28 @@
+---
+interface Props {
+	title: string;
+    subtext?: string | null;
+    image?: string;
+}
+const { title, image, subtext } = Astro.props;
+---
+
+<main class="bg-primary-color  w-screen pt-[180px]">
+    <div class="container flex">
+        <div class="w-[50%]">
+            <img src="/images/right-arrow.png" class="rotate-180" alt="">
+            <h1 class="heading-1 text-white mt-20">{title}</h1>
+            {
+                subtext && (
+                    <p class="para text-white">{subtext}</p>
+                )
+            }
+        </div>
+        <div class="w-[50%] flex justify-end">
+            {
+                image && (<img src={image} alt="">)
+            }
+            
+        </div>
+    </div>
+</main>

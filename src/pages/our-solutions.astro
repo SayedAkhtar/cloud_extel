@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainSectionComponent from "../components/MainSectionComponent.astro";
+import OurSolutionsTabs from "../components/OurSolutionsTabs";
+import customersData from '../data/our-customers.json';
+---
+<Layout title="Our Solutions | Cloud Extel">
+    <MainSectionComponent title="Our Solutions" image="/public/images/our-solutions.png" />
+
+    <section class="container">
+        <OurSolutionsTabs />
+    </section>
+    <section class="bg-primary-color">
+        <div class="container">
+            <div class="max-w-[73rem] py-32 mx-auto space-y-10">
+                <div class="heading-1 text-center text-white">Our Customers</div>
+                <div class="grid grid-cols-3 gap-5">
+                    {customersData.map((item) => {
+                        return (<article>
+                            <img src={item.image} alt={item.name} />
+                        </article>)
+                    })}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+            <div class="max-w-[73rem] py-32 mx-auto space-y-10">
+                <div class="heading-1 text-center text-white">Our Subsidiaries</div>
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="bg-[#3789E6] p-8 text-white">
+                        <h3 class="heading-6">
+                            Bombay Gas<br>Company<br>Proprietary Private Limited
+                        </h3>
+                    </div>
+                    <div class="bg-[#FF9124] p-8 text-white">
+                        <h3 class="heading-6">Orange Waves
+                        <br>Networks</h3>
+                    </div>
+                    <div class="bg-[#37C4CD] p-8 text-white">
+                        <h3 class="heading-6">Netfra Solutions</h3>
+                    </div>
+                </div>
+            </div>
+    </section>
+</Layout>
+
+<!-- <script>
+    document.addEventListener("readystatechange", function () {
+      const pageNav = document.querySelector<HTMLDivElement>("#about-nav");
+      const navHeight = pageNav?.offsetHeight || 0;
+      if (pageNav) {
+        const placeholder = document.createElement("div");
+        placeholder.style.height = `${navHeight}px`;
+        placeholder.style.display = "none"; // Initially hidden
+        // Insert the placeholder before the navigation element
+        pageNav.parentNode?.insertBefore(placeholder, pageNav);
+        const navInitialPosition =
+          pageNav.getBoundingClientRect().top + window.scrollY;
+        window.addEventListener("scroll", () => {
+          // Check the current scroll position
+          if (window.scrollY >= navInitialPosition) {
+            pageNav.classList.add(
+              "fixed",
+              "top-0",
+              "w-full",
+              "z-50",
+              "shadow-md",
+              "bg-white",
+              "transition",
+              "ease-in-out",
+              "duration-300",
+              "translate-y-0"
+            );
+            pageNav.classList.remove("-translate-y-full");
+            placeholder.style.display = "block";
+          } else {
+            pageNav.classList.remove(
+              "fixed",
+              "top-0",
+              "w-full",
+              "z-50",
+              "shadow-md",
+              "bg-white",
+              "translate-y-0"
+            );
+            pageNav.classList.add(
+              "-translate-y-0",
+              "transition",
+              "ease-in-out",
+              "duration-300"
+            );
+            placeholder.style.display = "none";
+          }
+        });
+      }
+  
+  
+      // Code for scrolling to specific Div
+      const navElements = document.querySelectorAll<HTMLAnchorElement>('nav > a');
+          const clearAnchors = () => {
+              navElements.forEach((element: HTMLAnchorElement) => {
+                  element.classList.remove('border-b-4', 'border-primary-color');
+              })
+          }
+          navElements.forEach((element: HTMLAnchorElement) => {
+              element.addEventListener('click', function(event: MouseEvent){
+                  event.preventDefault();
+                  clearAnchors();
+                  const anchorElement = event.target as HTMLAnchorElement;
+                  const divName = anchorElement.href.split('#')[1] as string;
+                  window.scrollTo({
+                      top: ((document.querySelector(`#${divName}`)?.getBoundingClientRect().top || 0) + window.scrollY - navHeight),
+                      left: 0,
+                      behavior: 'smooth'
+                  });
+                  element.classList.add('border-b-4', 'border-primary-color');
+              });
+          })
+    });
+  </script> -->

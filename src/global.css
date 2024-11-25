@@ -1,0 +1,25 @@
+:root{
+    --default-font-color: #233852;
+    --default-primary-color: #1456A2;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Montserrat Variable', sans-serif;
+}
+html {
+    color: var(--default-font-color);
+    scroll-behavior: smooth;
+}
+
+.heading-1{
+    @apply text-6xl font-semibold leading-tight
+}
+.heading-3{
+    @apply text-4xl font-medium leading-tight;
+}
+.heading-6 {
+    @apply text-2xl font-semibold leading-tight;
+}
+.para{
+    @apply text-lg font-medium leading-tight;
+}

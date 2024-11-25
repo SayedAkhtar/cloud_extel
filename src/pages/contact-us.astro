@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainSectionComponent from "../components/MainSectionComponent.astro";
+---
+
+<Layout title="Contact Us | CloudExtel">
+    <MainSectionComponent title="Contact Us" />
+    <div class="h-[210px] w-full bg-primary-color"></div>
+    <section class="container pt-[120px]">
+        
+        <div class="flex gap-6">
+            <div class="w-1/2">
+                <p class="para">
+                    Reach out to us for any inquiries, collaborations, or assistance. Our team is here to provide expert guidance tailored to your networking needs. Whether enhancing connectivity, exploring NaaS options, or discussing partnerships, we're just a message away.
+                </p>
+                <div class="lg:col-span-5">
+                    <img src="/images/logo.png" alt="CloudExtel" class="h-8 mb-6" />
+                    
+                    <div class="space-y-4">
+                      <div class="flex items-start gap-3">
+                        <img src="/images/phone.png" alt="">
+                        <a href="tel:+919867151303" class="hover:text-white transition-colors para">
+                          +91 98671 51303
+                        </a>
+                      </div>
+                      
+                      <div class="flex items-start gap-3">
+                          <img src="/images/map.png" alt="">
+                        <address class="not-italic para">
+                          The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
+                          Mumbai, Maharashtra - 400028
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="bg-[#F5FAFE] p-12 w-full max-w-lg relative top-[-400px]">
+                <form class="space-y-6">
+                  <!-- Full Name -->
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
+                    />
+                  </div>
+            
+                  <!-- Email -->
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
+                    />
+                  </div>
+            
+                  <!-- Contact No -->
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Contact No."
+                      class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
+                    />
+                  </div>
+            
+                  <!-- Subject -->
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Subject"
+                      class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
+                    />
+                  </div>
+            
+                  <!-- Message -->
+                  <div>
+                    <textarea
+                      placeholder="Message"
+                      rows="8"
+                      class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
+                    ></textarea>
+                  </div>
+            
+                  <!-- Submit Button -->
+                  <div class="flex justify-end">
+                    <button
+                      type="submit"
+                      class="bg-primary-color text-white text-[14px] font-medium px-6 py-3 gap-3 rounded-full flex items-center space-x-2 hover:scale-105 transition focus:ring-4 focus:ring-blue-300"
+                    >
+                      Submit <img src="images/right-arrow.png" alt="">
+                    </button>
+                  </div>
+                </form>
+              </div>
+        </div>
+    </section>
+</Layout>

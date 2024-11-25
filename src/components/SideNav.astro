@@ -1,0 +1,34 @@
+---
+const links = [
+  { name: "Home", href: "#", active: true },
+  { name: "About Us", href: "/about-us" },
+  { name: "Our Solutions", href: "/our-solutions" },
+  { name: "Life @ CloudExtel", href: "/life-at-cloud-extel" },
+  { name: "Media", href: "/media" },
+  { name: "Contact Us", href: "/contact-us" },
+];
+---
+
+<div id="sidebar" class="fixed inset-0 bg-gray-900 text-gray-300 z-50 flex flex-col p-6 w-full md:max-w-[25%] left-[-500px]">
+  <!-- Close Button -->
+  <button class="self-start text-white text-xl mb-6" aria-label="Close" id="close-sidenav">
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.686523 1.68652L23.3139 24.3139" stroke="white"/>
+        <path d="M0.686523 23.314L23.3139 0.686548" stroke="white"/>
+        </svg>        
+  </button>
+
+  <!-- Navigation Links -->
+  <nav class="space-y-4 mt-[120px]">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class={`block heading-3 ${
+          link.active ? 'text-white font-bold' : 'hover:text-white'
+        }`}
+      >
+        {link.name}
+      </a>
+    ))}
+  </nav>
+</div>
