@@ -1,60 +1,137 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <footer class="bg-[#1C2632] text-gray-300 py-12">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
-        {/* Logo and Contact Info */}
-        <div class="lg:col-span-5">
-          <img src="/images/logo.png" alt="CloudExtel" class="h-8 mb-6" />
-          
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <img src="/images/phone.png" alt="">
-              <a href="tel:+919867151303" class="hover:text-white transition-colors">
-                +91 98671 51303
-              </a>
-            </div>
-            
-            <div class="flex items-start gap-3">
-                <img src="/images/map.png" alt="">
-              <address class="not-italic">
-                The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
-                Mumbai, Maharashtra - 400028
-              </address>
-            </div>
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+      {/* Logo and Contact Info */}
+      <div class="lg:col-span-5">
+        <img src="/images/logo.png" alt="CloudExtel" class="h-8 mb-6" />
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <Icon name="mdi:phone" />
+            <a
+              href="tel:+919867151303"
+              class="hover:text-white transition-colors"
+            >
+              +91 98671 51303
+            </a>
           </div>
-        </div>
 
-        {/* Navigation Links */}
-        <div class="lg:col-span-5">
-          <nav class="ml-auto">
-            <ul class="space-y-4 flex flex-col w-[fit-content] ml-auto">
-              <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/solutions" class="hover:text-white transition-colors">Our Solutions</a></li>
-              <li><a href="/life" class="hover:text-white transition-colors">Life @ CloudExtel</a></li>
-              <li><a href="/media" class="hover:text-white transition-colors">Media</a></li>
-              <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        {/* Social Links */}
-        <div class="lg:col-span-2">
-          <div class="flex gap-4">
-            <a href="https://twitter.com/cloudextel" class=" hover:bg-blue-400/20 transition-colors">
-              <img src="/images/twitter-footer.png" class="w-10 h-10" />
-            </a>
-            <a href="https://linkedin.com/company/cloudextel" class=" hover:bg-blue-400/20 transition-colors">
-              <img src="/images/linkedIn-footer.png" class="w-10 h-10" />
-            </a>
-            <a href="https://youtube.com/cloudextel" class=" hover:bg-blue-400/20 transition-colors">
-              <img src="/images/youtube-footer.png" class="w-10 h-10" />
-            </a>
+          <div class="flex items-start gap-3">
+            <Icon name="mdi:map-marker-radius" />
+            <address class="not-italic">
+              The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
+              Mumbai, Maharashtra - 400028
+            </address>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div class="mt-12 pt-8  text-sm text-gray-400">
-        <p>© 2024 CloudExtel (Excel Telesonic India Pvt. Ltd.)</p>
+      {/* Navigation Links */}
+      <div class="lg:col-span-5">
+        <nav class="ml-0 md:ml-auto">
+          <ul class="space-y-4 flex flex-col w-[fit-content] ml-0 md:ml-auto">
+            <li>
+              <a href="/about-us" class="hover:text-white transition-colors"
+                >About Us</a>
+            </li>
+            <li>
+              <a
+                href="/our-solutions"
+                class="hover:text-white transition-colors">Our Solutions</a>
+            </li>
+            <li>
+              <a
+                href="/life-at-cloud-extel"
+                class="hover:text-white transition-colors">Life @ CloudExtel</a>
+            </li>
+            <li>
+              <a href="/media" class="hover:text-white transition-colors"
+                >Media</a>
+            </li>
+            <li>
+              <a href="/contact-us" class="hover:text-white transition-colors"
+                >Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Social Links */}
+      <div class="lg:col-span-2">
+        <div class="flex gap-4">
+          <a
+            href="https://twitter.com/cloudextel"
+            class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
+          >
+            <span class="inline-block">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.52191 7.73767L15.4784 0.813721H14.0669L8.89488 6.8257L4.764 0.813721H-0.000488281L6.24621 9.90488L-0.000488281 17.1657H1.4111L6.87291 10.8169L11.2354 17.1657H15.9999L9.52155 7.73767H9.52191ZM1.9197 1.87635H4.0878L14.0676 16.1514H11.8995L1.9197 1.87635Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#e7e9eb] transition-all"></path>
+              </svg>
+            </span>
+          </a>
+          <a
+            href="https://linkedin.com/company/cloudextel"
+            class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
+          >
+            <span class="block">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.06159 0.00146484C0.815028 0.00146484 0 0.82002 0 1.8959C0 2.94801 0.790748 3.78992 2.01376 3.78992H2.03741C3.30836 3.78992 4.09931 2.94801 4.09931 1.8959C4.07555 0.82002 3.30836 0.00146484 2.06159 0.00146484Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#1564c4] transition-all"></path>
+                <path
+                  d="M0.215332 5.28674H3.85956V16.2506H0.215332V5.28674Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#1564c4] transition-all"></path>
+                <path
+                  d="M12.8045 5.02954C10.8386 5.02954 9.52031 6.87687 9.52031 6.87687V5.28686H5.87598V16.2507H9.5201V10.1281C9.5201 9.80028 9.54386 9.47302 9.64015 9.23863C9.90359 8.58412 10.5031 7.90605 11.5099 7.90605C12.8286 7.90605 13.356 8.91148 13.356 10.3854V16.2507H16.9999V9.96422C16.9999 6.59661 15.2019 5.02954 12.8045 5.02954Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#1564c4] transition-all"></path>
+              </svg>
+            </span>
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCpLwIU2r56RjGod1eJrk2bA"
+            class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
+          >
+            <span class="block">
+              <svg
+                width="22"
+                height="15"
+                viewBox="0 0 22 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 0.00146484C1.34315 0.00146484 0 1.34461 0 3.00146V12.0015C0 13.6583 1.34315 15.0015 3 15.0015H19C20.6569 15.0015 22 13.6583 22 12.0015V3.00146C22 1.34461 20.6569 0.00146484 19 0.00146484H3ZM8.25 11.3986L15 7.50146L8.25 3.60435V11.3986Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#fe0332] transition-all"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
-  </footer>
+
+    {/* Copyright */}
+    <div class="mt-12 pt-8 text-sm text-gray-400">
+      <p>© 2024 CloudExtel (Excel Telesonic India Pvt. Ltd.)</p>
+    </div>
+  </div>
+</footer>

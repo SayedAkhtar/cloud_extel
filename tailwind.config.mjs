@@ -23,7 +23,18 @@ export default {
 					'2xl': '1440px',
 				},
 			},
+			animation: {
+				fade: 'fadeInUp 1s both',
+			  },
+		
+			  keyframes: {
+				fadeInUp: {
+				  '0%': { opacity: 0, transform: 'translateY(2rem)' },
+				  '100%': { opacity: 1, transform: 'translateY(0)' },
+				},
+			  },
 		},
 	},
-	plugins: [],
+	plugins: [
+	],
 }

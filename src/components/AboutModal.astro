@@ -1,0 +1,111 @@
+<div
+    class="relative z-[100]"
+    aria-labelledby="modal-title"
+    role="dialog"
+    aria-modal="true"
+    id="modal"
+  >
+    <!--
+      Background backdrop, show/hide based on modal state.
+  
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div
+      class="fixed inset-0 bg-gray-500/75 transition-opacity"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div
+        class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+      >
+        <!--
+          Modal panel, show/hide based on modal state.
+  
+          Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+        <div
+        id="modalContent"
+          class="relative transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg md:max-w-[960px]"
+        >
+          <div class="bg-white  max-h-[516px] h-full overflow-hidden md:px-[56px] md:py-[56px] sm:p-6 sm:pb-4">
+            <button class="self-start text-white text-xl mb-6 absolute top-4 right-4" aria-label="Close" id="closeModalBtn">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.686523 1.68652L23.3139 24.3139" stroke="#7B8897"/>
+                  <path d="M0.686523 23.314L23.3139 0.686548" stroke="#7B8897"/>
+                  </svg>        
+            </button>
+            <div class="sm:flex sm:items-start ">
+              <div
+                class="mx-auto flex "
+              >
+                <img src="/images/about-us/our-team/kunal-bajaj.png" class="min-w-[260px] h-full" alt="">
+              </div>
+              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                <h3
+                  class="text-base font-semibold text-gray-900"
+                  id="modal-title"
+                >
+                  Kunal Bajaj
+                </h3>
+                <p>CEO & Co-Founder</p>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Kunal Bajaj has been a leader in the Telecom, Internet &
+                    Technology space for the past 25 years. He is currently the
+                    CEO & Co-Founder of CloudExtel.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

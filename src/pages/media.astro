@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MediaTabLayout from "../components/MediaTabLayout";
+import mediaData from "../data/media-articles.json";
+import pressData from "../data/press-release.json";
+
+const routePath = Astro.url.pathname;
+const mediaSortedData = mediaData.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+const pressSortedData = pressData.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<Layout title="Life at CloudExtel | CloudExtel">
+  <header class="position fixed z-20 w-full bg-white">
+    <div class="container flex h-[120px] items-center gap-8 text-white">
+      <a
+        href="/"
+        class="flex items-center gap-2 h-[55px]"
+        aria-label="Home"
+        id="logoContainer"
+      >
+        <span class="sr-only">Home</span>
+        <svg
+              width="251"
+              height="55"
+              viewBox="0 0 251 55"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.6397 28.6833C18.4951 28.6833 19.1885 27.9518 19.1885 27.0494C19.1885 26.147 18.4951 25.4155 17.6397 25.4155C16.7843 25.4155 16.0908 26.147 16.0908 27.0494C16.0908 27.9518 16.7843 28.6833 17.6397 28.6833Z"
+                fill="#045EA8"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M14.1987 27.0501C14.1987 26.0516 14.6289 25.1438 15.2313 24.4177C14.1126 22.4207 12.5638 20.9683 10.0684 20.7868H5.24975H1.63576C1.37761 21.6037 1.37761 21.8761 1.20552 22.8745C0.947376 24.2361 0.861328 25.5977 0.861328 27.0501C0.861328 28.5024 0.947376 29.864 1.20552 31.3163C1.37761 32.3148 1.46366 32.5871 1.63576 33.4041H5.24975H10.1545C12.5638 33.2225 14.1126 31.6794 15.3173 29.7732C14.6289 29.047 14.1987 28.0485 14.1987 27.0501ZM52.1456 27.0501C52.1456 22.1484 50.7689 17.3375 48.6177 13.3435C37.3454 8.80488 23.2337 13.2527 20.3941 24.69C20.9104 25.3254 21.1685 26.1423 21.1685 27.0501C21.1685 27.9578 20.8243 28.7747 20.3941 29.4101C23.2337 40.9382 37.4315 45.386 48.6177 40.7566C50.8549 36.7627 52.1456 31.9517 52.1456 27.0501ZM26.5035 54.1001C15.9196 54.1001 5.93813 46.9291 2.49623 36.3088H5.24975H10.8428C14.5429 36.3088 16.3499 33.7672 17.6406 30.7717H17.7266H17.8127C17.8987 31.3163 18.1569 31.9517 18.415 32.4964C23.922 45.2045 36.7431 46.566 46.5525 44.1152C40.9594 50.9231 35.2803 53.737 26.5035 54.1001ZM26.5035 0C35.2803 0.45386 40.9594 3.26779 46.4665 10.0757C36.6571 7.53408 23.836 8.98643 18.329 21.6945C18.1569 22.1484 17.8127 22.8745 17.7266 23.4192H17.6406H17.5545C16.2638 20.3329 14.4568 17.8821 10.7568 17.8821H5.24975H2.49623C5.93813 7.17099 15.9196 0 26.5035 0Z"
+                fill="#0A2135"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M76.944 42.573C82.6933 42.573 87.3973 39.127 89.88 34.0269L84.9147 31.27C83.4773 34.4404 80.7333 36.9215 76.8133 36.9215C71.5867 36.9215 67.6667 32.5106 67.6667 27.1348C67.6667 21.6212 71.5867 17.3481 76.944 17.3481C80.6027 17.3481 83.0853 19.2779 84.6533 22.4482L89.488 19.2779C87.0053 14.7291 82.3013 11.8345 76.944 11.8345C68.712 11.8345 62.1787 18.313 62.1787 27.4105C62.3094 35.6809 68.0587 42.573 76.944 42.573ZM92.1013 42.1595H97.4587V11.9723H92.1013V42.1595ZM110.133 42.573C115.752 42.573 120.325 37.7486 120.325 31.8214C120.325 25.8942 115.752 21.0698 110.133 21.0698C104.515 21.0698 99.9413 25.8942 99.9413 31.8214C99.9413 37.7486 104.515 42.573 110.133 42.573ZM110.133 37.1972C107.389 37.1972 105.168 34.7161 105.168 31.8214C105.168 28.9267 107.259 26.4456 110.133 26.4456C112.877 26.4456 115.099 28.9267 115.099 31.8214C115.099 34.8539 112.877 37.1972 110.133 37.1972ZM130.256 42.573C132.477 42.573 134.437 41.4703 135.613 39.8162V42.1595H140.971V21.4833H135.613V32.7863C135.613 36.2323 133.915 37.7486 131.824 37.7486C129.472 37.7486 128.165 36.0945 128.165 33.3377V21.4833H122.677V34.1647C122.808 39.5405 125.683 42.573 130.256 42.573ZM152.992 42.573C155.605 42.573 157.565 41.4703 158.872 39.8162V42.1595H164.229V11.9723H158.872V23.5509C157.565 22.0347 155.605 21.0698 152.992 21.0698C148.549 21.0698 143.453 24.5158 143.453 31.8214C143.584 39.127 148.811 42.573 152.992 42.573ZM154.037 37.4729C151.032 37.4729 148.811 35.1296 148.811 31.8214C148.811 28.6511 151.032 26.3078 154.037 26.3078C156.912 26.3078 159.003 28.7889 159.003 31.8214C159.133 34.8539 156.912 37.4729 154.037 37.4729ZM167.627 42.1595H184.613V36.6458H173.115V29.7538H184.613V24.2402H173.115V17.4859H184.613V11.9723H167.627V42.1595ZM186.312 42.1595H192.845L196.896 36.0945L201.077 42.1595H207.61L200.293 31.6836L207.088 21.4833H200.816L197.026 27.2727L193.237 21.4833H186.704L193.629 31.6836L186.312 42.1595ZM208.656 26.5834H212.053V33.1998C212.053 39.954 214.144 42.1595 220.285 42.1595H221.069V36.9215C217.802 36.9215 217.41 36.3702 217.41 33.1998V26.5834H221.069V21.4833H217.41V13.4886L212.053 16.6589V21.4833H208.656V26.5834ZM232.96 42.573C237.272 42.573 240.408 40.2297 242.106 37.0594L237.794 34.3025C236.88 36.2323 235.181 37.4729 232.96 37.4729C230.085 37.4729 228.386 35.9566 227.733 33.7512H242.89V31.6836C242.89 25.7564 238.709 20.932 232.829 20.932C227.21 20.932 222.637 25.7564 222.637 31.6836C222.637 37.6107 226.818 42.573 232.96 42.573ZM232.829 26.0321C235.05 26.0321 236.749 27.1348 237.533 29.3403H227.994C228.909 27.4105 230.608 26.0321 232.829 26.0321ZM245.504 42.1595H250.861V11.9723H245.504V42.1595Z"
+                fill="#045EA8"
+              />
+            </svg>
+      </a>
+
+      <div class="flex flex-1 items-center justify-end md:justify-between">
+        <div class="flex items-center justify-end gap-4 w-full">
+          <div class="sm:flex sm:gap-4 h-[55px]">
+            <a
+              class={`items-center gap-2 rounded-full bg-transparent
+                    px-5 py-2.5 text-sm font-medium 
+                    ${routePath.includes("media") ? "border-[#233852]" : "border-white"} border
+                    ${routePath.includes("media") ? "text-[#233852]" : "text-white "}
+                    transition 
+                    md:flex
+                    hidden
+                    ${routePath.includes("media") ? "hover:bg-[#233852]" : "hover:bg-white"}
+                    ${routePath.includes("media") ? "hover:text-white" : "hover:text-[#233852]"} 
+                    group
+                    `}
+              href="/contact-us"
+            >
+              Contact Us
+              <span>
+                <svg
+                  width="17"
+                  height="8"
+                  viewBox="0 0 17 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class={`${routePath.includes("media") ? "fill-[#233852] group-hover:fill-white" : "fill-white group-hover:fill-[#233852]"}  transition-all`}
+                >
+                  <path
+                    d="M16.3536 4.35355C16.5488 4.15829 16.5488 3.84171 16.3536 3.64645L13.1716 0.464466C12.9763 0.269204 12.6597 0.269204 12.4645 0.464466C12.2692 0.659728 12.2692 0.976311 12.4645 1.17157L15.2929 4L12.4645 6.82843C12.2692 7.02369 12.2692 7.34027 12.4645 7.53553C12.6597 7.7308 12.9763 7.7308 13.1716 7.53553L16.3536 4.35355ZM0 4.5H16V3.5H0V4.5Z"
+                    class={`${routePath.includes("media") ? "fill-[#233852] group-hover:fill-white" : "fill-white group-hover:fill-[#233852]"} transition-all`}
+                  ></path>
+                </svg>
+              </span>
+            </a>
+            <input type="checkbox" id="nav-toggle" class="hidden" />
+            <label
+              for="nav-toggle"
+              class={`h-full flex flex-col items-center justify-center rounded-full ${routePath.includes("media") ? "border-[#233852]" : "border-white"} border bg-transparent py-2.5 px-6 text-gray-600 
+            transition hover:text-gray-600/75
+            ${routePath.includes("media") ? "hover:bg-[#233852]" : "hover:bg-white"} 
+            ${routePath.includes("media") ? "hover:text-white" : "hover:text-[#233852]"}
+                    group cursor-pointer
+            `}
+            >
+              <span
+                class={`h-[10px] w-[32px] ${routePath.includes("media") ? "border-[#233852] group-hover:border-white" : "border-white group-hover:border-[#233852]"}   border-t border-b block `}
+              ></span>
+              <span class="sr-only">Toggle menu</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-primary-color w-screen h-auto relative pt-[120px]">
+    <div class="flex flex-col md:flex-row items-center relative">
+      <div class="w-full px-[100px]">
+        <h1 class="text-white text-[40px] font-bold">CloudExtel raises external debt from NIIF IFL and ABFL</h1>
+        <a
+          href="#"
+          class="group flex w-fit gap-2 items-center font-medium bg-white border border-white rounded-full px-6 py-4 mt-6 hover:bg-inherit hover:text-white group-hover:fill-white transition"
+        >
+          Know More
+          <svg
+            width="21"
+            height="9"
+            viewBox="0 0 21 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="transition group-hover:fill-white"
+          >
+            <path
+              class="fill-[#233852] group-hover:fill-white transition"
+              d="M20.3536 4.85477C20.5488 4.65951 20.5488 4.34293 20.3536 4.14767L17.1716 0.965687C16.9763 0.770425 16.6597 0.770425 16.4645 0.965687C16.2692 1.16095 16.2692 1.47753 16.4645 1.67279L19.2929 4.50122L16.4645 7.32965C16.2692 7.52491 16.2692 7.84149 16.4645 8.03675C16.6597 8.23202 16.9763 8.23202 17.1716 8.03675L20.3536 4.85477ZM0 5.00122H20V4.00122H0V5.00122Z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <img src="/images/blog.png" class="w-[471px] h-full" alt="" />
+    </div>
+  </main>
+  <section class="container">
+    <MediaTabLayout
+      mediaData={mediaSortedData}
+      pressData={pressSortedData}
+      client:load
+    />
+  </section>
+</Layout>

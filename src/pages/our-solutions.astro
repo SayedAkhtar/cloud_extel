@@ -5,18 +5,18 @@ import OurSolutionsTabs from "../components/OurSolutionsTabs";
 import customersData from '../data/our-customers.json';
 ---
 <Layout title="Our Solutions | Cloud Extel">
-    <MainSectionComponent title="Our Solutions" image="/public/images/our-solutions.png" />
+    <MainSectionComponent title="Our Solutions" image="/images/our-solutions.png" />
 
-    <section class="container">
-        <OurSolutionsTabs />
-    </section>
+    <OurSolutionsTabs client:load/>
     <section class="bg-primary-color">
         <div class="container">
             <div class="max-w-[73rem] py-32 mx-auto space-y-10">
                 <div class="heading-1 text-center text-white">Our Customers</div>
-                <div class="grid grid-cols-3 gap-5">
-                    {customersData.map((item) => {
-                        return (<article>
+                <div class="flex flex-col md:flex-row md:flex-wrap justify-center gap-5">
+                    {customersData.map((item, index) => {
+                        return (<article 
+                        data-aos="fade-up" data-aos-duration="500" data-aos-delay={index*100}
+                        class="w-full md:w-[23%]">
                             <img src={item.image} alt={item.name} />
                         </article>)
                     })}
@@ -26,18 +26,18 @@ import customersData from '../data/our-customers.json';
     </section>
     <section class="container">
             <div class="max-w-[73rem] py-32 mx-auto space-y-10">
-                <div class="heading-1 text-center text-white">Our Subsidiaries</div>
-                <div class="grid grid-cols-3 gap-5">
-                    <div class="bg-[#3789E6] p-8 text-white">
+                <div class="heading-1 text-center">Our Subsidiaries</div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-[#3789E6] p-8 text-white bg-[url('/images/bgcpl.png')] h-[157px]">
                         <h3 class="heading-6">
-                            Bombay Gas<br>Company<br>Proprietary Private Limited
+                            Bombay Gas Company<br>Proprietary Private Limited
                         </h3>
                     </div>
-                    <div class="bg-[#FF9124] p-8 text-white">
+                    <div class="bg-[#FF9124] p-8 text-white bg-[url('/images/orange-waves.png')] h-[157px]">
                         <h3 class="heading-6">Orange Waves
                         <br>Networks</h3>
                     </div>
-                    <div class="bg-[#37C4CD] p-8 text-white">
+                    <div class="bg-[#37C4CD] p-8 text-white bg-[url('/images/netfra.png')] h-[157px]">
                         <h3 class="heading-6">Netfra Solutions</h3>
                     </div>
                 </div>
@@ -45,9 +45,9 @@ import customersData from '../data/our-customers.json';
     </section>
 </Layout>
 
-<!-- <script>
+<script>
     document.addEventListener("readystatechange", function () {
-      const pageNav = document.querySelector<HTMLDivElement>("#about-nav");
+      const pageNav = document.querySelector<HTMLDivElement>("#our-solutions-nav");
       const navHeight = pageNav?.offsetHeight || 0;
       if (pageNav) {
         const placeholder = document.createElement("div");
@@ -94,28 +94,6 @@ import customersData from '../data/our-customers.json';
           }
         });
       }
-  
-  
-      // Code for scrolling to specific Div
-      const navElements = document.querySelectorAll<HTMLAnchorElement>('nav > a');
-          const clearAnchors = () => {
-              navElements.forEach((element: HTMLAnchorElement) => {
-                  element.classList.remove('border-b-4', 'border-primary-color');
-              })
-          }
-          navElements.forEach((element: HTMLAnchorElement) => {
-              element.addEventListener('click', function(event: MouseEvent){
-                  event.preventDefault();
-                  clearAnchors();
-                  const anchorElement = event.target as HTMLAnchorElement;
-                  const divName = anchorElement.href.split('#')[1] as string;
-                  window.scrollTo({
-                      top: ((document.querySelector(`#${divName}`)?.getBoundingClientRect().top || 0) + window.scrollY - navHeight),
-                      left: 0,
-                      behavior: 'smooth'
-                  });
-                  element.classList.add('border-b-4', 'border-primary-color');
-              });
-          })
+         
     });
-  </script> -->
+  </script>

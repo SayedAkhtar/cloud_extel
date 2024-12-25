@@ -1,0 +1,98 @@
+[
+    {
+        "sr_no": 1,
+        "entity": "ETIPL",
+        "lob": "BIS",
+        "position": "Senior Project Manager",
+        "department_head": "Rashmin V",
+        "hiring_manager": "Viral Shah",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "09-Aug-24",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 2,
+        "entity": "ETIPL",
+        "lob": "Corporate",
+        "position": "Sr. Executive - IT Support",
+        "department_head": "Rahul Nair",
+        "hiring_manager": "Mahesh Addagatla",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "04-Nov-24",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 3,
+        "entity": "ETIPL",
+        "lob": "Finance & Accounts",
+        "position": "Accounts Controller",
+        "department_head": "Balkishan Chandak",
+        "hiring_manager": "Balkishan Chandak",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "Not Tracked",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 4,
+        "entity": "ETIPL",
+        "lob": "Finance & Accounts",
+        "position": "Assistant Manager - Banking & Payments",
+        "department_head": "Balkishan Chandak",
+        "hiring_manager": "Balkishan Chandak",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "Not Tracked",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 5,
+        "entity": "ETIPL",
+        "lob": "Legal",
+        "position": "Sr. Manager - Regulatory",
+        "department_head": "Shubha Karra",
+        "hiring_manager": "Shubha Karra",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "Not Tracked",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 6,
+        "entity": "ETIPL",
+        "lob": "Legal",
+        "position": "Lawyer - Acquisition",
+        "department_head": "Shubha Karra",
+        "hiring_manager": "Shubha Karra",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "Not Tracked",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 7,
+        "entity": "ETIPL",
+        "lob": "Wireless Operations",
+        "position": "Assistant Manager - National O&M Lead",
+        "department_head": "Vishal Raghuvanshi",
+        "hiring_manager": "Amit Sharma",
+        "location": "Mumbai",
+        "employment_type": "On-roll",
+        "requisition_date": "15-Nov-24",
+        "linkedin_url": "#"
+    },
+    {
+        "sr_no": 8,
+        "entity": "ETIPL",
+        "lob": "Wireless Operations",
+        "position": "Executive - Project & O&M",
+        "department_head": "Vishal Raghuvanshi",
+        "hiring_manager": "Dharmendra Vidyarthy",
+        "location": "Bhagalpur",
+        "employment_type": "Off-roll",
+        "requisition_date": "18-Nov-24",
+        "linkedin_url": "#"
+    }
+]

@@ -15,19 +15,29 @@
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource-variable/montserrat": "^5.1.0",
+    "@fontsource/montserrat": "^5.1.0",
+    "@iconify-json/mdi": "^1.2.1",
     "@types/alpinejs": "^3.13.10",
+    "@types/lodash": "^4.17.13",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "alpinejs": "^3.14.3",
+    "aos": "^2.3.4",
     "astro": "^4.16.13",
     "astro-font": "^0.1.81",
+    "astro-icon": "^1.1.4",
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
+    "swiper": "^11.1.15",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/react-modal": "^3.16.3",
     "prettier": "3.3.3"
   }
 }

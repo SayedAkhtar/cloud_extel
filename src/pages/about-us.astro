@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MainSectionComponent from "../components/MainSectionComponent.astro";
-import teamData from "../data/team.json";
-import communityData from "../data/community.json";
+import AboutTimeline from "../components/AboutTimeline.astro";
+import AboutOurTeam from "../components/AboutOurTeam";
+import AboutBoardMembers from "../components/AboutBoardMembers";
 ---
 
 <Layout title="About Us | Cloud Extel">
@@ -18,27 +19,47 @@ import communityData from "../data/community.json";
             class="text-primary-color font-semibold border-b-4 border-primary-color pb-4"
             >Who We Are</a
           >
-          <a href="#why-cloudextel" class="text-gray-500 hover:text-primary-color pb-4"
+          <a
+            href="#why-cloudextel"
+            class="text-gray-500 hover:text-primary-color pb-4"
             >Why CloudExtel</a
           >
-          <a href="#our-legacy" class="text-gray-500 hover:text-primary-color pb-4"
-            >Our Legacy</a
+          <a
+            href="#our-legacy"
+            class="text-gray-500 hover:text-primary-color pb-4">Our Legacy</a
           >
-          <a href="#our-team" class="text-gray-500 hover:text-primary-color pb-4"
-            >Our Team</a
+          <a
+            href="#our-team"
+            class="text-gray-500 hover:text-primary-color pb-4">Our Team</a
           >
-          <a href="#our-board" class="text-gray-500 hover:text-primary-color pb-4"
-            >Our Board</a
+          <a
+            href="#our-board"
+            class="text-gray-500 hover:text-primary-color pb-4">Our Board</a
           >
+          <label
+            for="nav-toggle"
+            class={`h-full flex flex-col items-center justify-center rounded-full border-[#233852] border bg-transparent py-3 px-4 text-gray-600 
+            transition hover:text-gray-600/75
+            hover:bg-[#233852]
+            hover:text-white
+            group cursor-pointer
+            -mt-3
+            `}
+          >
+            <span
+              class={`h-[10px] w-[32px] border-[#233852] group-hover:border-white border-t border-b block `}
+            ></span>
+            <span class="sr-only">Toggle menu</span>
+          </label>
         </nav>
       </div>
     </section>
   </div>
 
   <section class="bg-[#F5FAFE]" id="who-we-are">
-    <div class="max-w-[60rem] w-full mx-auto section-small py-20">
-      <h1 class="heading-1 text-center pb-8">Who We Are</h1>
-      <div class="space-y-6 font-semibold text-[18px]">
+    <div class="max-w-[60rem] container w-full mx-auto section-small py-20">
+      <h1 data-aos="fade-up" data-aos-duration="500" class="heading-1 text-center pb-8">Who We Are</h1>
+      <div class="space-y-6 para">
         <p>
           CloudExtel is India’s first full-stack Network as a Service (NaaS)
           provider offering digital infrastructure services such as Small Cell
@@ -80,15 +101,28 @@ import communityData from "../data/community.json";
       </div>
     </div>
   </section>
-  <section class="continer pt-[120px] pb-24" id="why-cloudextel">
-    <h1 class="heading-1 text-center">Why CloudExtel</h1>
-    <img src="/images/Infographic.png" class="max-w-[750px] mx-auto" alt="" />
+  <section class="continer pt-[120px] pb-12 md:pb-24" id="why-cloudextel">
+    <h1 data-aos="fade-up" data-aos-duration="1000" class="heading-1 text-center">Why CloudExtel</h1>
+    <video class="max-w-[750px] w-full mx-auto mt-10"
+    poster="/images/about-us/live.gif"
+    autoplay loop>
+      <source
+        src="/images/about-us/live.webm"
+        type='video/webm; codecs="vp8, vorbis"'
+      />
+      <img
+        src="/images/Infographics.png"
+        title="Your browser does not support the <video> tag"
+      />
+    </video>
   </section>
-  <section class="container" >
-    <div class="mx-auto py-12 px-6">
+  <section class="container">
+    <div class="mx-auto py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+        <div 
+          data-aos="fade-up" data-aos-duration="500"
+        class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-0 md:border-r border-gray-200">
           <div class="text-blue-600">
             <svg
               width="48"
@@ -112,7 +146,7 @@ import communityData from "../data/community.json";
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-800">
-            Commitment to <br />Excellence
+            Commitment to <br />excellence
           </h3>
           <p class="text-gray-600">
             Our advanced skills and expertise redefine networking and NaaS
@@ -121,44 +155,9 @@ import communityData from "../data/community.json";
           </p>
         </div>
         <!-- Card 2 -->
-        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
-          <div class="text-blue-600">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 20.3359C27.5661 20.3359 30.457 17.445 30.457 13.8789C30.457 10.3128 27.5661 7.42188 24 7.42188C20.4339 7.42188 17.543 10.3128 17.543 13.8789C17.543 17.445 20.4339 20.3359 24 20.3359Z"
-                fill="#1456A2"></path>
-              <path
-                d="M37.0625 20.3359C39.3169 20.3359 41.1445 18.5084 41.1445 16.2539C41.1445 13.9995 39.3169 12.1719 37.0625 12.1719C34.8081 12.1719 32.9805 13.9995 32.9805 16.2539C32.9805 18.5084 34.8081 20.3359 37.0625 20.3359Z"
-                fill="#1456A2"></path>
-              <path
-                d="M10.9375 20.3359C13.1919 20.3359 15.0195 18.5084 15.0195 16.2539C15.0195 13.9995 13.1919 12.1719 10.9375 12.1719C8.68306 12.1719 6.85547 13.9995 6.85547 16.2539C6.85547 18.5084 8.68306 20.3359 10.9375 20.3359Z"
-                fill="#1456A2"></path>
-              <path
-                d="M14.9594 24.0017C13.3526 22.6852 11.8974 22.8594 10.0395 22.8594C7.2607 22.8594 5 25.1068 5 27.8685V35.9739C5 37.1733 5.97895 38.1485 7.18277 38.1485C12.38 38.1485 11.7539 38.2425 11.7539 37.9244C11.7539 32.1809 11.0736 27.9689 14.9594 24.0017Z"
-                fill="#1456A2"></path>
-              <path
-                d="M25.7669 22.8891C22.5217 22.6184 19.7011 22.8922 17.2681 24.9004C13.1967 28.1616 13.9802 32.5526 13.9802 37.9243C13.9802 39.3455 15.1365 40.5235 16.5793 40.5235C32.2456 40.5235 32.8691 41.0288 33.7981 38.9716C34.1028 38.2758 34.0193 38.4969 34.0193 31.8414C34.0193 26.5551 29.442 22.8891 25.7669 22.8891Z"
-                fill="#1456A2"></path>
-              <path
-                d="M37.9607 22.8593C36.0926 22.8593 34.6455 22.6868 33.0408 24.0015C36.8975 27.9392 36.2463 31.8638 36.2463 37.9242C36.2463 38.2444 35.7265 38.1483 40.7395 38.1483C41.9864 38.1483 43.0002 37.1382 43.0002 35.8965V27.8683C43.0002 25.1066 40.7395 22.8593 37.9607 22.8593Z"
-                fill="#1456A2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800">People</h3>
-          <p class="text-gray-600">
-            At CloudExtel, we believe in a culture where our people feel valued,
-            supported, and inspired. We nurture growth by valuing every voice.
-          </p>
-        </div>
-        <!-- Card 3 -->
         <div
-          class="flex flex-col gap-4 p-6 bg-white border-none border-gray-200"
+        data-aos="fade-up" data-aos-duration="500" data-aos-delay="500"
+          class="flex flex-col gap-4 p-6  bg-white border-0 md:border-r border-gray-200"
         >
           <div class="text-blue-600">
             <svg
@@ -176,14 +175,16 @@ import communityData from "../data/community.json";
                 fill="#1456A2"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800">Customer-Centric</h3>
+          <h3 class="text-xl font-semibold text-gray-800">Customer Centric</h3>
           <p class="text-gray-600">
             We don’t just understand your pain points; we anticipate them. Our
             solutions are designed with your satisfaction in mind.
           </p>
         </div>
-        <!-- Card 4 -->
-        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+
+        <div 
+        data-aos="fade-up" data-aos-duration="500" data-aos-delay="700"
+        class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-none border-gray-200">
           <div class="text-blue-600">
             <svg
               width="44"
@@ -230,8 +231,14 @@ import communityData from "../data/community.json";
             services that keep you at the cutting edge of technology.
           </p>
         </div>
+        <!-- Card 3 -->
+        
+        <!-- Card 4 -->
+        
         <!-- Card 5 -->
-        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+        <div 
+        data-aos="fade-up" data-aos-duration="500" data-aos-delay="900"
+        class="flex flex-col gap-4 p-6 md:pl-0 bg-white md:border-r border-gray-200">
           <div class="text-blue-600">
             <svg
               width="40"
@@ -245,14 +252,15 @@ import communityData from "../data/community.json";
                 fill="#1456A2"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800">Customer-Centric</h3>
+          <h3 class="text-xl font-semibold text-gray-800">Value Driven</h3>
           <p class="text-gray-600">
-            We don’t just understand your pain points; we anticipate them. Our
-            solutions are designed with your satisfaction in mind.
+            We help you manage your network growth efficiently, keeping costs down while performance scales up.
           </p>
         </div>
         <!-- Card 6 -->
-        <div class="flex flex-col gap-4 p-6 bg-white border-r border-gray-200">
+        <div
+        data-aos="fade-up" data-aos-duration="500" data-aos-delay="1100"
+        class="flex flex-col gap-4 p-6 bg-white border-0 md:border-r border-gray-200">
           <div class="text-blue-600">
             <svg
               width="36"
@@ -278,145 +286,97 @@ import communityData from "../data/community.json";
             services, ensuring that as your needs grow, we grow with you.
           </p>
         </div>
-      </div>
-      <style>
-        .section-small {
-          max-width: 60rem;
-        }
-      </style>
-    </div>
-  </section>
-  <section class="bg-primary-color py-12" id="our-team">
-    <div class="max-w-screen-xl mx-auto text-center text-white">
-      <h2 class="heading-1">Our Team</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        {
-          teamData.map((member) => (
-            <div class="bg-white p-6 ">
-              <div class="flex flex-col items-center gap-4">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  class="w-[260px] h-[260px] rounded-full object-cover"
-                />
-                <h3 class="text-lg font-semibold text-gray-800">
-                  {member.name}
-                </h3>
-                <p class="text-sm text-gray-600">{member.position}</p>
-                <div class="flex items-center gap-2 mt-4 justify-between w-full">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    class="text-blue-600 hover:text-blue-800"
-                  >
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        y="0.000976562"
-                        width="40"
-                        height="40"
-                        rx="19.7256"
-                        fill="#1456A2"
-                        fill-opacity="0.06"
-                      />
-                      <path
-                        d="M13.0616 12.001C11.815 12.001 11 12.8195 11 13.8954C11 14.9475 11.7907 15.7894 13.0138 15.7894H13.0374C14.3084 15.7894 15.0993 14.9475 15.0993 13.8954C15.0756 12.8195 14.3084 12.001 13.0616 12.001Z"
-                        fill="#1456A2"
-                      />
-                      <path
-                        d="M11.2153 17.2861H14.8596V28.2499H11.2153V17.2861Z"
-                        fill="#1456A2"
-                      />
-                      <path
-                        d="M23.8045 17.0291C21.8386 17.0291 20.5203 18.8764 20.5203 18.8764V17.2864H16.876V28.2502H20.5201V22.1276C20.5201 21.7998 20.5439 21.4725 20.6401 21.2381C20.9036 20.5836 21.5031 19.9056 22.5099 19.9056C23.8286 19.9056 24.356 20.911 24.356 22.3849V28.2502H27.9999V21.9637C27.9999 18.5961 26.2019 17.0291 23.8045 17.0291Z"
-                        fill="#1456A2"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="text-primary-color font-medium text-sm mt-4 hover:underline"
-                  >
-                    {member.details}
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))
-        }
+        <div 
+          data-aos="fade-up" data-aos-duration="500" data-aos-delay="1300" 
+        class="flex flex-col gap-4 p-6 bg-white border-none border-gray-200">
+          <div class="text-blue-600">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 20.3359C27.5661 20.3359 30.457 17.445 30.457 13.8789C30.457 10.3128 27.5661 7.42188 24 7.42188C20.4339 7.42188 17.543 10.3128 17.543 13.8789C17.543 17.445 20.4339 20.3359 24 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M37.0625 20.3359C39.3169 20.3359 41.1445 18.5084 41.1445 16.2539C41.1445 13.9995 39.3169 12.1719 37.0625 12.1719C34.8081 12.1719 32.9805 13.9995 32.9805 16.2539C32.9805 18.5084 34.8081 20.3359 37.0625 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M10.9375 20.3359C13.1919 20.3359 15.0195 18.5084 15.0195 16.2539C15.0195 13.9995 13.1919 12.1719 10.9375 12.1719C8.68306 12.1719 6.85547 13.9995 6.85547 16.2539C6.85547 18.5084 8.68306 20.3359 10.9375 20.3359Z"
+                fill="#1456A2"></path>
+              <path
+                d="M14.9594 24.0017C13.3526 22.6852 11.8974 22.8594 10.0395 22.8594C7.2607 22.8594 5 25.1068 5 27.8685V35.9739C5 37.1733 5.97895 38.1485 7.18277 38.1485C12.38 38.1485 11.7539 38.2425 11.7539 37.9244C11.7539 32.1809 11.0736 27.9689 14.9594 24.0017Z"
+                fill="#1456A2"></path>
+              <path
+                d="M25.7669 22.8891C22.5217 22.6184 19.7011 22.8922 17.2681 24.9004C13.1967 28.1616 13.9802 32.5526 13.9802 37.9243C13.9802 39.3455 15.1365 40.5235 16.5793 40.5235C32.2456 40.5235 32.8691 41.0288 33.7981 38.9716C34.1028 38.2758 34.0193 38.4969 34.0193 31.8414C34.0193 26.5551 29.442 22.8891 25.7669 22.8891Z"
+                fill="#1456A2"></path>
+              <path
+                d="M37.9607 22.8593C36.0926 22.8593 34.6455 22.6868 33.0408 24.0015C36.8975 27.9392 36.2463 31.8638 36.2463 37.9242C36.2463 38.2444 35.7265 38.1483 40.7395 38.1483C41.9864 38.1483 43.0002 37.1382 43.0002 35.8965V27.8683C43.0002 25.1066 40.7395 22.8593 37.9607 22.8593Z"
+                fill="#1456A2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">People</h3>
+          <p class="text-gray-600">
+            At CloudExtel, we believe in a culture where our people feel valued,
+            supported, and inspired. We nurture growth by valuing every voice.
+          </p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="bg-[#F5FAFE] py-12" id="our-board">
-    <div class="max-w-screen-xl mx-auto text-center">
-      <h2 class="heading-1">Our Board Members</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        {
-          communityData.map((member) => (
-            <div class="bg-white p-6 ">
-              <div class="flex flex-col items-center gap-4">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  class="w-full h-[280px] object-cover"
-                />
-                <h3 class="text-lg font-semibold text-gray-800">
-                  {member.name}
-                </h3>
-                <div class="flex items-center gap-2 mt-4 justify-between w-full">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    class="text-blue-600 hover:text-blue-800"
-                  >
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        y="0.000976562"
-                        width="40"
-                        height="40"
-                        rx="19.7256"
-                        fill="#1456A2"
-                        fill-opacity="0.06"
-                      />
-                      <path
-                        d="M13.0616 12.001C11.815 12.001 11 12.8195 11 13.8954C11 14.9475 11.7907 15.7894 13.0138 15.7894H13.0374C14.3084 15.7894 15.0993 14.9475 15.0993 13.8954C15.0756 12.8195 14.3084 12.001 13.0616 12.001Z"
-                        fill="#1456A2"
-                      />
-                      <path
-                        d="M11.2153 17.2861H14.8596V28.2499H11.2153V17.2861Z"
-                        fill="#1456A2"
-                      />
-                      <path
-                        d="M23.8045 17.0291C21.8386 17.0291 20.5203 18.8764 20.5203 18.8764V17.2864H16.876V28.2502H20.5201V22.1276C20.5201 21.7998 20.5439 21.4725 20.6401 21.2381C20.9036 20.5836 21.5031 19.9056 22.5099 19.9056C23.8286 19.9056 24.356 20.911 24.356 22.3849V28.2502H27.9999V21.9637C27.9999 18.5961 26.2019 17.0291 23.8045 17.0291Z"
-                        fill="#1456A2"
-                      />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="text-primary-color font-medium text-sm mt-4 hover:underline"
-                  >
-                    {member.details}
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))
-        }
+  <section class="bg-[#233852] py-[120px]" id="our-legacy">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div 
+          data-aos="fade-right" data-aos-duration="500"
+        class="text-white">
+          <h1 class="heading-1 mb-6">Our Legacy</h1>
+          <p class="para mb-3">
+            <b>Founded in 2014</b> as a Dark Fiber leasing company in South Mumbai,
+            CloudExtel has rapidly grown into India’s premier full-stack NaaS provider.
+            We've partnered with industry giants like Airtel, Vodafone Idea, Tata
+            Communications, Sify Technologies, and more, demonstrating our expertise
+            and commitment to excellence.
+          </p>
+          <p class="para">
+            After the launch of 3G services, the brisk expansion of the telecom
+            industry and the demand for high-speed internet connectivity
+            provided an opportunity for our parent company BGCL (Bombay Gas
+            Company Ltd.) to leverage its gas pipeline infrastructure to deploy
+            Fiber Optic cables inside the cast-iron pipes. CloudExtel was at the
+            forefront of that project and undertook the task with precision and
+            expertise.
+          </p>
+        </div>
+        <div
+        data-aos="fade-left" data-aos-duration="500"
+        >
+          <img src="/images/our-legacy.jpg" alt="" />
+        </div>
       </div>
     </div>
   </section>
+  <section class="bg-[#233852] py-[120px]">
+    <div class="container">
+      <span class="heading-3 font-semibold text-white py-3 px-6 rounded-full"
+        >The Journey</span
+      >
+    </div>
+    <div class="h-[1130px] relative overflow-x-scroll no-scrollbar">
+      <img
+        src="/images/about-us/background.png"
+        alt=""
+        class="z-[5] w-full h-auto absolute left-0 top-[50%] translate-y-[-50%]"
+      />
+      <AboutTimeline />
+    </div>
+  </section>
+  <AboutOurTeam client:load />
+  <AboutBoardMembers client:load />
+
+  <!-- <AboutModal /> -->
 </Layout>
 <script>
   document.addEventListener("readystatechange", function () {
@@ -468,27 +428,71 @@ import communityData from "../data/community.json";
       });
     }
 
-
     // Code for scrolling to specific Div
-    const navElements = document.querySelectorAll<HTMLAnchorElement>('nav > a');
-        const clearAnchors = () => {
-            navElements.forEach((element: HTMLAnchorElement) => {
-                element.classList.remove('border-b-4', 'border-primary-color');
-            })
-        }
-        navElements.forEach((element: HTMLAnchorElement) => {
-            element.addEventListener('click', function(event: MouseEvent){
-                event.preventDefault();
-                clearAnchors();
-                const anchorElement = event.target as HTMLAnchorElement;
-                const divName = anchorElement.href.split('#')[1] as string;
-                window.scrollTo({
-                    top: ((document.querySelector(`#${divName}`)?.getBoundingClientRect().top || 0) + window.scrollY - navHeight),
-                    left: 0,
-                    behavior: 'smooth'
-                });
-                element.classList.add('border-b-4', 'border-primary-color');
-            });
-        })
+    const navElements = document.querySelectorAll<HTMLAnchorElement>(
+      "#about-nav nav > a"
+    );
+    const clearAnchors = () => {
+      navElements.forEach((element: HTMLAnchorElement) => {
+        element.classList.remove("border-b-4", "border-primary-color");
+      });
+    };
+    navElements.forEach((element: HTMLAnchorElement) => {
+      element.addEventListener("click", function (event: MouseEvent) {
+        event.preventDefault();
+        clearAnchors();
+        const anchorElement = event.target as HTMLAnchorElement;
+        const divName = anchorElement.href.split("#")[1] as string;
+        window.scrollTo({
+          top:
+            (document.querySelector(`#${divName}`)?.getBoundingClientRect()
+              .top || 0) +
+            window.scrollY -
+            navHeight,
+          left: 0,
+          behavior: "smooth",
+        });
+        element.classList.add("border-b-4", "border-primary-color");
+      });
+    });
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const navElements = document.querySelectorAll<HTMLAnchorElement>(
+      "#about-nav nav > a"
+    );
+    const clearAnchors = () => {
+      navElements.forEach((element: HTMLAnchorElement) => {
+        element.classList.remove("border-b-4", "border-primary-color");
+      });
+    };
+    const firstSection = document.querySelector<HTMLDivElement>("#who-we-are");
+    const secondSection = document.querySelector<HTMLDivElement>("#why-cloudextel");
+    const thirdSection = document.querySelector<HTMLDivElement>("#our-legacy");
+    const fourthSection = document.querySelector<HTMLDivElement>("#our-team");
+    const fifthSection = document.querySelector<HTMLDivElement>("#our-board");
+    window.addEventListener("scroll", () => {
+      if(firstSection && (firstSection?.offsetTop * 0.9 < window.scrollY) && (firstSection?.clientHeight * 0.9 < window.scrollY)){
+        clearAnchors();
+        document.querySelector("#about-nav a[href='#who-we-are']")?.classList.add("border-b-4", "border-primary-color"); 
+      }
+      if(secondSection && (secondSection?.offsetTop * 0.9 < window.scrollY) && (secondSection?.clientHeight * 0.9 < window.scrollY)){
+        clearAnchors();
+        document.querySelector("#about-nav a[href='#why-cloudextel']")?.classList.add("border-b-4", "border-primary-color"); 
+      }
+      if(thirdSection && (thirdSection?.offsetTop * 0.9 < window.scrollY) && (thirdSection?.clientHeight * 0.9 < window.scrollY)){
+        clearAnchors();
+        document.querySelector("#about-nav a[href='#our-legacy']")?.classList.add("border-b-4", "border-primary-color"); 
+      }if(fourthSection && (fourthSection?.offsetTop * 0.9 < window.scrollY) && (fourthSection?.clientHeight * 0.9 < window.scrollY)){
+        clearAnchors();
+        document.querySelector("#about-nav a[href='#our-team']")?.classList.add("border-b-4", "border-primary-color"); 
+      }
+      if(fifthSection && (fifthSection?.offsetTop * 0.9 < window.scrollY) && (fifthSection?.clientHeight * 0.9 < window.scrollY)){
+        clearAnchors();
+        document.querySelector("#about-nav a[href='#our-board']")?.classList.add("border-b-4", "border-primary-color"); 
+      }
+      else{
+      }
+    })
+  })
 </script>

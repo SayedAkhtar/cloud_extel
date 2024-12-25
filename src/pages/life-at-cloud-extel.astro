@@ -1,30 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MainSectionComponent from "../components/MainSectionComponent.astro";
+import LifeAwards from "../components/LifeAwards";
+import jobs from "../data/jobs.json";
+import OrganisationValues from "../components/OrganisationValues.astro";
 ---
 
 <Layout title="Life at CloudExtel | CloudExtel">
   <MainSectionComponent
-    title="Life at CloudExtel"
+    title="Life @ CloudExtel"
     subtext="We believe in empowering our employees with the autonomy to explore, experiment, and excel. Here, your ideas are valued, your growth is supported, and your impact is real."
     image="/images/life-at.png"
   />
 
   <section class="container">
     <div class="w-full max-w-[1090px] mx-auto py-[120px]">
-      <img src="/images/gallery-collage.png" alt="" />
+      <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-6">
+        <img src="/images/collage-1.png" class="w-full" alt="" />
+        <div class="flex flex-col justify-between items-end gap-6">
+          <img class="w-full" src="/images/collage-2.png" alt="" />
+          <div class="flex flex-wrap justify-between items-center w-full md:max-h-[213px]">
+            <img class="w-full md:w-1/2 h-full md:pr-[8px]" src="/images/collage-3.png" alt="" />
+            <img class="w-full md:w-1/2 h-full md:pl-[8px]" src="/images/collage-4.png" alt="" />
+          </div>
+        </div>
+        <img class="w-full" src="/images/collage-5.png" alt="" />
+        <img class="w-full" src="/images/collage-6.png" alt="" />
+        <img class="w-full" src="/images/collage-7.png" alt="" />
+        <img class="w-full" src="/images/collage-8.png" alt="" />
+      </div>
+      <!-- <img src="/images/gallery-collage.png" alt="" /> -->
     </div>
   </section>
 
-  <section class="container">
-    <img src="/images/our-values.png" alt="" />
+  <section class="container mt-[50px] mb-[120px]">
+    <OrganisationValues />
   </section>
-  <section class="bg-[#233852]">
-    <div class="container py-[120px]">
-      <h1 class="heading-1 mx-auto text-white text-center">CEO's Awards</h1>
-      <img src="/images/award-collage-1.png" class="mt-20" alt="" />
-    </div>
-  </section>
+  <LifeAwards client:load />
 
   <section class="container">
     <div class="py-[120px]">
@@ -42,37 +54,41 @@ import MainSectionComponent from "../components/MainSectionComponent.astro";
         <input
           type="text"
           placeholder="Search by location, keyword or job title"
-          class="flex-1"
+          class="flex-1 visited:outline-none focus:outline-none"
         />
         <img src="/images/Search.png" alt="" />
       </div>
-      <div class="py-8">
+      <div class="py-8 overflow-x-scroll no-scrollbar transition-all overflow-y-hidden" id="jobs">
         <table class="w-full border-collapse border-spacing-0">
           <tbody class="divide-y divide-gray-300 space-y-11">
             <!-- Row 1 -->
             {
-              new Array(5).fill(null).map(() => {
+              jobs.map((job) => {
                 return (
                   <tr>
                     <td class="py-12 px-6 text-gray-900 font-medium">
-                      <h6 class="heading-6">
-                        Manager - Fixed Asset & Inventory
-                      </h6>
+                      <h6 class="heading-6">{job.position}</h6>
                     </td>
                     <td class="py-4 px-6 text-gray-600">
                       Location
-                      <b>Mumbai</b>
+                      <b>{job.location}</b>
                     </td>
                     <td class="py-4 px-6 text-gray-600">
-                      Department
-                      <b>Operations</b>
+                      Department<br/>
+                      <b>{job.lob}</b>
                     </td>
                     <td class="py-4 px-6 text-gray-600">
-                      Posted On
-                      <b>24 Aug, 2024</b>
+                      Posted On<br/>
+                      <b>{job.requisition_date}</b>
                     </td>
                     <td class="py-4 px-6">
-                      <button class="min-w-[158px] gap-2 flex justify-center items-center px-4 py-4 bg-primary-color text-white text-xs font-medium rounded-full">
+                      <a
+                        href={job.linkedin_url}
+                        target="_blank"
+                        referrerpolicy="no-referrer"
+                        rel="noopener noreferrer"
+                        class="min-w-[158px] gap-2 flex justify-center items-center px-4 py-4 bg-primary-color text-white text-xs font-medium rounded-full"
+                      >
                         Know more
                         <svg
                           width="17"
@@ -86,7 +102,7 @@ import MainSectionComponent from "../components/MainSectionComponent.astro";
                             fill="white"
                           />
                         </svg>
-                      </button>
+                      </a>
                     </td>
                   </tr>
                 );
@@ -95,8 +111,45 @@ import MainSectionComponent from "../components/MainSectionComponent.astro";
           </tbody>
         </table>
       </div>
-      <span class="text-center font-semibold text-primary-color flex justify-center items-center gap-2">Load More <img src="/images/arrow-down.png" alt="" class="h-[14px]"></span>
+      <span
+        class="text-center font-semibold text-primary-color flex justify-center items-center cursor-pointer gap-2"
+        id="loadMore"
+        >Load More <img
+          src="/images/arrow-down.png"
+          alt=""
+          class="h-[14px]"
+        /></span
+      >
     </div>
   </section>
-
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const jobsDiv = document.querySelector("#jobs") as HTMLElement;
+    const loadMore = document.querySelector("#loadMore") as HTMLElement;
+    const trHeight =
+      (document.querySelector("#jobs tr") as HTMLElement)?.offsetHeight || 0;
+    const trShow = (trHeight * 5) - 40;
+    const trTotal = Math.ceil(
+      (document.querySelector("#jobs")?.scrollHeight ?? 0) / trHeight
+    );
+    if (jobsDiv && trHeight && trTotal && trShow && loadMore) {
+      jobsDiv.style.height = `${trShow}px`;
+
+      loadMore.addEventListener("click", () => {
+        if (loadMore.classList.contains("show")) {
+          jobsDiv.style.height = `${trShow}px`;
+          loadMore.innerHTML =
+            "Load More <img src='/images/arrow-down.png' alt='' class='h-[14px]'>";
+          loadMore.classList.remove("show");
+        } else {
+          jobsDiv.style.height = `${trTotal * trHeight}px`;
+          loadMore.innerHTML =
+            "Show Less <img src='/images/arrow-down.png' alt='' class='h-[14px] rotate-180'>";
+          loadMore.classList.add("show");
+        }
+      });
+    }
+  });
+</script>

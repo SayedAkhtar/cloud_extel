@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import { twMerge } from 'tailwind-merge';
+import _ from 'lodash';
 
 const data = [
     {
@@ -15,11 +16,11 @@ const data = [
         image: '/images/our-solutions/fiber.png',
         title: 'Fiber',
         description: `<p>Our extensive underground and overhead fiber network, the backbone of modern connectivity, spans across India, powering 4G/5G towers, and enterprises. We pride ourselves on rapid deployment while maintaining the highest standards of quality and uptime. With CloudExtel, your data travels faster, safer, and more reliably.</p>
-                        <h3 class="heading-3">Underground Fiber</h3>
+                        <h3 class="heading-3 my-6">Underground Fiber</h3>
                         <p>Secure your network with our high-density and reliable underground fiber—tailored for maximum performance and minimal disruption.</p>
                         <p>We offer bespoke dark fiber leasing services to telecom operators at cost-effective rates, maintaining the highest tenancies in the industry. As the only independent provider in the region with such a dense network, we stand out with superior service levels compared to the in-house networks of many established players.</p>
-                        <h3 class="heading-3">Overhead Fiber Connectivity (OHFC)</h3>
-                        <p>Connecting cities with our high-speed, scalable overhead fiber networks—delivered with industry-leading feasibility rates, lowest churn, and fastest time to market. Cloudextel's Overhead Fiber network delivers exceptional metro core connectivity, data center to data center links, and seamless last-mile connectivity. </p>
+                        <h3 class="heading-3 my-6">Overhead Fiber Connectivity (OHFC)</h3>
+                        <p>Connecting cities with our high-speed, scalable overhead fiber networks—delivered with industry-leading feasibility rates, lowest churn, and fastest time to market. CloudExtel's Overhead Fiber network delivers exceptional metro core connectivity, data center to data center links, and seamless last-mile connectivity. </p>
                         <p>With the best-in-class Service Level Agreements (SLAs), Cloudextel guarantees superior performance and peace of mind for your critical connections.</p>
                         `,
         layout: 'end',
@@ -40,67 +41,135 @@ const data = [
 ]
 
 export default function OurSolutionsTabs() {
-    const [state, setState] = useState(0);
-    const handleClick = (index: Number) => {
-        console.log(index, "Logging");
+    const [state, setState] = useState<Number>(0);
+    const sectionRefs = useRef<HTMLDivElement[]>([]);
+    const handleClick = (index: number) => {
+        setState(index);
+        sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
     }
-  return (
-    <div className="py-8">
-      {/* Navigation */}
-      <nav className="flex space-x-8 border-b border-gray-300w-full justify-between">
-        {data.map((item, index) => {
-          return (
-            <a
-            //   href="javascript:void(0)"
-              className={twMerge(
-                "font-semibold border-b-4  hover:text-primary-color pb-4",
-                state == index
-                  ? "text-primary-color border-primary-color"
-                  : "text-gray-500 border-b-0"
-              )}
-              onClick={() => handleClick(index)}
-            >
-              {item.title}
-            </a>
-          );
-        })}
-        {/* <a href="#" className="text-primary-color font-semibold border-b-4 border-primary-color pb-4">Small Cells Hosting</a>
-    <a href="#" className="text-gray-500 hover:text-primary-color pb-4">Fiber</a>
-    <a href="#" className="text-gray-500 hover:text-primary-color pb-4">FTTH</a>
-    <a href="#" className="text-gray-500 hover:text-primary-color pb-4">Virtualized Networks</a> */}
-      </nav>
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {data.map((item, index) => {
-        return (
-          <>
-            {index !== 0 ?<hr className='my-[100px]'/>: null}
-            <CardTile
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              layout={item.layout}
-            />
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry : IntersectionObserverEntry) => {
+                if (entry.isIntersecting) {
+                    const ele = entry.target as HTMLElement;
+                    const index =ele.dataset['index'] ?? "0";
+                    document.querySelectorAll('[data-nav-index]').forEach((ele) => {
+                      const eleAsHTMLElement = ele as HTMLElement;
+                      if(eleAsHTMLElement.dataset.navIndex == index){
+                        ele.classList.add('text-primary-color');
+                        ele.classList.add('border-primary-color');
+                        ele.classList.add('font-semibold');
+                        ele.classList.add('border-b-4');
+                      }else{
+                        ele.classList.remove('text-primary-color');
+                        ele.classList.remove('border-primary-color');
+                        ele.classList.remove('font-semibold');
+                        ele.classList.remove('border-b-4');
+                      }
+                    })
+                }
+            });
+        }, { threshold: 0.5, root: null});
+        sectionRefs.current.forEach((section) => {
+            if (section) {
+                observer.observe(section);
+            }
+        });
+        return () => sectionRefs.current.forEach((section) => {
+            if (section) {
+                observer.unobserve(section);
+            }
+        })
+    }, []);
 
-          </>
-        );
-      })}
+  return (
+    <>
+      {/* Navigation */}
+      <div id="our-solutions-nav" className="pt-8">
+        <section className="container bg-white">
+          <nav className="flex space-x-8 border-b border-gray-300 w-full justify-between">
+            {data.map((item, index) => {
+              return (
+                <a
+                  key={_.kebabCase(item.title) + "_" + index}
+                  data-nav-index={index}
+                  className={twMerge(
+                    "border-b-4  hover:text-primary-color pb-4 cursor-pointer",
+                    state == index
+                      ? "text-primary-color border-primary-color font-semibold"
+                      : "text-gray-500 border-b-0 font-medium"
+                  )}
+                  onClick={() => handleClick(index)}
+                >
+                  {item.title}
+                </a>
+              );
+            })}
+            <label
+            htmlFor="nav-toggle"
+            className={`h-full flex flex-col items-center justify-center rounded-full border-[#233852] border bg-transparent py-3 px-4 text-gray-600 
+            transition hover:text-gray-600/75
+            hover:bg-[#233852]
+            hover:text-white
+            group cursor-pointer
+            -mt-3
+            `}
+          >
+            <span
+              className={`h-[10px] w-[32px] border-[#233852] group-hover:border-white border-t border-b block `}
+            ></span>
+            <span className="sr-only">Toggle menu</span>
+          </label>
+          </nav>
+        </section>
       </div>
-    </div>
+      <section className="container">
+        <div className="w-full mx-auto py-[100px]">
+          {data.map((item, index) => {
+            return (
+              <div key={_.uniqueId()}>
+                {index !== 0 ? <hr className="my-[100px]" /> : null}
+                <CardTile
+                  data-aos="fade-up" data-aos-duration="500" data-aos-delay={index*100}
+                  ref={(ele: HTMLDivElement) =>
+                    (sectionRefs.current[index] = ele!)
+                  }
+                  index={index}
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  layout={item.layout}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }
+interface CardTileProps {
+  image: string;
+  title: string;
+  description: string;
+  layout: string;
+  index: number
+}
 
-function CardTile({image, title, description, layout }: any){
+const CardTile = forwardRef<HTMLDivElement,CardTileProps>(({image, title, description, layout, index }, ref) => {
     if(layout === 'end'){
         return (
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 mt-8">
-            <div className="w-full lg:w-1/2">
+          <div className="flex flex-col lg:flex-row-reverse items-start gap-8 mt-8" ref={ref} data-index={index}>
+            <div 
+            data-aos="fade-right" data-aos-duration="500"
+            className="w-full lg:w-1/2 h-auto">
               <img
                 src={image}
                 alt={title}
-                className=""
+                className="object-fit h-full"
               />
             </div>
-            <div className="w-full lg:w-1/2">
+            <div data-aos="fade-left" data-aos-duration="500" className="w-full lg:w-1/2">
               <h3 className="heading-1 font-bold text-gray-800">
                 {title}
               </h3>
@@ -111,20 +180,20 @@ function CardTile({image, title, description, layout }: any){
     }
     return (
       
-        <div className="flex flex-col lg:flex-row items-center gap-8">
-          <div className="w-full lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-start justify-start gap-8" ref={ref} id={"section-id-"+index} data-index={index}>
+          <div data-aos="fade-right" data-aos-duration="500" className="w-full lg:w-1/2">
             <img
               src={image}
               alt={title}
               className=""
             />
           </div>
-          <div className="w-full lg:w-1/2">
-            <h2 className="heading-1 font-bold text-gray-900">
+          <div data-aos="fade-left" data-aos-duration="500" className="w-full lg:w-1/2">
+            <h2 className="heading-1 font-bold text-gray-900 max-w-[456px]">
               {title}
             </h2>
-            <div className="mt-4 text-gray-600" dangerouslySetInnerHTML={{ __html: description }} />
+            <div className="mt-8 text-gray-600" dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
     );
-}
+})

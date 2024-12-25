@@ -1,34 +1,61 @@
 ---
+const routePath = Astro.url.pathname;
 const links = [
-  { name: "Home", href: "#", active: true },
-  { name: "About Us", href: "/about-us" },
-  { name: "Our Solutions", href: "/our-solutions" },
-  { name: "Life @ CloudExtel", href: "/life-at-cloud-extel" },
-  { name: "Media", href: "/media" },
-  { name: "Contact Us", href: "/contact-us" },
+  { name: "Home", href: "/", active: false },
+  { name: "About Us", href: "/about-us", active: false },
+  { name: "Our Solutions", href: "/our-solutions", active: false },
+  { name: "Life @ CloudExtel", href: "/life-at-cloud-extel", active: false },
+  { name: "Media", href: "/media", active: false },
+  { name: "Contact Us", href: "/contact-us", active: false },
 ];
+links.forEach((link) => {
+  if (link.href !== "/" &&(
+    routePath.includes(link.href) ||
+    (routePath === link.href))
+  ) {
+    link.active = true;
+  }
+});
+if (routePath === "/" && links[0] !== undefined) {
+  links[0].active = true;
+}
 ---
 
-<div id="sidebar" class="fixed inset-0 bg-gray-900 text-gray-300 z-50 flex flex-col p-6 w-full md:max-w-[25%] left-[-500px]">
+<div
+  id="sidebar"
+  class="fixed inset-0 bg-[#233852] text-gray-300 z-50 flex flex-col p-6 w-full md:max-w-[35%] left-[150%]
+  animation duration-700 ease-in-out"
+>
   <!-- Close Button -->
-  <button class="self-start text-white text-xl mb-6" aria-label="Close" id="close-sidenav">
-    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.686523 1.68652L23.3139 24.3139" stroke="white"/>
-        <path d="M0.686523 23.314L23.3139 0.686548" stroke="white"/>
-        </svg>        
+  <button
+    class="self-start text-white text-xl mb-6"
+    aria-label="Close"
+    id="close-sidenav"
+  >
+    <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0.686523 1.68652L23.3139 24.3139" stroke="white"></path>
+      <path d="M0.686523 23.314L23.3139 0.686548" stroke="white"></path>
+    </svg>
   </button>
-
-  <!-- Navigation Links -->
-  <nav class="space-y-4 mt-[120px]">
-    {links.map(link => (
-      <a
-        href={link.href}
-        class={`block heading-3 ${
-          link.active ? 'text-white font-bold' : 'hover:text-white'
-        }`}
-      >
-        {link.name}
-      </a>
-    ))}
-  </nav>
+  <div class="flex items-center justify-end h-full text-right">
+    <!-- Navigation Links -->
+    <nav class="space-y-4" id="sidenav">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class={`block text-[28px] md:text-[32px] ${link.active ? "text-white font-bold" : ""} transition hover:text-white`}
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </div>

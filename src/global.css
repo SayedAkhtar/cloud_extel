@@ -1,25 +1,64 @@
-:root{
-    --default-font-color: #233852;
-    --default-primary-color: #1456A2;
+:root {
+  --default-font-color: #233852;
+  --default-primary-color: #1456a2;
 }
-body{
-    overflow-x: hidden;
-    font-family: 'Montserrat Variable', sans-serif;
+body {
+  overflow-x: hidden;
+  font-family: "Montserrat Variable", sans-serif;
+  width: 100%;
+  font-size: 92.5%;
 }
 html {
-    color: var(--default-font-color);
-    scroll-behavior: smooth;
+  color: var(--default-font-color);
+  scroll-behavior: smooth;
+  width: 100%;
 }
 
-.heading-1{
-    @apply text-6xl font-semibold leading-tight
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-.heading-3{
-    @apply text-4xl font-medium leading-tight;
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.heading-1 {
+  @apply text-5xl md:text-6xl font-semibold leading-tight;
+}
+.heading-3 {
+  @apply text-3xl md:text-4xl font-medium leading-tight;
 }
 .heading-6 {
-    @apply text-2xl font-semibold leading-tight;
+  @apply text-2xl font-semibold leading-tight;
 }
-.para{
-    @apply text-lg font-medium leading-tight;
+.para {
+  @apply leading-6;
+}
+.ReactModal__Overlay--after-open {
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border: none !important;
+}
+
+.swiper-pagination {
+  bottom: -15px !important;
+}
+
+.swiper-pagination > .swiper-pagination-bullet {
+  width: 40px;
+  height: 3px;
+  border-radius: 0px;
+}
+
+.swiper-pagination{
+  margin-top:'40px'
+}
+@media (max-width: 500px) {
+  .counter-section div {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+  }
 }

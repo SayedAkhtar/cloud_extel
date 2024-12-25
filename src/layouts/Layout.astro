@@ -7,7 +7,9 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Sidenav from "../components/SideNav.astro";
 import "../global.css";
+import 'aos/dist/aos.css';
 const { title } = Astro.props;
+const routePath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -20,33 +22,59 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <Navbar />
+  <body id="mainBody">
+    {
+      routePath.includes("media") ? null:  <Navbar />}
     <Sidenav />
     <slot />
     <Footer />
   </body>
   <script>
+    import AOS from 'aos';
+    AOS.init({
+      once: true,
+      duration: 1000
+    });
     const sidebar = document.querySelector<HTMLDivElement>("#sidebar");
     const toggleCheck = document.querySelector<HTMLInputElement>("#nav-toggle");
     const sideNavClose =
       document.querySelector<HTMLButtonElement>("#close-sidenav");
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('#sidebar > nav > a');
     if (toggleCheck && sideNavClose && sidebar) {
       sideNavClose.addEventListener("click", () => {
         toggleCheck.checked = false; // Checked property is specific to HTMLInputElement
-        sidebar.style.left = "-500px"; // Style property is specific to HTMLElement
+        sidebar.style.left = "150%"; // Style property is specific to HTMLElement
       });
+    }
+    if(navLinks && sidebar && toggleCheck){
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleCheck.checked = false; // Checked property is specific to HTMLInputElement
+                sidebar.style.left = "150%"; // Style property is specific to HTMLElement
+            });
+        })
     }
 
     if (toggleCheck && sidebar) {
       toggleCheck.addEventListener("change", function (event: Event) {
         const target = event.target as HTMLInputElement; // Type assertion for target
         if (target.checked) {
-          sidebar.style.left = "0px";
+          sidebar.style.left = "65%";
         } else {
-          sidebar.style.left = "-500px";
+          sidebar.style.left = "150%";
         }
       });
     }
+
+    document.addEventListener("scroll", () => {
+      const mainComponent = document.querySelector<HTMLDivElement>("main");
+      if (mainComponent && toggleCheck && sidebar) {
+        const scrollPosition = window.scrollY;
+        if((scrollPosition +100) > mainComponent.clientHeight){
+          toggleCheck.checked = false;
+          sidebar.style.left = "150%";
+        }
+      }
+    })
   </script>
 </html>

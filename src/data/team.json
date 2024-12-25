@@ -1,45 +1,125 @@
 [
-    {
-      "name": "Kunal Bajaj",
-      "position": "CEO & Co-Founder",
-      "image": "/images/kunal.png",
-      "linkedin": "#",
-      "details": "Read More"
-    },
-    {
-      "name": "Vishal S Raghuvanshi",
-      "position": "Chief Operating Officer",
-      "image": "/images/vishal.png",
-      "linkedin": "#",
-      "details": "Read More"
-    },
-    {
-      "name": "Deepak Saxena",
-      "position": "EVP - Wireline Operations",
-      "image": "/images/deepak.png",
-      "linkedin": "#",
-      "details": "Read More"
-    },
-    {
-      "name": "Balkishan Chandak",
-      "position": "Chief Financial Officer",
-      "image": "/images/balkishan.png",
-      "linkedin": "#",
-      "details": "Read More"
-    },
-    {
-      "name": "Shashank Goenka",
-      "position": "SVP - Business Development & Sales",
-      "image": "/images/shashank.png",
-      "linkedin": "#",
-      "details": "Read More"
-    },
-    {
-      "name": "Rashmin Vyawahare",
-      "position": "SVP - Strategy and BIS",
-      "image": "/images/rashmin.png",
-      "linkedin": "#",
-      "details": "Read More"
-    }
-  ]
-  
+  {
+    "name": "Kunal Bajaj",
+    "position": "CEO & Co-Founder",
+    "image": "/images/kunal.png",
+    "linkedin": "https://www.linkedin.com/in/bajajkunal/",
+    "details": [
+      "Kunal Bajaj has been a leader in the Telecom, Internet, and Technology space for the past 25 years. He is currently the CEO and Co-Founder of CloudExtel.",
+      "Previously, he was leading the go-to-market strategy for the mobility team at Reliance Jio to define the services and features for launch, including the end-to-end customer offerings to disrupt existing telecom industry norms.",
+      "Prior to that, he served as Partner and Director at Analysys Mason India, where he oversaw the firm’s operations in the region.",
+      "Kunal also worked as a Consultant (Projects) for the Telecom Regulatory Authority of India (TRAI), where he led TRAI's effort in driving internet usage and broadband penetration. He authored India’s first comprehensive policy roadmap for driving growth in this space, which was released in April 2004.",
+      "Additionally, he spearheaded an initiative to reduce leased line tariffs for telecom and IT companies by 75%, and contributed to key areas including Spectrum Policy, Unified Licensing, Rural Development, Tower Sharing, and Broadcast & Cable.",
+      "He began his career at McKinsey & Co. in New York, where he worked on projects spanning the telecommunications, internet, and financial services sectors.",
+      "He then led the technology division of a rapidly growing internet marketing start-up in New York, driving its expansion through a period of explosive growth, increasing revenues to USD 60 million and securing its position as one of the top 10 internet companies in the United States.",
+      "He holds three degrees from the University of Pennsylvania, graduating with Magna Cum Laude Honors from the selective Jerome Fisher Program in Management & Technology. His academic qualifications include a Bachelor’s in Computer Science Engineering, a Master’s in Telecommunications and Networking, and a Bachelor’s in Management & Finance from the Wharton School."
+    ]
+  },
+  {
+    "name": "Vishal S Raghuvanshi",
+    "position": "Chief Operating Officer",
+    "image": "/images/vishal.png",
+    "linkedin": "https://www.linkedin.com/in/vishal-s-raghuvanshi-sr-vp-enterprise-business-leader-and-strategist-b753826/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "details": [
+      "With over 23 years of experience across various sectors like telecommunications, renewable energy, NaaS, and Information Technology, Vishal brings a wealth of expertise to our organization. In his previous role as the Group COO at CREI, a multinational corporation in Dubai, Vishal spearheaded innovative business models such as Tower, ESCO, and NaaS where he effectively managed operations across continents.",
+      "He has helmed many leadership positions throughout his career, some of which include CEO at Rajasthan Circle in Indus Towers and COO at Gujarat Circle in Indus Towers, and roles at Globalspace Tech Ltd, Nokia, Rolta Thales Ltd, and RCOM.",
+      "Additionally, he has served in the Indian Army as Officer Commanding Communication at the Army Headquarters, Delhi, highlighting his competency at acing multiple professional roles.",
+      "Vishal holds a Bachelor’s degree in Electronics Engineering from SSVPS College of Engineering, NMU, Jalgaon. He has two diplomas from CDAC in Data Communication and Networking, awarded with an ‘A+’ grade, and in Software Project Management, with an ‘A’ grade. He completed an Executive Business Management program from the prestigious Indian Institute of Management, Ahmedabad (IIM-A). He holds a Post Graduate Diploma in Business Administration (Operations) from the Symbiosis Institute, Pune.",
+      "With over 23 years of experience across sectors including telecommunications, renewable energy, Network as a Service (NaaS), and Information Technology, Vishal brings a wealth of expertise to our organization. In his previous role as Group COO at CREI, a multinational corporation in Dubai, Vishal spearheaded innovative business models such as Tower, ESCO, and NaaS, effectively managing operations across continents.",
+      "Throughout his career, he has held numerous leadership positions, including CEO of the Rajasthan Circle and COO of the Gujarat Circle at Indus Towers, as well as roles at Globalspace Tech Ltd, Nokia, Rolta Thales Ltd, and RCOM.",
+      "Additionally, he served in the Indian Army as Officer Commanding Communication at Army Headquarters in Delhi, underscoring his ability to excel in diverse professional roles.",
+      "Vishal holds a Bachelor’s degree in Electronics Engineering from SSVPS College of Engineering, NMU, Jalgaon. He has two diplomas from CDAC: one in Data Communication and Networking, where he received an “A+” grade, and another in Software Project Management, awarded an “A” grade. He also completed an Executive Business Management program at the prestigious Indian Institute of Management, Ahmedabad (IIM-A) and holds a Post Graduate Diploma in Business Administration (Operations) from the Symbiosis Institute, Pune."
+    ]
+  },
+  {
+    "name": "Deepak Saxena",
+    "position": "EVP - Wireline Operations",
+    "image": "/images/deepak.png",
+    "linkedin": "https://www.linkedin.com/in/deepak-saxena-a949072/",
+    "details": [
+      "With nearly three decades of expertise in transport networks, particularly optical communication systems, Deepak has held leadership roles across major Indian telecom operators.",
+      "In his previous positions at Idea and Vodafone Idea, he led the conceptualisation to operationalisation of the optical and IP transport network for 4G and Enterprise services across India. He also spearheaded the automation of networks by developing an integrated Network Operations Center (NOC) and initiated the transition to the NFV platform. His responsibilities spanned planning, project management, and operations for the rollout of a Pan-India Optical Fiber Network.",
+      "His career began with the Indian Telecom Services (ITS) at the Department of Telecom (DoT), followed by key roles at Bharat Sanchar Nigam Limited (BSNL), Reliance Infocomm, Idea Cellular, and Vodafone Idea.",
+      "He holds a Bachelor's degree in Electronics and Communication, an MBA in Marketing, and has completed certified business courses from IIM Kolkata and Stanford University.",
+      "With nearly three decades of expertise in transport networks, particularly in optical communication systems, Deepak has held leadership roles across major Indian telecom operators.",
+      "In his previous positions at Idea and Vodafone Idea, he led the end-to-end development of optical and IP transport networks for 4G and enterprise services across India. He also spearheaded network automation by developing an integrated Network Operations Center (NOC) and initiated the transition to an NFV platform. His responsibilities encompassed planning, project management, and operations for the rollout of a Pan-India Optical Fiber Network.",
+      "Deepak’s career began with the Indian Telecom Services (ITS) at the Department of Telecom (DoT) and was followed by key roles at Bharat Sanchar Nigam Limited (BSNL), Reliance Infocomm, Idea Cellular, and Vodafone Idea.",
+      "He holds a Bachelor's degree in Electronics and Communication, an MBA in Marketing, and has completed certified business courses from IIM Kolkata and Stanford University."
+    ]
+  },
+  {
+    "name": "Balkishan Chandak",
+    "position": "Chief Financial Officer",
+    "image": "/images/balkishan.png",
+    "linkedin": "https://www.linkedin.com/in/balkishanchandak/?originalSubdomain=in",
+    "details": [
+      "With over 23 years of experience in corporate finance, strategic planning, financial analysis, system development, supply chain management, and legal and secretarial functions, Balkishan has built a versatile career across multiple industries. He is the founder of SMART CFO Services and previously served as Country CFO and Company Secretary at ARAMARK India.",
+      "His diverse experience spans roles at Future Group and Shoppers Stop in retail, Goldshield International in pharmaceuticals, Coca-Cola India in FMCG and manufacturing, and Hindalco in manufacturing.",
+      "He is a qualified Chartered Accountant and Company Secretary and holds a Bachelor of Commerce (Honours) degree."
+    ]
+  },
+  {
+    "name": "Shashank Goenka",
+    "position": "SVP - Business Development & Sales",
+    "image": "/images/shashank.png",
+    "linkedin": "https://www.linkedin.com/in/shashank-goenka-94037914/",
+    "details": [
+      "With over 15 years of experience, he has developed a strong foundation in key account management, strategic alliances, sales and marketing, product management, business planning, and strategy.",
+      "His professional journey includes significant roles at Jio, Sterlite, and Reliance Globalcom, where he contributed to the growth and success of each organization.",
+      "He holds an MBA in International Business and Marketing from ITM (Mumbai) and has also studied at EDHEC (France) and ESSCA (Hungary).",
+      "With over 15 years of experience, he has built a strong foundation in key account management, strategic alliances, sales and marketing, product management, business planning, and strategy.",
+      "His professional journey includes significant roles at Jio, Sterlite, and Reliance Globalcom, where he contributed to each organization's growth and success.",
+      "He holds an MBA in International Business and Marketing from ITM (Mumbai) and has also studied at EDHEC (France) and ESSCA (Hungary)."
+    ]
+  },
+  {
+    "name": "Rashmin Vyawahare",
+    "position": "SVP - Strategy and BIS",
+    "image": "/images/rashmin.png",
+    "linkedin": "https://www.linkedin.com/in/rashmin1980/?originalSubdomain=in",
+    "details": [
+      "With nearly 20 years of experience, Rashmin has worked across business strategy, product management, and venture capital investments.",
+      "He led the business strategy and planning for the Public Wi-Fi business at Reliance Jio. At Aircel, he was responsible for developing and executing the 4G/LTE business strategy of Aircel and led the 4G business planning team. He was a part of the corporate venture capital arm of the Reliance ADA Group and led the Telecoms and Technology investments for the group.",
+      "Prior to Reliance Capital, he worked with Cambridge Broadband Networks, a UK-based telecom startup, as a product management professional leading their South-Asia/Southeast Asia market for PMP Radio Backhaul product sales in the region.",
+      "He holds a Post Graduate Diploma in Wireless Telecommunications from Humber College in Toronto, Canada, and a degree in Electronics from the University of Mumbai.",
+      "With nearly 20 years of experience, Rashmin has worked extensively in business strategy, product management, and venture capital investments.",
+      "At Reliance Jio, he led the business strategy and planning for the Public Wi-Fi business. During his tenure at Aircel, he was responsible for developing and executing the 4G/LTE business strategy and led the 4G business planning team. He also contributed to the Reliance ADA Group's corporate venture capital arm, where he led Telecom and Technology investments.",
+      "Before joining Reliance Capital, Rashmin worked with Cambridge Broadband Networks, a UK-based telecom startup, where he managed product sales for the South Asia and Southeast Asia markets as a product management professional for PMP Radio Backhaul.",
+      "He holds a Post Graduate Diploma in Wireless Telecommunications from Humber College in Toronto, Canada, and a degree in Electronics from the University of Mumbai."
+    ]
+  },
+  {
+    "name": "Yash Upadhyay",
+    "position": "VP - Network Planning and Technology",
+    "image": "/images/yash.png",
+    "linkedin": "https://www.linkedin.com/in/yash-upadhyay-3b6247159?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "details": [
+      "21 years of work experience in Planning, Rollout, NOC Operations, Network Transformation",
+      "Past Experience – Ericsson as Expert Solution Architect, Regional Head in Tata Docomo for Planning and RAN Network Operation",
+      "Education – Bachelor’s of Technology degree from JRN University"
+    ]
+  },
+  {
+    "name": "Shubha S. Karra",
+    "position": "VP - General Counsel and Head of Risk",
+    "image": "/images/subha.png",
+    "linkedin": "https://www.linkedin.com/in/shubha-karra/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "details": [
+      "With nearly 15 years of corporate advisory experience in Indian law firms and conglomerates, Shubha has advised clients on acquisitions, complex contracts, disputes, General Manager, Legal in Aditya Birla Group, handling strategic acquisitions, competition law and corporate legal matters across telecom, viscose staple fibre, chemicals, and micro- finance businesses.",
+      "She completed her Master’s in Public Policy from Hertie School, Berlin strengthening her policy advocacy skills.With nearly 15 years of corporate advisory experience in Indian law firms and conglomerates, Shubha has advised clients on acquisitions, complex contracts, disputes, competition law, and legal compliance. In her last role, she served as General Manager, Legal at the Aditya Birla Group, where she handled strategic acquisitions, competition law, and corporate legal matters across the telecom, viscose staple fibre, chemicals, and micro-finance sectors.",
+      "She recently completed her Master’s in Public Policy from the Hertie School in Berlin, further strengthening her policy advocacy skills."
+    ]
+  },
+  {
+    "name": "Rahul Nair",
+    "position": "VP - HR & Admin",
+    "image": "/images/rahul.png",
+    "linkedin": "https://www.linkedin.com/in/rahul-nair-a05b0613/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "details": [
+      "With 14 years of corporate experience and 2.5 years as an entrepreneur, Rahul has held multifaceted leadership roles, including HR Head, HR Business Partner, Plant HR Head, Head of Talent Acquisition, L&D Specialist, and HR Operations Specialist.",
+      "He has developed his expertise across diverse sectors, including FMCD (fast-moving consumer durables), medical devices, industrial products, and vertical mobility organizations with a full value chain of R&D, manufacturing, and commercial operations.",
+      "Rahul has led initiatives in building new businesses, greenfield setups, business acquisition integrations, organizational transformations, culture co-creation, and global business transfers.",
+      "He holds a Bachelor’s degree in Mechanical Engineering and a Post Graduate Diploma in Management in Human Resources from the Balaji Institute of Modern Management."
+    ]
+  }
+]

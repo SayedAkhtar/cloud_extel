@@ -1,0 +1,99 @@
+---
+// No special server-side logic required.
+---
+
+<div class="flex bg-white justify-between">
+    <!-- Left Section -->
+    <div class="bg-primary-color text-white text-start py-10 w-1/4 flex justify-center items-center writing-vertical-lr uppercase font-bold text-[60px] relative z-10">
+        Values <br>Organization
+    </div>
+  
+    <!-- Right Section -->
+    <div class="px-6">
+      {[
+        {
+          icon: "ov_1.png",
+          title: "Entrepreneurial Mindset",
+          description:
+            "We encourage creativity and initiative, empowering our team to think like entrepreneurs, embrace challenges, and drive innovative solutions.",
+        },
+        {
+          icon: "ov_2.png",
+          title: "People Development",
+          description:
+            "We prioritize the growth and empowerment of our team, investing in continuous learning and professional development to unlock their full potential.",
+        },
+        {
+          icon: "ov_3.png",
+          title: "Integrity & Trust",
+          description:
+            "We uphold the highest ethical standards, fostering a culture of honesty and transparency that builds trust with our employees, customers, and partners.",
+        },
+        {
+          icon: "ov_4.png",
+          title: "Collaboration",
+          description:
+            "We believe in teamwork and open communication, driving collective success through diverse perspectives.",
+        },
+        {
+          icon: "ov_5.png",
+          title: "Customer Centricity",
+          description:
+            "We prioritize the needs of our customers (internal/external), delivering tailored solutions that empower them.",
+        },
+      ].map((value, index) => (
+        <div class="flex items-start space-x-4 mb-8 h-[207px] w-[665px] border py-8 px-10 connector relative"
+        >
+          <!-- Icon -->
+          <div class="block w-[65px] h-[65px]">
+            <img src={'/images/'+value.icon} alt="" class="max-w-full max-h-full">
+            {/* {value.icon} */}
+          </div>
+          <div class={"connector-dot"+(index % 2 === 0 ? " bg-primary-color" : " bg-[#FF9124]")}></div>
+  
+          <!-- Text -->
+          <div class="flex flex-col w-full">
+            <div class="text-3xl bold-first-letter">{value.title}</div>
+            <div class="text-gray-600 text-lg mt-2">{value.description}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <style>
+    /* Writing mode for vertical text */
+    .writing-vertical-lr {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg); /* For top-to-bottom vertical text */
+    }
+    .bold-first-letter::first-letter {
+  font-weight: bold;
+}
+.connector::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    top: 50%;
+    left: -50%;
+    z-index: 1;
+}
+.connector:nth-child(odd)::before {
+  background-color: #1B74DA; /* Example color for odd items */
+}
+
+.connector:nth-child(even)::before {
+  background-color: #FF9124; /* Example color for even items */
+}
+.connector-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: -21px;
+  transform: translateY(-29%);
+}
+  </style>
+  
