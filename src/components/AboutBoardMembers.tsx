@@ -55,8 +55,8 @@ export default function AboutBoardMembers() {
   }
 
   return (
-    <section className="bg-[#F5FAFE] py-[120px]" id="our-board">
-      <div className="container text-center">
+    <div>
+      <div>
         <h2 className="heading-1">Our Board Members</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {communityData.map((member, index) => (
@@ -177,6 +177,6 @@ export default function AboutBoardMembers() {
           </div>
         </div>
       </Modal>
-    </section>
+    </div>
   );
 }

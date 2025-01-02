@@ -55,8 +55,9 @@ export default function AboutOurTeam() {
   }
 
   return (
-    <section className="bg-primary-color py-[120px]" id="our-team">
-      <div className="container text-center text-white">
+    <div>
+      <div>
+
         <h2 className="heading-1">Our Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {teamData.map((member, index) => (
@@ -182,6 +183,6 @@ export default function AboutOurTeam() {
                 </div>
               </div>
       </Modal>
-    </section>
+    </div>
   );
 }

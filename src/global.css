@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
   font-family: "Montserrat Variable", sans-serif;
   width: 100%;
-  font-size: 92.5%;
+  /* font-size: 92.5%; */
 }
 html {
   color: var(--default-font-color);

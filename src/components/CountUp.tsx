@@ -50,6 +50,7 @@ const CountUp: React.FC<CountUpProps> = ({
       const progressRatio = Math.min(elapsedTime / duration, 3); // Cap ratio to 1
       const value = Math.floor(progressRatio * (end - start) + start);
       if(value >= end){
+        console.log(value);
         return;
       }
       setCurrentValue(value);

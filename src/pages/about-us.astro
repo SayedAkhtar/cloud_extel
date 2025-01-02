@@ -8,11 +8,11 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
 
 <Layout title="About Us | Cloud Extel">
   <MainSectionComponent title="About Us" image="/images/about-us/main.png" />
-  <div id="about-nav">
+  <div id="about-nav" class="overflow-scroll md:overflow-hidden">
     <section class="container bg-white">
-      <div class="pt-8">
+      <div class="pt-3 md:pt-8">
         <nav
-          class="flex space-x-8 border-b border-gray-300w-full justify-between"
+          class="flex space-x-8 border-b border-gray-300w-full justify-between items-center"
         >
           <a
             href="#who-we-are"
@@ -47,7 +47,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             `}
           >
             <span
-              class={`h-[10px] w-[32px] border-[#233852] group-hover:border-white border-t border-b block `}
+              class={`h-[20px] md:h-[10px] w-[32px] border-[#233852] group-hover:border-white border-t border-b block `}
             ></span>
             <span class="sr-only">Toggle menu</span>
           </label>
@@ -58,7 +58,13 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
 
   <section class="bg-[#F5FAFE]" id="who-we-are">
     <div class="max-w-[60rem] container w-full mx-auto section-small py-20">
-      <h1 data-aos="fade-up" data-aos-duration="500" class="heading-1 text-center pb-8">Who We Are</h1>
+      <h1
+        data-aos="fade-up"
+        data-aos-duration="500"
+        class="heading-1 text-center pb-8"
+      >
+        Who We Are
+      </h1>
       <div class="space-y-6 para">
         <p>
           CloudExtel is India’s first full-stack Network as a Service (NaaS)
@@ -102,10 +108,19 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
     </div>
   </section>
   <section class="continer pt-[120px] pb-12 md:pb-24" id="why-cloudextel">
-    <h1 data-aos="fade-up" data-aos-duration="1000" class="heading-1 text-center">Why CloudExtel</h1>
-    <video class="max-w-[750px] w-full mx-auto mt-10"
-    poster="/images/about-us/live.gif"
-    autoplay loop>
+    <h1
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      class="heading-1 text-center"
+    >
+      Why CloudExtel
+    </h1>
+    <video
+      class="max-w-[750px] w-full mx-auto mt-10"
+      poster="/images/about-us/live.gif"
+      autoplay
+      loop
+    >
       <source
         src="/images/about-us/live.webm"
         type='video/webm; codecs="vp8, vorbis"'
@@ -120,9 +135,11 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
     <div class="mx-auto py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div 
-          data-aos="fade-up" data-aos-duration="500"
-        class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-0 md:border-r border-gray-200">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-0 md:border-r border-gray-200"
+        >
           <div class="text-blue-600">
             <svg
               width="48"
@@ -156,8 +173,10 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         </div>
         <!-- Card 2 -->
         <div
-        data-aos="fade-up" data-aos-duration="500" data-aos-delay="500"
-          class="flex flex-col gap-4 p-6  bg-white border-0 md:border-r border-gray-200"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="500"
+          class="flex flex-col gap-4 p-6 bg-white border-0 md:border-r border-gray-200"
         >
           <div class="text-blue-600">
             <svg
@@ -182,9 +201,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           </p>
         </div>
 
-        <div 
-        data-aos="fade-up" data-aos-duration="500" data-aos-delay="700"
-        class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-none border-gray-200">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="700"
+          class="flex flex-col gap-4 p-6 md:pl-0 bg-white border-none border-gray-200"
+        >
           <div class="text-blue-600">
             <svg
               width="44"
@@ -232,13 +254,16 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           </p>
         </div>
         <!-- Card 3 -->
-        
+
         <!-- Card 4 -->
-        
+
         <!-- Card 5 -->
-        <div 
-        data-aos="fade-up" data-aos-duration="500" data-aos-delay="900"
-        class="flex flex-col gap-4 p-6 md:pl-0 bg-white md:border-r border-gray-200">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="900"
+          class="flex flex-col gap-4 p-6 md:pl-0 bg-white md:border-r border-gray-200"
+        >
           <div class="text-blue-600">
             <svg
               width="40"
@@ -254,13 +279,17 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           </div>
           <h3 class="text-xl font-semibold text-gray-800">Value Driven</h3>
           <p class="text-gray-600">
-            We help you manage your network growth efficiently, keeping costs down while performance scales up.
+            We help you manage your network growth efficiently, keeping costs
+            down while performance scales up.
           </p>
         </div>
         <!-- Card 6 -->
         <div
-        data-aos="fade-up" data-aos-duration="500" data-aos-delay="1100"
-        class="flex flex-col gap-4 p-6 bg-white border-0 md:border-r border-gray-200">
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="1100"
+          class="flex flex-col gap-4 p-6 bg-white border-0 md:border-r border-gray-200"
+        >
           <div class="text-blue-600">
             <svg
               width="36"
@@ -286,9 +315,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             services, ensuring that as your needs grow, we grow with you.
           </p>
         </div>
-        <div 
-          data-aos="fade-up" data-aos-duration="500" data-aos-delay="1300" 
-        class="flex flex-col gap-4 p-6 bg-white border-none border-gray-200">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="1300"
+          class="flex flex-col gap-4 p-6 bg-white border-none border-gray-200"
+        >
           <div class="text-blue-600">
             <svg
               width="48"
@@ -329,9 +361,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
   <section class="bg-[#233852] py-[120px]" id="our-legacy">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div 
-          data-aos="fade-right" data-aos-duration="500"
-        class="text-white">
+        <div data-aos="fade-right" data-aos-duration="500" class="text-white">
           <h1 class="heading-1 mb-6">Our Legacy</h1>
           <p class="para mb-3">
             <b>Founded in 2014</b> as a Dark Fiber leasing company in South Mumbai,
@@ -350,9 +380,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             expertise.
           </p>
         </div>
-        <div
-        data-aos="fade-left" data-aos-duration="500"
-        >
+        <div data-aos="fade-left" data-aos-duration="500">
           <img src="/images/our-legacy.jpg" alt="" />
         </div>
       </div>
@@ -373,8 +401,16 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
       <AboutTimeline />
     </div>
   </section>
-  <AboutOurTeam client:load />
-  <AboutBoardMembers client:load />
+  <section class="bg-primary-color py-[120px]" id="our-team">
+    <div class="container text-center text-white">
+      <AboutOurTeam client:load />
+    </div>
+  </section>
+  <section class="bg-[#F5FAFE] py-[120px]" id="our-board">
+    <div class="container text-center">
+      <AboutBoardMembers client:load />
+    </div>
+  </section>
 
   <!-- <AboutModal /> -->
 </Layout>
@@ -429,9 +465,8 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
     }
 
     // Code for scrolling to specific Div
-    const navElements = document.querySelectorAll<HTMLAnchorElement>(
-      "#about-nav nav > a"
-    );
+    const navElements =
+      document.querySelectorAll<HTMLAnchorElement>("#about-nav nav > a");
     const clearAnchors = () => {
       navElements.forEach((element: HTMLAnchorElement) => {
         element.classList.remove("border-b-4", "border-primary-color");
@@ -458,41 +493,71 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    const navElements = document.querySelectorAll<HTMLAnchorElement>(
-      "#about-nav nav > a"
-    );
+    const navElements =
+      document.querySelectorAll<HTMLAnchorElement>("#about-nav nav > a");
     const clearAnchors = () => {
       navElements.forEach((element: HTMLAnchorElement) => {
         element.classList.remove("border-b-4", "border-primary-color");
       });
     };
     const firstSection = document.querySelector<HTMLDivElement>("#who-we-are");
-    const secondSection = document.querySelector<HTMLDivElement>("#why-cloudextel");
+    const secondSection =
+      document.querySelector<HTMLDivElement>("#why-cloudextel");
     const thirdSection = document.querySelector<HTMLDivElement>("#our-legacy");
     const fourthSection = document.querySelector<HTMLDivElement>("#our-team");
     const fifthSection = document.querySelector<HTMLDivElement>("#our-board");
     window.addEventListener("scroll", () => {
-      if(firstSection && (firstSection?.offsetTop * 0.9 < window.scrollY) && (firstSection?.clientHeight * 0.9 < window.scrollY)){
+      if (
+        firstSection &&
+        firstSection?.offsetTop * 0.9 < window.scrollY &&
+        firstSection?.clientHeight * 0.9 < window.scrollY
+      ) {
         clearAnchors();
-        document.querySelector("#about-nav a[href='#who-we-are']")?.classList.add("border-b-4", "border-primary-color"); 
+        document
+          .querySelector("#about-nav a[href='#who-we-are']")
+          ?.classList.add("border-b-4", "border-primary-color");
       }
-      if(secondSection && (secondSection?.offsetTop * 0.9 < window.scrollY) && (secondSection?.clientHeight * 0.9 < window.scrollY)){
+      if (
+        secondSection &&
+        secondSection?.offsetTop * 0.9 < window.scrollY &&
+        secondSection?.clientHeight * 0.9 < window.scrollY
+      ) {
         clearAnchors();
-        document.querySelector("#about-nav a[href='#why-cloudextel']")?.classList.add("border-b-4", "border-primary-color"); 
+        document
+          .querySelector("#about-nav a[href='#why-cloudextel']")
+          ?.classList.add("border-b-4", "border-primary-color");
       }
-      if(thirdSection && (thirdSection?.offsetTop * 0.9 < window.scrollY) && (thirdSection?.clientHeight * 0.9 < window.scrollY)){
+      if (
+        thirdSection &&
+        thirdSection?.offsetTop * 0.9 < window.scrollY &&
+        thirdSection?.clientHeight * 0.9 < window.scrollY
+      ) {
         clearAnchors();
-        document.querySelector("#about-nav a[href='#our-legacy']")?.classList.add("border-b-4", "border-primary-color"); 
-      }if(fourthSection && (fourthSection?.offsetTop * 0.9 < window.scrollY) && (fourthSection?.clientHeight * 0.9 < window.scrollY)){
+        document
+          .querySelector("#about-nav a[href='#our-legacy']")
+          ?.classList.add("border-b-4", "border-primary-color");
+      }
+      if (
+        fourthSection &&
+        fourthSection?.offsetTop * 0.9 < window.scrollY &&
+        fourthSection?.clientHeight * 0.9 < window.scrollY
+      ) {
         clearAnchors();
-        document.querySelector("#about-nav a[href='#our-team']")?.classList.add("border-b-4", "border-primary-color"); 
+        document
+          .querySelector("#about-nav a[href='#our-team']")
+          ?.classList.add("border-b-4", "border-primary-color");
       }
-      if(fifthSection && (fifthSection?.offsetTop * 0.9 < window.scrollY) && (fifthSection?.clientHeight * 0.9 < window.scrollY)){
+      if (
+        fifthSection &&
+        fifthSection?.offsetTop * 0.9 < window.scrollY &&
+        fifthSection?.clientHeight * 0.9 < window.scrollY
+      ) {
         clearAnchors();
-        document.querySelector("#about-nav a[href='#our-board']")?.classList.add("border-b-4", "border-primary-color"); 
+        document
+          .querySelector("#about-nav a[href='#our-board']")
+          ?.classList.add("border-b-4", "border-primary-color");
+      } else {
       }
-      else{
-      }
-    })
-  })
+    });
+  });
 </script>

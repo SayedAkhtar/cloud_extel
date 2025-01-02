@@ -64,11 +64,11 @@ export default function LifeAwards() {
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
-              <div key={tab.id} className="tab-content grid grid-cols-4 gap-10">
+              <div key={tab.id} className="tab-content grid grid-cols-1 md:grid-cols-4 gap-10">
                 {
                   Array.from({ length: tab.awards }, (_, index) => (
                     
-                        <img src={`/images/awards/${tab.prefix}-${index+1}.png`} alt="" className="max-w-full max-h-full" />
+                        <img src={`/images/awards/${tab.prefix}-${index+1}.png`} alt="" className="max-w-full max-h-full w-full" />
                       
                   )) 
                 }

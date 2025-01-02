@@ -9,7 +9,7 @@ export default {
 			container: {
 				center: true, // Centers the container by adding auto margin
 				padding: {
-					DEFAULT: '1rem', // Default padding for all screens
+					DEFAULT: '0.5rem', // Default padding for all screens
 					sm: '2rem',      // Padding for small screens
 					lg: '4rem',      // Padding for large screens
 					xl: '5rem',      // Padding for extra-large screens

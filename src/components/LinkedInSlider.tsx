@@ -8,6 +8,7 @@ import { useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import _ from 'lodash';
 
 export default function LinkedInSlider() {
   const linkedInLinks = [
@@ -31,8 +32,7 @@ export default function LinkedInSlider() {
         }
     };
   return (
-    <section>
-      <div className="container">
+    
         <div className="max-w-[73rem] mx-auto py-32 relative">
           {/* Custom Navigation Buttons */}
           <button
@@ -48,7 +48,7 @@ export default function LinkedInSlider() {
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                
                 d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
               />
             </svg>
@@ -66,7 +66,7 @@ export default function LinkedInSlider() {
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                
                 d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
               />
             </svg>
@@ -119,7 +119,7 @@ export default function LinkedInSlider() {
             {linkedInLinks.map((element) => {
               const postId = element.split(":").pop();
               return (
-                <SwiperSlide>
+                <SwiperSlide key={_.uniqueId()}>
                   <a
                     href={
                       "https://www.linkedin.com/feed/update/urn:li:activity:" +
@@ -127,6 +127,7 @@ export default function LinkedInSlider() {
                     }
                     target="_blank"
                     className="border border-[#2338523D]"
+                    
                   >
                     <div>
                       <iframe
@@ -169,7 +170,6 @@ export default function LinkedInSlider() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      
   );
 }
