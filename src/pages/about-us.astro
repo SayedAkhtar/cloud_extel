@@ -8,7 +8,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
 
 <Layout title="About Us | Cloud Extel">
   <MainSectionComponent title="About Us" image="/images/about-us/main.png" />
-  <div id="about-nav" class="overflow-scroll md:overflow-hidden">
+  <div id="about-nav" class="overflow-scroll md:overflow-hidden hidden md:block">
     <section class="container bg-white">
       <div class="pt-3 md:pt-8">
         <nav
@@ -38,12 +38,14 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           >
           <label
             for="nav-toggle"
+            id="nav-toggle-label"
             class={`h-full flex flex-col items-center justify-center rounded-full border-[#233852] border bg-transparent py-3 px-4 text-gray-600 
             transition hover:text-gray-600/75
             hover:bg-[#233852]
             hover:text-white
             group cursor-pointer
-            -mt-3
+            -mt-6
+            hidden
             `}
           >
             <span
@@ -71,7 +73,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           provider offering digital infrastructure services such as Small Cell
           Hosting, Fiber to the Home (FTTH), Intra-City Fiber, & Virtualized
           Networks. We cater to telecom operators, internet service providers,
-          data centers, enterprises, & large content providers to address the
+          data centers, enterprises & large content providers to address the
           challenges emerging from the hypergrowth of data consumption in India.
         </p>
         <p>
@@ -84,7 +86,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         <p>
           In 2023, Macquarie Capital, the corporate advisory, capital markets, &
           principal investment arm of Macquarie Group, and Advencap, a strategic
-          investor in digital infrastructure acquired a majority stake in
+          investor in digital infrastructure, acquired a majority stake in
           CloudExtel to enhance our portfolio of services. In 2024, we secured
           our first external debt from NIIF Infrastructure Finance Ltd. & Aditya
           Birla Finance Ltd.
@@ -117,7 +119,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
     </h1>
     <video
       class="max-w-[750px] w-full mx-auto mt-10"
-      poster="/images/about-us/live.gif"
+      poster="/images/about-us/live.webm"
       autoplay
       loop
     >
@@ -163,7 +165,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-800">
-            Commitment to <br />excellence
+            Commitment to <br />Excellence
           </h3>
           <p class="text-gray-600">
             Our advanced skills and expertise redefine networking and NaaS
@@ -323,8 +325,8 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         >
           <div class="text-blue-600">
             <svg
-              width="48"
-              height="48"
+              width="36"
+              height="36"
               viewBox="0 0 48 48"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -361,7 +363,9 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
   <section class="bg-[#233852] py-[120px]" id="our-legacy">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div data-aos="fade-right" data-aos-duration="500" class="text-white">
+        <div 
+        
+        class="text-white">
           <h1 class="heading-1 mb-6">Our Legacy</h1>
           <p class="para mb-3">
             <b>Founded in 2014</b> as a Dark Fiber leasing company in South Mumbai,
@@ -380,8 +384,11 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             expertise.
           </p>
         </div>
-        <div data-aos="fade-left" data-aos-duration="500">
-          <img src="/images/our-legacy.jpg" alt="" />
+        <div 
+        
+        class="w-full overflow-clip"
+        >
+          <img src="/images/our-legacy.jpg" class="w-full object-contain" alt="" />
         </div>
       </div>
     </div>
@@ -443,6 +450,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
           );
           pageNav.classList.remove("-translate-y-full");
           placeholder.style.display = "block";
+          document.getElementById("nav-toggle-label")!.style.display = "block";
         } else {
           pageNav.classList.remove(
             "fixed",
@@ -460,6 +468,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
             "duration-300"
           );
           placeholder.style.display = "none";
+          document.getElementById("nav-toggle-label")!.style.display = "none";
         }
       });
     }

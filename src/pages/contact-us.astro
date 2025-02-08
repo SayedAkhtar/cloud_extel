@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
     class="bg-primary-color w-screen pt-[100px] h-auto md:h-[480px] relative"
   >
     <div
-      class="container flex flex-col md:flex-row relative"
+      class="container flex flex-col md:flex-row relative pb-5"
     >
       <div class="w-full md:w-[50%]">
         <h1
@@ -26,12 +26,12 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </main>
-  <section class="container py-0 md:pt-[60px] relative top-[-150px] md:top-0">
-    <div class="flex gap-6 flex-col md:flex-row justify-between">
-      <div class="w-full md:w-1/2 order-2 md:order-1 mt-10 md:mt-0">
+  <section class="container py-0 lg:pt-[60px] relative lg:top-0 h-auto lg:h-[500px]">
+    <div class="flex gap-6 flex-col lg:flex-row justify-between">
+      <div class="w-full md:w-1/2 order-2 lg:order-1 mt-10 md:mt-0">
         <div class="lg:col-span-5">
           <div class="space-y-4">
-            <div class="flex items-start gap-3">
+            <div class=" items-start gap-3 hidden">
               <img src="/images/phone.png" alt="" />
               <a
                 href="tel:+919867151303"
@@ -41,7 +41,7 @@ import Layout from "../layouts/Layout.astro";
               </a>
             </div>
 
-            <div class="flex items-start gap-3">
+            <div class=" items-start gap-3 hidden">
               <img src="/images/map-pointer.png" alt="" />
               <address class="not-italic para font-medium">
                 The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
@@ -52,14 +52,15 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
       <div
-        class="bg-[#F5FAFE] p-6 md:p-12 w-full max-w-lg relative top-0 mt-[180px] md:mt-0 md:top-[-320px] order-1 md:order-2 right-0"
+        class="bg-[#F5FAFE] p-6 md:p-12 w-full lg:max-w-lg relative top-0 mt-4 lg:top-[-320px] order-1 lg:order-2 right-0"
       >
-        <form class="space-y-6">
+        <form class="space-y-6" action="https://cloudextel.com/contact-form.php" method="POST">
           <!-- Full Name -->
           <div>
             <input
               type="text"
               placeholder="Full Name"
+              name="name"
               class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
             />
           </div>
@@ -69,6 +70,7 @@ import Layout from "../layouts/Layout.astro";
             <input
               type="email"
               placeholder="Email"
+              name="email"
               class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
             />
           </div>
@@ -78,6 +80,7 @@ import Layout from "../layouts/Layout.astro";
             <input
               type="text"
               placeholder="Contact No."
+              name="contact"
               class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
             />
           </div>
@@ -87,6 +90,7 @@ import Layout from "../layouts/Layout.astro";
             <input
               type="text"
               placeholder="Subject"
+              name="subject"
               class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
             />
           </div>
@@ -96,6 +100,7 @@ import Layout from "../layouts/Layout.astro";
             <textarea
               placeholder="Message"
               rows="8"
+              name="message"
               class="w-full border border-[#D4E2ED] p-3 focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-primary-color"
             ></textarea>
           </div>

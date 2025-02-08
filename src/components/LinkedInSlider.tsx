@@ -12,10 +12,12 @@ import _ from 'lodash';
 
 export default function LinkedInSlider() {
   const linkedInLinks = [
-    'https://www.linkedin.com/embed/feed/update/urn:li:share:7267395226594357249',
+    'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7284433094869180417',
+    'https://www.linkedin.com/embed/feed/update/urn:li:share:7283068956188315649',
+    'https://www.linkedin.com/embed/feed/update/urn:li:share:7282282330281365505',
+    'https://www.linkedin.com/embed/feed/update/urn:li:share:7281904847862288384',
     'https://www.linkedin.com/embed/feed/update/urn:li:share:7269206492879179776',
     'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7259786182824259584',
-    'https://www.linkedin.com/embed/feed/update/urn:li:share:7267395226594357249',
     'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7249637761857572864',
   ]
   const sliderRef = useRef<any>(null);
@@ -37,7 +39,7 @@ export default function LinkedInSlider() {
           {/* Custom Navigation Buttons */}
           <button
             ref={prevRef}
-            className="custom-prev absolute top-1/2 -left-16 transform -translate-y-1/2 text-white px-4 py-2 rounded z-10"
+            className="custom-prev absolute top-1/2 -left-16 transform -translate-y-1/2 text-white px-4 py-2 rounded z-10 hidden md:block"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +57,7 @@ export default function LinkedInSlider() {
           </button>
           <button
             ref={nextRef}
-            className="custom-next absolute top-1/2 -right-16 transform -translate-y-1/2  text-white px-4 py-2 rounded z-10"
+            className="custom-next absolute top-1/2 -right-16 transform -translate-y-1/2  text-white px-4 py-2 rounded z-10 hidden md:block"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,10 +79,10 @@ export default function LinkedInSlider() {
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: true,
-            }}
+            // autoplay={{
+            //   delay: 3500,
+            //   disableOnInteraction: true,
+            // }}
             // slidesPerView={3}
             // spaceBetween={30}
             modules={[Autoplay, Navigation]}
@@ -118,27 +120,34 @@ export default function LinkedInSlider() {
           >
             {linkedInLinks.map((element) => {
               const postId = element.split(":").pop();
+              const postUrl = element.replace("embed/feed", "feed");
               return (
-                <SwiperSlide key={_.uniqueId()}>
-                  <a
-                    href={
-                      "https://www.linkedin.com/feed/update/urn:li:activity:" +
-                      postId
-                    }
-                    target="_blank"
-                    className="border border-[#2338523D]"
-                    
-                  >
-                    <div>
+                <SwiperSlide key={postId}
+                >
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(postUrl,
+                          "_blank"
+                        );
+                      }}
+                      className="border border-[#2338523D] relative"
+                    >
+                      <div className='absolute top-0 left-0 w-full h-full bg-transparent z-10'
+                      >
+
+                      </div>
                       <iframe
                         src={element}
                         height="100%"
                         width="100%"
                         title="Embedded post"
-                        className="min-h-[500px]"
+                        className="min-h-[330px]"
+                        scrolling='no'
+                        frameBorder="0"
                       ></iframe>
                     </div>
-                  </a>
+                 
                 </SwiperSlide>
               );
             })}
@@ -160,7 +169,7 @@ export default function LinkedInSlider() {
                   width: "12px",
                   height: "12px",
                   borderRadius: "50%",
-                  backgroundColor: index === activeIndex ? "#1456a2" : "gray",
+                  backgroundColor: index === activeIndex ? "#1456a2" : "#d9d9d9",
                   margin: "0 5px",
                   border: "none",
                   transition: "background 0.3s ease",

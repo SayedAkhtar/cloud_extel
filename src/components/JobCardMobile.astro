@@ -1,0 +1,43 @@
+---
+import _ from "lodash";
+// Props for dynamic data
+interface Props {
+  title: string;
+  location: string;
+  department: string;
+  postedOn: string;
+  know_more_url: string;
+}
+
+const { title, location, department, postedOn, know_more_url } = Astro.props;
+---
+<div class="py-6 bg-white rounded-lg border-b">
+  <h2 class="text-lg font-bold text-gray-800">{title}</h2>
+  <div class="mt-4">
+    <p class="text-xs text-gray-500 font-bold uppercase">Location</p>
+    <p class="text-black text-xl">{location}</p>
+  </div>
+  <div class="mt-4">
+    <p class="text-xs text-gray-500 font-bold uppercase">Department</p>
+    <p class="text-black text-xl">{department}</p>
+  </div>
+  <div class="mt-4">
+    <p class="text-xs text-gray-500 font-bold uppercase">Posted On</p>
+    <p class="text-black text-xl">{postedOn}</p>
+  </div>
+  <div class="mt-6 flex items-center justify-between">
+    {
+      !_.isEmpty(know_more_url) && (
+        <a href={know_more_url} class="text-primary-color text-sm font-bold underline">Know More</a>
+    )
+    } 
+    
+    <a
+      target="_top"
+      href="mailto:careers@cloudextel.com"
+      class="inline-flex items-center px-4 py-2 bg-primary-color text-white text-sm font-medium rounded-full"
+    >
+      Apply Now →
+    </a>
+  </div>
+</div>

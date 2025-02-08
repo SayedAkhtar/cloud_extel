@@ -61,7 +61,7 @@ export default function AboutBoardMembers() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {communityData.map((member, index) => (
             <div 
-            data-aos="fade-up" data-aos-duration="500" data-aos-delay={index*100}
+            // data-aos="fade-up" data-aos-duration="500" data-aos-delay={index*100}
             className="bg-white p-6" key={index+'_'+member.name}>
               <div className="flex flex-col items-center gap-4 h-full">
                 <img
@@ -131,7 +131,7 @@ export default function AboutBoardMembers() {
           id="modalContent"
           className="relative transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg md:max-w-[960px]"
         >
-          <div className="bg-white  max-h-[516px] h-full overflow-hidden md:px-[56px] md:py-[56px] sm:p-6 sm:pb-4">
+          <div className="bg-white  md:max-h-[516px] max-h-full h-full overflow-hidden md:px-[56px] md:py-[56px] sm:p-6 sm:pb-4">
             <button
               className="self-start text-white text-xl mb-6 absolute top-4 right-4"
               aria-label="Close"
@@ -154,7 +154,7 @@ export default function AboutBoardMembers() {
                 <img
                   src={modalData.image}
                   alt={modalData.name}
-                  className="min-w-[260px] h-full"
+                  className="md:min-w-[260px] w-full h-full"
                 />
               </div>
               <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">

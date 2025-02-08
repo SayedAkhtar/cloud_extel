@@ -6,7 +6,6 @@ import customersData from '../data/our-customers.json';
 ---
 <Layout title="Our Solutions | Cloud Extel">
     <MainSectionComponent title="Our Solutions" image="/images/our-solutions.png" />
-
     <OurSolutionsTabs client:load/>
     <section class="bg-primary-color">
         <div class="container">
@@ -74,6 +73,7 @@ import customersData from '../data/our-customers.json';
             );
             pageNav.classList.remove("-translate-y-full");
             placeholder.style.display = "block";
+            document.getElementById("nav-toggle-label")!.style.display = "block";
           } else {
             pageNav.classList.remove(
               "fixed",
@@ -91,6 +91,7 @@ import customersData from '../data/our-customers.json';
               "duration-300"
             );
             placeholder.style.display = "none";
+            document.getElementById("nav-toggle-label")!.style.display = "none";
           }
         });
       }

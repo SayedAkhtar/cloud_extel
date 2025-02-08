@@ -1,5 +1,5 @@
 <header class="position fixed z-20 w-full">
-  <div class="container flex h-[120px] items-center gap-8 text-white">
+  <div class="container flex h-[80px] md:h-[120px] items-center gap-8 text-white">
     <a
       href="/"
       class="block max-h-[55px] w-auto"
@@ -10,11 +10,11 @@
 
       <svg
         width="250"
-        height="52"
+        height="45"
         viewBox="0 0 250 52"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        class="max-h-[55px] max-w-[250px] w-auto"
+        class="max-h-[55px] max-w-[150px] md:max-w-[250px] w-auto"
       >
         <path
           d="M16.7784 27.2102C17.6338 27.2102 18.3272 26.5163 18.3272 25.6603C18.3272 24.8043 17.6338 24.1104 16.7784 24.1104C15.923 24.1104 15.2295 24.8043 15.2295 25.6603C15.2295 26.5163 15.923 27.2102 16.7784 27.2102Z"
@@ -34,7 +34,7 @@
 
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <div class="flex items-center justify-end gap-4 w-full">
-        <div class="sm:flex sm:gap-4 h-[55px]">
+        <div class="sm:flex sm:gap-4 h-[42px]">
           <a
             class={`items-center gap-2 rounded-full bg-transparent
                     px-5 py-2.5 text-sm font-medium 
@@ -66,13 +66,13 @@
           <input type="checkbox" id="nav-toggle" class="hidden" />
           <label
             for="nav-toggle"
-            class={`h-full flex flex-col items-center justify-center rounded-full border-white border bg-transparent py-2.5 px-6 text-gray-600 
+            class={`h-full flex flex-col items-center justify-center rounded-full border-white border bg-transparent py-1.5 px-6 text-gray-600 
             transition hover:text-gray-600/75 hover:bg-white hover:text-[#233852]
                     group cursor-pointer
             `}
           >
             <span
-              class={`h-[10px] w-[32px] border-white group-hover:border-[#233852] border-t border-b block `}
+              class={`h-[6px] w-[28px] border-white group-hover:border-[#233852] border-t border-b block `}
             ></span>
             <span class="sr-only">Toggle menu</span>
           </label>

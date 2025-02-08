@@ -22,8 +22,8 @@ import { Icon } from "astro-icon/components";
 
           <div class="flex items-start gap-3">
             <Icon name="mdi:map-marker-radius" />
-            <address class="not-italic">
-              The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
+            <address class="not-italic max-w-[340px]">
+              The Ruby, 11th Floor, AWFIS, Dadar (West),
               Mumbai, Maharashtra - 400028
             </address>
           </div>
@@ -49,6 +49,10 @@ import { Icon } from "astro-icon/components";
                 class="hover:text-white transition-colors">Life @ CloudExtel</a>
             </li>
             <li>
+              <a href="/policies" class="hover:text-white transition-colors"
+                >Company Policy</a>
+            </li>
+            <li>
               <a href="/media" class="hover:text-white transition-colors"
                 >Media</a>
             </li>
@@ -64,25 +68,8 @@ import { Icon } from "astro-icon/components";
       <div class="lg:col-span-2">
         <div class="flex gap-4">
           <a
-            href="https://twitter.com/cloudextel"
-            class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
-          >
-            <span class="inline-block">
-              <svg
-                width="16"
-                height="18"
-                viewBox="0 0 16 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.52191 7.73767L15.4784 0.813721H14.0669L8.89488 6.8257L4.764 0.813721H-0.000488281L6.24621 9.90488L-0.000488281 17.1657H1.4111L6.87291 10.8169L11.2354 17.1657H15.9999L9.52155 7.73767H9.52191ZM1.9197 1.87635H4.0878L14.0676 16.1514H11.8995L1.9197 1.87635Z"
-                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#e7e9eb] transition-all"></path>
-              </svg>
-            </span>
-          </a>
-          <a
             href="https://linkedin.com/company/cloudextel"
+            target="_blank"
             class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
           >
             <span class="block">
@@ -106,7 +93,27 @@ import { Icon } from "astro-icon/components";
             </span>
           </a>
           <a
+            href="https://x.com/cloud_extel"
+            target="_blank"
+            class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
+          >
+            <span class="inline-block">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.52191 7.73767L15.4784 0.813721H14.0669L8.89488 6.8257L4.764 0.813721H-0.000488281L6.24621 9.90488L-0.000488281 17.1657H1.4111L6.87291 10.8169L11.2354 17.1657H15.9999L9.52155 7.73767H9.52191ZM1.9197 1.87635H4.0878L14.0676 16.1514H11.8995L1.9197 1.87635Z"
+                  class="fill-[#E2E2E2] bg-[#E2E2E2] group-hover:fill-[#e7e9eb] transition-all"></path>
+              </svg>
+            </span>
+          </a>
+          <a
             href="https://www.youtube.com/channel/UCpLwIU2r56RjGod1eJrk2bA"
+            target="_blank"
             class="group w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#FAFAFA14]"
           >
             <span class="block">
@@ -131,7 +138,7 @@ import { Icon } from "astro-icon/components";
 
     {/* Copyright */}
     <div class="mt-12 pt-8 text-sm text-gray-400">
-      <p>© 2024 CloudExtel (Excel Telesonic India Pvt. Ltd.)</p>
+      <p>© 2025 CloudExtel (Excel Telesonic India Pvt. Ltd.)</p>
     </div>
   </div>
 </footer>

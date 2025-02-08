@@ -55,6 +55,14 @@ html {
 .swiper-pagination{
   margin-top:'40px'
 }
+
+iframe, iframe html{
+  overflow: hidden !important;
+}
+
+.scroll-margin{
+  scroll-margin-top: 120px;
+}
 @media (max-width: 500px) {
   .counter-section div {
     padding-left: 0px;

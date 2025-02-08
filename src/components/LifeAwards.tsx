@@ -3,24 +3,25 @@ import { useState } from 'react';
 const tabs = [
   {
     id: 1,
-    label: "CEO Awards Apr’24",
-    content: <p>Life Awards</p>,
-    awards : 10,
-    prefix: 'april',
-  },
-  {
-    id: 2,
-    label: "CEO Awards Nov'24",
+    label: "CEO Awards Oct'24",
     content: <p>Life Awards</p>,
     awards: 8,
     prefix: 'nov',
   },
   {
+    id: 2,
+    label: "CEO Awards Apr’24",
+    content: <p>Life Awards</p>,
+    awards : 10,
+    prefix: 'Apr',
+  },
+  
+  {
     id: 3,
     label: "Loyalty Awards",
     content: <p>Life Awards</p>,
-    awards: 0,
-    prefix: 'loyalty',
+    awards: 8,
+    prefix: 'Loyalty',
   },
 ];
 
@@ -68,7 +69,7 @@ export default function LifeAwards() {
                 {
                   Array.from({ length: tab.awards }, (_, index) => (
                     
-                        <img src={`/images/awards/${tab.prefix}-${index+1}.png`} alt="" className="max-w-full max-h-full w-full" />
+                        <img src={`/images/awards/${tab.prefix}-0${index+1}.png`} alt="" className="max-w-full max-h-full w-full" />
                       
                   )) 
                 }

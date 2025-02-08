@@ -9,7 +9,7 @@ const { title, image, subtext } = Astro.props;
 
 <main class="bg-primary-color  w-screen pt-[100px] h-auto md:h-[480px] relative">
     <div class="container flex flex-col md:flex-row relative md:absolute md:bottom-0 md:left-[50%] md:-translate-x-1/2">
-        <div class="w-full md:w-[50%] ">
+        <div class="w-full md:w-[50%] text-center md:text-left">
             <!-- <button onclick="history.back()">
                 <img src="/images/right-arrow.png" class="rotate-180" alt="">
             </button> -->
@@ -21,7 +21,7 @@ const { title, image, subtext } = Astro.props;
                 )
             }
         </div>
-        <div data-aos="fade-in-up" data-aos-duration="1000" class="w-full md:w-[50%] flex justify-end max-h-[360px]">
+        <div data-aos="fade-in-up" data-aos-duration="1000" class="w-full md:w-[50%] flex justify-end max-h-[360px] overflow-hidden mt-20 md:mt-0">
             {
                 image && (<img src={image} class="object-contain h-full" alt="" />)
             }
