@@ -157,7 +157,7 @@ function formatDate(dateStr:string) {
         {
           jobs.map((job) => {
             return (
-              <JobCardMobile title={job.position} location={job.location} department={job.lob} postedOn={job.requisition_date} know_more_url={job.know_more_url} />
+              <JobCardMobile job={job} title={job.position} location={job.location} department={job.lob} postedOn={job.requisition_date} know_more_url={job.know_more_url} />
             );
           })
         }

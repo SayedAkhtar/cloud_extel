@@ -1,7 +1,9 @@
 ---
 import _ from "lodash";
+import JobApplicationModalButton from "./JobApplicationModalButton";
 // Props for dynamic data
 interface Props {
+  job: any;
   title: string;
   location: string;
   department: string;
@@ -9,7 +11,7 @@ interface Props {
   know_more_url: string;
 }
 
-const { title, location, department, postedOn, know_more_url } = Astro.props;
+const { title, location, department, postedOn, know_more_url, job } = Astro.props;
 ---
 <div class="py-6 bg-white rounded-lg border-b">
   <h2 class="text-lg font-bold text-gray-800">{title}</h2>
@@ -31,13 +33,13 @@ const { title, location, department, postedOn, know_more_url } = Astro.props;
         <a href={know_more_url} class="text-primary-color text-sm font-bold underline">Know More</a>
     )
     } 
-    
-    <a
+    <JobApplicationModalButton client:load job={job} />
+    <!-- <a
       target="_top"
       href="mailto:careers@cloudextel.com"
       class="inline-flex items-center px-4 py-2 bg-primary-color text-white text-sm font-medium rounded-full"
     >
       Apply Now →
-    </a>
+    </a> -->
   </div>
 </div>

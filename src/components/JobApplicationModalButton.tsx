@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import JobApplicationModal from "./JobApplicationModal";
 
-const JobApplicationModalButton: React.FC = ({ job }) => {
+const JobApplicationModalButton = ({ job }: { job: any }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(job);
   return (
     <div>
       <button
@@ -12,8 +11,8 @@ const JobApplicationModalButton: React.FC = ({ job }) => {
       >
         Apply Now
         <svg
-          width="17"
-          height="8"
+          width={17}
+          height={8}
           viewBox="0 0 17 8"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +26,9 @@ const JobApplicationModalButton: React.FC = ({ job }) => {
       {/* Open Button */}
 
       {/* Show Modal when isOpen is true */}
-      {isOpen && <JobApplicationModal job={job} onClose={() => setIsOpen(false)} />}
+      {isOpen && (
+        <JobApplicationModal job={job} onClose={() => setIsOpen(false)} />
+      )}
     </div>
   );
 };

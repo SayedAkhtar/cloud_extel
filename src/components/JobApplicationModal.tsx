@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface JobApplicationModalProps {
   job: any;
@@ -9,6 +9,48 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
   job,
   onClose,
 }) => {
+
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    position: job.position,
+    current_ctc: "",
+    notice_period: "",
+    resume: null,
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value, type } = e.target;
+    if (type === "file") {
+      setFormData({ ...formData, resume: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const submissionData = new FormData();
+    
+    Object.keys(formData).forEach((key) => {
+      const keyAsString = key as keyof typeof formData;
+      submissionData.append(keyAsString, formData[keyAsString]);
+    });
+
+    try {
+      const response = await fetch("https://cloudextel.com/process_form.php", {
+        method: "POST",
+        body: submissionData,
+      });
+
+      const result = await response.text();
+      alert(result);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit the application.");
+    }
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
       <div className="bg-[#F5FAFE] p-6 w-full max-w-lg shadow-lg relative">
@@ -18,8 +60,8 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
         >
           <svg
-            width="24"
-            height="25"
+            width={24}
+            height={25}
             viewBox="0 0 24 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -29,13 +71,13 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
           </svg>
         </button>
         <svg
-          width="90"
-          height="82"
+          width={90}
+          height={82}
           viewBox="0 0 90 82"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_5856_15870)">
+          <g clipPath="url(#clip0_5856_15870)">
             <path
               d="M48.7241 48.6834C47.5562 49.9973 46.1547 51.2236 44.6656 52.1579C43.7897 52.7127 42.8554 53.1506 41.9502 53.6178C41.921 53.647 41.921 53.6762 41.8918 53.7054C41.5999 54.085 41.3079 54.5229 41.3955 54.9901C41.5123 55.5448 42.0962 55.866 42.651 55.9828C44.1401 56.304 46.3299 56.1288 47.7898 55.7492C50.8263 54.9901 53.8337 53.6762 55.9359 51.3112C58.0965 48.8878 59.06 45.7344 59.352 42.5811C59.6732 39.2818 59.9068 36.2744 58.5929 33.0919C58.2133 32.1575 57.717 31.2524 56.9578 30.5809C56.1987 29.9093 55.1476 29.5297 54.1548 29.7925C53.2789 30.0261 52.5782 30.756 52.1986 31.5736C51.819 32.3911 51.7314 33.3254 51.7022 34.2598C51.6438 36.6832 51.7314 38.289 51.5271 40.7124C51.2935 43.457 50.5343 46.6396 48.7241 48.6834Z"
               fill="white"
@@ -55,10 +97,10 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M55.877 72.2458C55.6726 72.7714 55.3806 73.2677 55.001 73.6765C54.9134 73.7641 54.8258 73.8809 54.709 73.8809C54.4463 73.9101 54.3295 73.5889 54.3003 73.3261C54.2127 72.7422 54.1251 72.129 54.0375 71.5451C53.6871 71.9246 53.3952 72.3334 53.1908 72.8006C53.074 73.0633 52.8988 73.4137 52.6068 73.4429C52.2272 73.4721 52.0521 73.0342 51.9645 72.6838C51.8185 72.0414 51.6433 71.3991 51.4973 70.7275"
               stroke="#37C4CD"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M76.9579 49.2674C75.79 47.9827 74.0966 47.136 72.3739 46.8148C69.9505 46.3768 67.4687 46.8148 65.1037 47.4571C60.0817 48.8294 55.3809 51.1361 50.3589 52.4207C48.1107 53.0047 46.68 52.7711 44.4902 52.5959C41.7164 52.3623 38.8842 52.6543 36.0812 52.4791C33.4827 52.3332 30.6505 52.1288 28.2271 52.8295C27.9059 52.6251 27.5847 52.4207 27.2636 52.1872C24.5482 50.4061 21.8328 48.6542 18.4167 49.2966C15.7305 49.793 13.1319 51.1652 11.4676 53.3551C9.68658 55.6909 10.2413 58.7274 11.818 61.0632C13.1319 62.9903 15.0589 64.421 17.0736 65.6181C23.9934 69.7349 31.5556 72.2751 39.7309 71.7204C40.8113 71.6328 42.1252 71.6328 42.9135 72.5087C43.2055 72.8299 43.3807 74.6401 44.0522 74.5526C44.8697 74.465 46.4172 74.2314 47.1763 73.9686C51.2932 72.4795 55.4393 70.9904 59.5561 69.5306C63.1767 68.2167 66.8264 66.9028 70.1257 64.9465C72.9871 63.2239 75.5565 60.9173 77.0747 57.9391C78.155 55.7785 79.0602 52.9463 77.9215 50.6981C77.6587 50.1433 77.3375 49.6762 76.9579 49.2674Z"
@@ -67,10 +109,10 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M25.7454 55.4572C29.8622 57.501 34.1835 58.8149 38.3587 60.7127C39.9354 61.4135 41.4829 62.1142 43.0596 62.815C43.9355 63.2237 44.8406 63.6033 45.7166 64.0413"
               stroke="#172536"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M29.9207 75.6911C31.147 73.7641 33.0449 72.2166 34.1252 70.2311C34.3588 69.7932 34.5632 69.3552 34.8843 69.0048C35.4975 68.3917 36.6362 68.4793 37.4537 68.3917C38.5632 68.2749 39.6435 68.1289 40.7531 68.0121C40.8114 68.0121 40.899 67.9829 40.9574 68.0121C41.191 68.8589 41.6874 69.6472 42.0961 70.4355C42.3297 70.9027 43.0013 72.5962 43.0889 72.8881C42.6509 73.2385 41.6582 73.5305 41.045 73.7641C39.7311 74.2604 38.388 74.7568 37.3369 75.6911C36.5486 76.3918 35.9938 77.2678 35.4099 78.1145C34.8259 78.9612 34.1836 79.808 33.3369 80.4211C32.4901 81.0051 31.3514 81.2971 30.3879 80.9175C28.2857 80.0416 29.0156 77.0926 29.9207 75.6911Z"
@@ -87,26 +129,26 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M43.6147 8.85781L41.2205 8.21546C40.8994 8.12787 40.5782 8.21546 40.3154 8.41985L39.3227 9.26658"
               stroke="#37C4CD"
-              stroke-width="0.583953"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.583953"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M65.7175 51.4862C61.0751 53.5884 57.3378 57.2089 53.1041 60.0411C49.1625 62.6981 44.7828 64.6251 40.4324 66.5522C40.666 67.0485 40.7535 67.5449 40.9871 68.0413"
               stroke="#172536"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M45.8625 12.0403C46.1545 12.9454 47.2348 13.5002 48.1399 13.179"
               stroke="#1C1C1B"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M41.1623 11.7774C39.4396 12.2154 38.3885 10.4051 38.9141 9.23724C39.644 7.60217 41.9214 7.86495 42.3594 9.58761"
@@ -115,10 +157,10 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M40.2859 9.09139C40.6071 9.0038 40.9867 9.06219 41.2494 9.23738C41.5122 9.41256 41.6874 9.70454 41.6582 9.96732"
               stroke="#1C1C1B"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M32.49 42.6103C31.2345 42.2307 29.9498 42.0263 28.6651 41.8511C27.2928 41.6468 25.9497 41.4716 24.5775 41.238C23.322 41.0044 22.0373 40.8 20.7818 40.5664C20.8986 39.5153 21.0154 38.4642 21.1613 37.4131C21.8621 32.4787 23.1468 27.6903 26.6797 24.1282L33.074 29.9677C32.4316 32.5663 32.49 40.1285 32.49 42.6103Z"
@@ -139,10 +181,10 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M52.3152 40.1576C52.5196 37.413 52.4904 33.3837 52.3444 30.6392"
               stroke="#172536"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M45.7459 16.0697L45.8043 16.2157C45.7459 16.6244 45.7751 17.0332 45.8335 17.442C45.7459 17.4128 45.6291 17.3836 45.5415 17.3544C44.6364 17.0624 43.8773 16.3324 43.4977 15.4857C44.1984 15.8361 44.9868 16.0405 45.7459 16.0697Z"
@@ -151,45 +193,45 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M31.2344 42.1431C31.0592 38.4642 31.5556 35.7196 32.3147 32.1283"
               stroke="#172536"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M48.1103 8.79947C48.1103 9.76299 48.8986 10.5513 49.8622 10.5513C50.8257 10.5513 51.614 9.76299 51.614 8.79947C51.614 7.83594 50.8257 7.04761 49.8622 7.04761C48.8694 7.04761 48.1103 7.83594 48.1103 8.79947Z"
               stroke="#37C4CD"
-              stroke-width="0.583953"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.583953"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M43.614 8.85782C43.614 9.82134 44.4023 10.6097 45.3658 10.6097C46.3293 10.6097 47.1177 9.82134 47.1177 8.85782C47.1177 7.89429 46.3293 7.10596 45.3658 7.10596C44.3731 7.10596 43.614 7.89429 43.614 8.85782Z"
               stroke="#37C4CD"
-              stroke-width="0.583953"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.583953"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M48.1101 8.79944L47.0882 8.85783"
               stroke="#37C4CD"
-              stroke-width="0.583953"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.583953"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M39.4675 72.3335C39.8763 73.151 40.1682 74.0562 40.3142 74.9613C40.3142 75.0489 40.3434 75.1365 40.285 75.2241C40.1974 75.3701 39.9931 75.3409 39.8471 75.2825C39.0003 74.9321 38.4456 73.9394 37.5113 73.881C37.6864 74.8153 38.4456 75.6328 38.358 76.5671C38.358 76.6547 38.3288 76.7423 38.2704 76.8007C38.1828 76.8883 38.0368 76.8883 37.8908 76.8299C37.1901 76.6256 36.7521 75.9248 36.1098 75.6328C35.9346 75.5744 35.701 75.5452 35.6134 75.6912C35.5258 75.808 35.5842 75.9832 35.6718 76.1C35.9638 76.7131 36.2558 77.3555 36.5477 77.9686"
               stroke="#37C4CD"
-              stroke-width="0.291976"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.291976"
+              strokeMiterlimit={10}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </g>
-          <g clip-path="url(#clip1_5856_15870)">
+          <g clipPath="url(#clip1_5856_15870)">
             <path
               d="M6.70099 16.2311H0.963379V18.8677H6.70099V16.2311Z"
               fill="#37C4CD"
@@ -213,11 +255,11 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M15.9928 5.76099H0.125488V24.7494H15.9928V5.76099Z"
               stroke="#BEDFF9"
-              stroke-width="0.253877"
-              stroke-miterlimit="10"
+              strokeWidth="0.253877"
+              strokeMiterlimit={10}
             />
           </g>
-          <g clip-path="url(#clip2_5856_15870)">
+          <g clipPath="url(#clip2_5856_15870)">
             <path
               d="M73.803 20.184H86.1667C88.2739 20.184 90.0003 21.8849 90.0003 23.9667V27.521C90.0003 29.5774 88.3247 31.2784 86.2175 31.3038L74.6915 31.4815C72.8636 31.5069 71.2642 30.2629 70.8834 28.5111L70.0456 24.7791C69.5124 22.4181 71.3403 20.184 73.803 20.184Z"
               fill="#32BFC8"
@@ -229,14 +271,14 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             <path
               d="M73.2703 25.6678L75.0982 24.3477L76.6468 25.6678L78.9571 24.3477L80.4042 25.8455L82.8922 24.3477L84.3393 26.0232L85.8879 24.3477"
               stroke="#1D1D1B"
-              stroke-width="0.253877"
-              stroke-miterlimit="10"
+              strokeWidth="0.253877"
+              strokeMiterlimit={10}
             />
             <path
               d="M73.4734 27.8258L86.0657 27.4449"
               stroke="#1D1D1B"
-              stroke-width="0.253877"
-              stroke-miterlimit="10"
+              strokeWidth="0.253877"
+              strokeMiterlimit={10}
             />
           </g>
           <defs>
@@ -275,22 +317,25 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
         </div>
 
         {/* Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit} >
           <input
             type="text"
+            name="first_name"
             placeholder="First Name"
-            className="w-full border  p-3 outline-none"
+            className="w-full border p-3 outline-none"
             required
           />
           <input
             type="text"
+            name="last_name"
             placeholder="Last Name"
-            className="w-full border  p-3 outline-none"
+            className="w-full border p-3 outline-none"
             required
           />
           <input
             type="text"
             readOnly
+            name="position"
             value={job.position}
             className="w-full border  p-3 outline-none"
             required
@@ -298,12 +343,14 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
           <div className="grid grid-cols-2 gap-4">
             <input
               type="text"
+              name="current_ctc"
               placeholder="Current CTC"
               className="border  p-3 outline-none"
               required
             />
             <input
               type="text"
+              name="notice_period"
               placeholder="Notice Period"
               className="border  p-3 outline-none"
               required
@@ -315,6 +362,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               UPLOAD 📤
               <input
                 type="file"
+                name="resume"
                 className="hidden"
                 accept=".pdf,.doc,.docx"
                 required
