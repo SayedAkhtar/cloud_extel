@@ -17,6 +17,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
     current_ctc: "",
     notice_period: "",
     resume: null,
+    email: "",
   });
 
   const handleChange = (e: any) => {
@@ -324,6 +325,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             placeholder="First Name"
             className="w-full border p-3 outline-none"
             required
+            onChange={handleChange}
           />
           <input
             type="text"
@@ -331,6 +333,15 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             placeholder="Last Name"
             className="w-full border p-3 outline-none"
             required
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            className="w-full border p-3 outline-none"
+            required
+            onChange={handleChange}
           />
           <input
             type="text"
@@ -339,6 +350,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
             value={job.position}
             className="w-full border  p-3 outline-none"
             required
+            onChange={handleChange}
           />
           <div className="grid grid-cols-2 gap-4">
             <input
@@ -347,6 +359,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               placeholder="Current CTC"
               className="border  p-3 outline-none"
               required
+              onChange={handleChange}
             />
             <input
               type="text"
@@ -354,6 +367,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
               placeholder="Notice Period"
               className="border  p-3 outline-none"
               required
+              onChange={handleChange}
             />
           </div>
           <div className="border  p-3 flex items-center justify-between">
@@ -366,6 +380,7 @@ const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                 className="hidden"
                 accept=".pdf,.doc,.docx"
                 required
+                onChange={handleChange}
               />
             </label>
           </div>

@@ -2,13 +2,14 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = htmlspecialchars($_POST["first_name"]);
     $last_name = htmlspecialchars($_POST["last_name"]);
+    $email = htmlspecialchars($_POST["email"]);
     $position = htmlspecialchars($_POST["position"]);
     $current_ctc = htmlspecialchars($_POST["current_ctc"]);
     $notice_period = htmlspecialchars($_POST["notice_period"]);
-    $to = "info@cloudextel.com";
+    $to = "careers@cloudextel.com";
     $email_subject = "Job Application for $position - $first_name $last_name";
-    $headers = "From: noreply@yourdomain.com\r\n";
-    $headers .= "Reply-To: noreply@yourdomain.com\r\n";
+    $headers = "From: ".$email."\r\n";
+    $headers .= "Reply-To: careers@cloudextel.com\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: multipart/mixed; boundary=\"boundary123\"\r\n";
 
@@ -18,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_body .= "New Job Application Submission:\n\n";
     $email_body .= "First Name: $first_name\n";
     $email_body .= "Last Name: $last_name\n";
+    $email_body .= "Email: $email\n";
     $email_body .= "Position: $position\n";
     $email_body .= "Current CTC: $current_ctc\n";
     $email_body .= "Notice Period: $notice_period\n\n";

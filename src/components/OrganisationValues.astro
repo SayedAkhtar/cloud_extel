@@ -2,7 +2,7 @@
 // No special server-side logic required.
 ---
 
-<div class="flex bg-white justify-between flex-col md:flex-row">
+<div class="flex bg-white justify-between flex-col md:flex-row overflow-hidden">
     <!-- Left Section -->
     <div class="bg-primary-color text-white text-start w-[125px] hidden md:flex justify-center items-center writing-vertical-lr capitalize font-bold text-[60px] relative z-10 ">
       Organisation Values
@@ -46,7 +46,7 @@
             "We prioritise the needs of our customers (internal/external), delivering tailored solutions that empower them.",
         },
       ].map((value, index) => (
-        <div class="flex items-start space-x-4 mb-6 last:mb-0 lg:h-[135px] md:h-[265px] lg:w-[973px] md:w-[473px] w-full border py-4 px-10 connector relative "
+        <div class="flex items-start space-x-4 mb-6 last:mb-0 lg:h-[145px] md:h-[265px] xl:w-[973px] lg:w-[763px] md:w-[473px] w-full border py-4 px-10 connector relative "
         >
           <!-- Icon -->
           <div class="block w-[65px] h-[65px]">
