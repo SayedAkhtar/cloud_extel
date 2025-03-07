@@ -12,6 +12,7 @@ try{
   const response = await fetch(import.meta.env.PUBLIC_API_URL+"wp-json/wp/v2/job");
   const data = await response.json();
   data.forEach((job:any, index:number) => {
+  if(job.acf.position != "Senior Project Manager" ){
     jobs.push(
       {
         "sr_no": index+1,
@@ -24,6 +25,7 @@ try{
         "know_more_url": job.acf.pdf_job_file
     }
     );
+  }
   })
   jobs.push({
     "sr_no": jobs.length + 1,
@@ -33,7 +35,7 @@ try{
     "employment_type": "On-roll",
     "requisition_date": "Not Tracked",
     "linkedin_url": "#",
-    "know_more_url": "/pdf/CE_JD_RFM_South_2025-2-04.pdf"
+    "know_more_url": "/pdf/Accounts_Controller_JD_2025-01-13.pdf"
   })
   jobs.push({
     "sr_no": jobs.length + 2,
@@ -43,7 +45,7 @@ try{
     "employment_type": "On-roll",
     "requisition_date": "Not Tracked",
     "linkedin_url": "#",
-    "know_more_url": "/pdf/Accounts_Controller_JD_2025-01-13.pdf"
+    "know_more_url": "/pdf/CE_JD_RFM_South_2025-2-04.pdf"
   })
   jobs.push({
     "sr_no": jobs.length + 3,

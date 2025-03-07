@@ -4,10 +4,10 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Contact Us | CloudExtel">
   <main
-    class="bg-primary-color w-screen pt-[100px] h-auto md:h-[480px] relative"
+    class="bg-[linear-gradient(to_bottom,theme(colors.primary-color)_50%,white_30%)] w-screen pt-[100px] h-auto relative"
   >
     <div
-      class="container flex flex-col md:flex-row relative pb-5"
+      class="container flex flex-col md:flex-row relative pb-5 justify-between"
     >
       <div class="w-full md:w-[50%]">
         <h1
@@ -24,35 +24,8 @@ import Layout from "../layouts/Layout.astro";
           discussing partnerships, we're just a message away.
         </p>
       </div>
-    </div>
-  </main>
-  <section class="container py-0 lg:pt-[60px] relative lg:top-0 h-auto lg:h-[500px]">
-    <div class="flex gap-6 flex-col lg:flex-row justify-between">
-      <div class="w-full md:w-1/2 order-2 lg:order-1 mt-10 md:mt-0">
-        <div class="lg:col-span-5">
-          <div class="space-y-4">
-            <div class=" items-start gap-3 hidden">
-              <img src="/images/phone.png" alt="" />
-              <a
-                href="tel:+919867151303"
-                class=" transition-colors para font-medium"
-              >
-                +91 98671 51303
-              </a>
-            </div>
-
-            <div class=" items-start gap-3 hidden">
-              <img src="/images/map-pointer.png" alt="" />
-              <address class="not-italic para font-medium">
-                The Ruby, 11th Floor, AWFIS, Dadar (West),<br />
-                Mumbai, Maharashtra - 400028
-              </address>
-            </div>
-          </div>
-        </div>
-      </div>
       <div
-        class="bg-[#F5FAFE] p-6 md:p-12 w-full lg:max-w-lg relative top-0 mt-4 lg:top-[-320px] order-1 lg:order-2 right-0"
+        class="bg-[#F5FAFE] p-6 md:p-12 lg:max-w-lg relative top-0 mt-4  order-1 lg:order-2 right-0 md:w-1/2 w-full md:mt-[80px]"
       >
         <form class="space-y-6" action="https://cloudextel.com/contact-form.php" method="POST">
           <!-- Full Name -->
@@ -116,6 +89,11 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </form>
       </div>
+    </div>
+  </main>
+  <section class="container py-0 relative lg:top-0 h-auto lg:h-[500px]">
+    <div class="flex gap-6 flex-col lg:flex-row justify-between">
+      
     </div>
   </section>
 </Layout>
