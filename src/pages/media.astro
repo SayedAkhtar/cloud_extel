@@ -1,21 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MediaTabLayout from "../components/MediaTabLayout";
-import mediaData from "../data/media-articles.json";
-import pressData from "../data/press-release.json";
+import PressReleases from "../data/press-release.json"
 
 const routePath = Astro.url.pathname;
-const mediaSortedData = mediaData.sort(
+let mediaSortedData: any[] = [];
+let pressSortedData: any[] = PressReleases;
+try{
+  const response = await fetch(import.meta.env.PUBLIC_API_URL+"wp-json/wp/v2/posts");
+const posts = await response.json();
+posts.forEach((element: { title: { rendered: any; }; acf: { article_link: any; published_date: any; }; content: { rendered: any; }; thumbnail_url: any; categories: string | string[]; }) => {
+  const post = {
+    "article_name": element.title.rendered,
+      "link": element.acf.article_link,
+      "meta_text": element.content.rendered,
+      "date": element.acf.published_date,
+      "image": element.thumbnail_url
+  };
+  if(element.categories.includes('Media')){
+    mediaSortedData.push(post);
+  }
+  if(element.categories.includes('Press')){
+    pressSortedData.push(post);
+  }
+  
+});
+
+mediaSortedData = mediaSortedData.sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
-const pressSortedData = pressData.sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+pressSortedData = pressSortedData.sort(
+  (a: { date: string | number | Date; }, b: { date: string | number | Date; }) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
+}catch(e){
+  console.log(e);
+}
 ---
 
 <Layout title="Life at CloudExtel | CloudExtel">
-  <header class="position fixed z-20 w-full bg-white">
-    <div class="container flex h-[120px] items-center gap-8 text-white">
+  <header class="position fixed z-20 w-full bg-white top-0">
+    <div class="container flex h-[80px] md:h-[120px] items-center gap-8 text-white">
       <a
         href="/"
         class="flex items-center gap-2 h-[55px]"
@@ -25,7 +49,7 @@ const pressSortedData = pressData.sort(
         <span class="sr-only">Home</span>
         <svg
               width="251"
-              height="55"
+              height="45"
               viewBox="0 0 251 55"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +75,7 @@ const pressSortedData = pressData.sort(
 
       <div class="flex flex-1 items-center justify-end md:justify-between">
         <div class="flex items-center justify-end gap-4 w-full">
-          <div class="sm:flex sm:gap-4 h-[55px]">
+          <div class="sm:flex sm:gap-4 h-[42px]">
             <a
               class={`items-center gap-2 rounded-full bg-transparent
                     px-5 py-2.5 text-sm font-medium 
@@ -104,38 +128,9 @@ const pressSortedData = pressData.sort(
     </div>
   </header>
 
-  <main class="bg-primary-color w-screen h-auto relative pt-[120px]">
-    <div class="flex flex-col md:flex-row items-center relative">
-      <div class="w-full px-[20px] py-[20px] md:py-none md:px-[100px] order-2">
-        <h1 class="text-white text-[40px] font-bold">CloudExtel raises external debt from NIIF IFL and ABFL</h1>
-        <a
-          href="#"
-          class="group flex w-fit gap-2 items-center font-medium bg-white border border-white rounded-full px-6 py-4 mt-6 hover:bg-inherit hover:text-white group-hover:fill-white transition"
-        >
-          Know More
-          <svg
-            width="21"
-            height="9"
-            viewBox="0 0 21 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="transition group-hover:fill-white"
-          >
-            <path
-              class="fill-[#233852] group-hover:fill-white transition"
-              d="M20.3536 4.85477C20.5488 4.65951 20.5488 4.34293 20.3536 4.14767L17.1716 0.965687C16.9763 0.770425 16.6597 0.770425 16.4645 0.965687C16.2692 1.16095 16.2692 1.47753 16.4645 1.67279L19.2929 4.50122L16.4645 7.32965C16.2692 7.52491 16.2692 7.84149 16.4645 8.03675C16.6597 8.23202 16.9763 8.23202 17.1716 8.03675L20.3536 4.85477ZM0 5.00122H20V4.00122H0V5.00122Z"
-            ></path>
-          </svg>
-        </a>
-      </div>
-      <img src="/images/blog.png" class="w-[471px] h-full order-1" alt="" />
-    </div>
-  </main>
-  <section class="container">
     <MediaTabLayout
       mediaData={mediaSortedData}
       pressData={pressSortedData}
       client:load
     />
-  </section>
 </Layout>

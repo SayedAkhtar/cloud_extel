@@ -16,24 +16,79 @@ const routePath = Astro.url.pathname;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="CloudExtel " />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="CloudExtel - India's Leading Network as a Service (NaaS) Provider">
+    <meta property="og:description" content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more..">
+    <meta property="og:image" content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg">
+    <meta property="og:url" content="https://cloudextel.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CloudExtel - India's Leading Network as a Service (NaaS) Provider">
+    <meta name="twitter:description" content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more..">
+    <meta name="twitter:image" content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg">
+
     <title>{title}</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CloudExtel",
+        "url": "https://cloudextel.com",
+        "logo": "https://cloudextel.com/assets/logo.png",
+        "description": "India’s first full-stack Network as a Service (NaaS) provider, offering Small Cell Hosting, FTTH, and Virtualized Networks.",
+        "sameAs": [
+          "https://www.linkedin.com/company/cloudextel",
+          "https://twitter.com/cloudextel"
+        ],
+        "hasPart": [
+          {
+            "@type": "WebPage",
+            "name": "About Us",
+            "url": "https://cloudextel.com/about-us/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Our Solutions",
+            "url": "https://cloudextel.com/our-solutions/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Life at CloudExtel",
+            "url": "https://cloudextel.com/life-at-cloud-extel/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Media",
+            "url": "https://cloudextel.com/media/"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Contact Us",
+            "url": "https://cloudextel.com/contact-us/"
+          }
+        ]
+      }
+      </script>      
   </head>
   <body id="mainBody">
-    {routePath.includes("media") ? null : <Navbar />}
+    {(routePath.includes("media") ||routePath.includes("policies") ) ? null : <Navbar />}
     <Sidenav />
     <slot />
     <Footer />
   </body>
   <script>
     import AOS from "aos";
-    AOS.init({
-      once: true,
-      duration: 1000,
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({
+        once: true,
+        duration: 1000,
+      });
     });
+
     const sidebar = document.querySelector<HTMLDivElement>("#sidebar");
     const toggleCheck = document.querySelector<HTMLInputElement>("#nav-toggle");
     const sideNavClose =

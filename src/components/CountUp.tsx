@@ -11,7 +11,7 @@ const CountUp: React.FC<CountUpProps> = ({
   start = 0,
   end,
   duration = 2000,
-  formatter = (value) => value.toLocaleString(), // Default formatter
+  formatter = (value) => value.toLocaleString('en-IN'), // Default formatter
 }) => {
   const [currentValue, setCurrentValue] = useState<number>(start);
   const [hasStarted, setHasStarted] = useState(false); // Track if animation has started
@@ -24,7 +24,7 @@ const CountUp: React.FC<CountUpProps> = ({
           setHasStarted(true); // Trigger animation when in view
         }
       },
-      { threshold: 1 } // Trigger when 50% of the component is visible
+      { threshold: 1 } // Trigger when fully in view
     );
 
     if (elementRef.current) {
@@ -47,24 +47,21 @@ const CountUp: React.FC<CountUpProps> = ({
       if (startTime === null) startTime = timestamp;
 
       const elapsedTime = timestamp - startTime;
-      const progressRatio = Math.min(elapsedTime / duration, 3); // Cap ratio to 1
+      const progressRatio = Math.min(elapsedTime / duration, 1); // Cap ratio to 1
       const value = Math.floor(progressRatio * (end - start) + start);
-      if(value >= end){
-        console.log(value);
-        return;
-      }
       setCurrentValue(value);
 
       if (progressRatio < 1) {
         requestAnimationFrame(step);
+      } else {
+        setCurrentValue(end); // Ensure the final value is set correctly
       }
     };
 
     requestAnimationFrame(step);
 
-    // Cleanup for safety in case component unmounts
     return () => {
-      startTime = null;
+      startTime = null; // Cleanup
     };
   }, [hasStarted, start, end, duration]);
 

@@ -2,18 +2,18 @@
 // No special server-side logic required.
 ---
 
-<div class="flex bg-white justify-between flex-col md:flex-row">
+<div class="flex bg-white justify-between flex-col md:flex-row overflow-hidden">
     <!-- Left Section -->
-    <div class="bg-primary-color text-white text-start py-10 w-1/4 hidden md:flex justify-center items-center writing-vertical-lr uppercase font-bold text-[60px] relative z-10">
-        Values <br>Organization
+    <div class="bg-primary-color text-white text-start w-[125px] hidden md:flex justify-center items-center writing-vertical-lr capitalize font-bold text-[60px] relative z-10 ">
+      Organisation Values
     </div>
 
-    <div class="bg-primary-color text-white text-start py-10 w-full md:hidden flex justify-center items-center writing-vertical-lr uppercase font-bold text-[40px] mb-[2rem] relative z-10">
-      Organization <br>Values
+    <div class="bg-primary-color text-white text-center py-10 w-full md:hidden flex justify-center items-center writing-vertical-lr uppercase font-bold text-[40px] mb-[2rem] relative z-10">
+      Organisation Values
     </div>
   
     <!-- Right Section -->
-    <div class="px-0 md:px-6">
+    <div class="px-0 md:pl-6">
       {[
         {
           icon: "ov_1.png",
@@ -25,7 +25,7 @@
           icon: "ov_2.png",
           title: "People Development",
           description:
-            "We prioritize the growth and empowerment of our team, investing in continuous learning and professional development to unlock their full potential.",
+            "We prioritise the growth and empowerment of our team, investing in continuous learning and professional development to unlock their full potential.",
         },
         {
           icon: "ov_3.png",
@@ -43,10 +43,10 @@
           icon: "ov_5.png",
           title: "Customer Centricity",
           description:
-            "We prioritize the needs of our customers (internal/external), delivering tailored solutions that empower them.",
+            "We prioritise the needs of our customers (internal/external), delivering tailored solutions that empower them.",
         },
       ].map((value, index) => (
-        <div class="flex items-start space-x-4 mb-8 md:h-[207px] md:w-[665px] w-full border py-8 px-10 connector relative"
+        <div class="flex items-start space-x-4 mb-6 last:mb-0 lg:h-[145px] md:h-[265px] xl:w-[973px] lg:w-[763px] md:w-[473px] w-full border py-4 px-10 connector relative "
         >
           <!-- Icon -->
           <div class="block w-[65px] h-[65px]">
@@ -77,14 +77,24 @@
 .connector::before {
     content: '';
     position: absolute;
-    width: 50%;
+    width: 16%;
     height: 4px;
     top: 50%;
-    left: -50%;
+    left: -16%;
     z-index: 1;
 }
+@media(max-width: 1080px) and (min-width: 768px) {
+  .connector::before{
+    left: -23%;
+    width: 110px;
+  }
+  .writing-vertical-lr {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg); /* For top-to-bottom vertical text */
+    }
+}
 .connector:nth-child(odd)::before {
-  background-color: #1B74DA; /* Example color for odd items */
+  background-color: #1456a2; /* Example color for odd items */
 }
 
 .connector:nth-child(even)::before {
@@ -99,7 +109,7 @@
   left: -21px;
   transform: translateY(-29%);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .writing-vertical-lr{
     writing-mode: horizontal-tb;
     transform: rotate(0deg);
