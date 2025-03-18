@@ -2,7 +2,7 @@
 dist/
 
 #assets files
-public/images
+# public/images
 
 # generated types
 .astro/
