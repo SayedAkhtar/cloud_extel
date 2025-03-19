@@ -16,7 +16,7 @@ import customersData from '../data/our-customers.json';
                         return (<article 
                         data-aos="fade-up" data-aos-duration="500" data-aos-delay={index*100}
                         class="w-full md:w-[23%]">
-                            <img src={item.image} alt={item.name} />
+                            <img src={item.image} alt={item.name} class="w-full" />
                         </article>)
                     })}
                 </div>
@@ -28,24 +28,15 @@ import customersData from '../data/our-customers.json';
                 <div class="heading-1 text-center">Our Subsidiaries</div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <a href="https://bgcppl.in/" class="block">
-                        <div class="bg-[#3789E6] p-8 text-white bg-[url('/images/bgcpl.png')] h-[157px]">
-                            <h3 class="heading-6">
-                                Bombay Gas Company<br>Proprietary Private Limited
-                            </h3>
-                        </div>
+                        <img src="/public/images/about-us/bgcp.png" alt="">
                     </a>
 
                     <a href="#" class="block">
-                        <div class="bg-[#FF9124] p-8 text-white bg-[url('/images/orange-waves.png')] h-[157px]">
-                            <h3 class="heading-6">Orange Waves
-                            <br>Networks</h3>
-                        </div>
+                      <img src="/public/images/about-us/orange.png" alt="">
                     </a>
 
                     <a href="https://netfra.in" class="block">
-                        <div class="bg-[#37C4CD] p-8 text-white bg-[url('/images/netfra.png')] h-[157px]">
-                            <h3 class="heading-6">Netfra Solutions</h3>
-                        </div>
+                      <img src="/public/images/about-us/netfra.png" alt="">
                     </a>
 
                 </div>
