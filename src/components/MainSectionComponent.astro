@@ -1,31 +1,39 @@
 ---
 interface Props {
-	title: string;
-    subtext?: string | null;
-    image?: string;
+  title: string;
+  subtext?: string | null;
+  image?: string;
 }
 const { title, image, subtext } = Astro.props;
 ---
 
-<main class="bg-primary-color  w-screen pt-[100px] h-auto md:h-[480px] relative">
-    <div class="container flex flex-col md:flex-row relative md:absolute md:bottom-0 md:left-[50%] md:-translate-x-1/2">
-        <div class="w-full md:w-[50%] text-center md:text-left">
-            <!-- <button onclick="history.back()">
+<main class="bg-primary-color w-screen pt-[100px] h-auto md:h-[480px] relative">
+  <div
+    class="container flex flex-col md:flex-row relative md:absolute md:bottom-0 md:left-[50%] md:-translate-x-1/2"
+  >
+    <div class="w-full md:w-[50%] text-center md:text-left">
+      <!-- <button onclick="history.back()">
                 <img src="/images/right-arrow.png" class="rotate-180" alt="">
             </button> -->
-            
-            <h1 data-aos="fade-in-up" data-aos-duration="1000" class="heading-1 text-white mt-8 md:mt-16" set:html={title}></h1>
-            {
-                subtext && (
-                    <p class="para text-medium text-white mt-8">{subtext}</p>
-                )
-            }
-        </div>
-        <div data-aos="fade-in-up" data-aos-duration="1000" class="w-full md:w-[50%] flex justify-end max-h-[360px] overflow-hidden mt-20 md:mt-0">
-            {
-                image && (<img src={image} class="object-contain h-full" alt="" />)
-            }
-            
-        </div>
+
+      <h1
+        data-aos="fade-in-up"
+        data-aos-duration="1000"
+        class="heading-1 text-white mt-8 md:mt-16"
+        set:html={title}
+      />
+      {
+        subtext && (
+          <p class="para text-medium text-white mt-8 pb-8">{subtext}</p>
+        )
+      }
     </div>
+    <div
+      data-aos="fade-in-up"
+      data-aos-duration="1000"
+      class="w-full md:w-[50%] flex justify-end max-h-[360px] overflow-hidden mt-20 md:mt-0"
+    >
+      {image && <img src={image} class="object-contain h-full" alt="" />}
+    </div>
+  </div>
 </main>

@@ -12,6 +12,7 @@ try {
   const response = await fetch(
     import.meta.env.PUBLIC_API_URL + "wp-json/wp/v2/job"
   );
+  
   const data = await response.json();
   data.forEach((job: any, index: number) => {
     if (job.acf.position != "Senior Project Manager") {

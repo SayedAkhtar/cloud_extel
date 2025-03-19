@@ -7,7 +7,7 @@ import CountUp from "../components/CountUp";
 ---
 
 <Layout title="CloudExtel | Home">
-  <main class="bg-grey h-screen w-screen relative overflow-hidden">
+  <main class="bg-grey min-h-screen w-screen relative overflow-hidden">
     <div
       class="w-full h-full bg-[#233852A3] z-[10] absolute flex justify-center items-center"
     >
@@ -118,7 +118,7 @@ import CountUp from "../components/CountUp";
           <h6 class="heading-6 text-center">Small Cell Hosting</h6>
         </div>
         <div
-          class="w-1/2 md:w-[251px] px-11 py-5 flex flex-col gap-y-5 items-center justify-start md:border-r border-[#2338523D] gap-2"
+          class="w-1/2 md:w-[251px] px-11 py-5 flex flex-col gap-y-5 items-center justify-start border-0 lg:border-r border-[#2338523D] gap-2"
         >
           <svg
             class="h-[40px]"
@@ -285,7 +285,7 @@ import CountUp from "../components/CountUp";
         </div>
 
         <div
-          class="w-1/2 md:w-[251px] px-11 py-5 flex flex-col gap-y-5 items-center justify-start border-r border-[#2338523D]"
+          class="w-1/2 md:w-[251px] px-11 py-5 flex flex-col gap-y-5 items-center justify-start border-r md:border-r lg:border-0 xl:border-r border-[#2338523D]"
         >
           <svg
             class="h-[40px]"
@@ -504,43 +504,33 @@ import CountUp from "../components/CountUp";
     <div class="container py-24 md:py-32 text-white">
       <h1 class="heading-1 text-center">Connecting India...</h1>
       <div
-        class="flex mt-10 justify-between flex-wrap md:flex-nowrap counter-section"
+        class="mt-10 justify-between counter-section grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
       >
-        <div
-          class="w-full pr-11 py-5 flex flex-col gap-y-5 items-center justify-start md:border-r border-[#ffffff1a]"
-        >
+        <div>
           <h6 class="heading-6 text-center flex">
             <CountUp client:load start={0} end={6500} duration={3000} />+
           </h6>
           <p class="para text-center">Small Cell Sites</p>
         </div>
-        <div
-          class="w-full px-11 py-5 flex flex-col gap-y-5 items-center justify-start md:border-r border-[#ffffff1a]"
-        >
+        <div>
           <h6 class="heading-6 text-center flex">
             <CountUp client:load start={0} end={900000} duration={3000} />+
           </h6>
           <p class="para text-center">Homes Passed</p>
         </div>
-        <div
-          class="w-full flex-grow px-11 py-5 flex flex-col gap-y-5 items-center justify-start md:border-r border-[#ffffff1a]"
-        >
+        <div>
           <h6 class="heading-6 text-center flex">
             <CountUp client:load start={0} end={12500} duration={3000} />+
           </h6>
           <p class="para text-center">Kilometers of Fiber Laid</p>
         </div>
-        <div
-          class="w-full px-8 py-5 flex flex-col gap-y-5 items-center justify-start md:border-r border-[#ffffff1a]"
-        >
+        <div>
           <h6 class="heading-6 text-center flex">
             <CountUp client:load start={0} end={4000} duration={3000} />+
           </h6>
           <p class="para">Societies</p>
         </div>
-        <div
-          class="w-full md:w-[50%] pl-5 py-5 flex flex-col gap-y-5 items-center md:items-end justify-start"
-        >
+        <div>
           <h6 class="heading-6 text-center flex">
             <CountUp client:load start={0} end={500} duration={3000} />
           </h6>
@@ -551,12 +541,12 @@ import CountUp from "../components/CountUp";
   </section>
   <section class="bg-[#F5FAFE]">
     <div class="container py-24 lg:px-32 relative">
-      <div class="w-full md:w-[55%] h-full">
+      <div class="w-full lg:w-[55%] h-full mx-auto lg:mx-0">
         <LocationMap />
       </div>
 
       <div
-        class="max-w-[465px] relative md:absolute md:right-10 md:bottom-32 space-y-10"
+        class="max-w-full w-full lg:max-w-[465px] relative lg:absolute lg:right-10 lg:bottom-32 space-y-10 mx-auto"
       >
         <h1 class="heading-1">Our Presence</h1>
         <p class="para">

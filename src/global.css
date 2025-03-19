@@ -2,12 +2,14 @@
   --default-font-color: #233852;
   --default-primary-color: #1456a2;
 }
+
 body {
   overflow-x: hidden;
   font-family: "Montserrat Variable", sans-serif;
   width: 100%;
   /* font-size: 92.5%; */
 }
+
 html {
   color: var(--default-font-color);
   scroll-behavior: smooth;
@@ -18,24 +20,31 @@ html {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .heading-1 {
-  @apply text-5xl md:text-6xl font-semibold leading-tight;
+  @apply md:text-5xl text-6xl font-semibold leading-tight;
 }
+
 .heading-3 {
-  @apply text-3xl md:text-4xl font-medium leading-tight;
+  @apply md:text-3xl text-4xl font-medium leading-tight;
 }
+
 .heading-6 {
   @apply text-2xl font-semibold leading-tight;
 }
+
 .para {
   @apply leading-6;
 }
+
 .ReactModal__Overlay--after-open {
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.6) !important;
@@ -46,27 +55,25 @@ html {
   bottom: -15px !important;
 }
 
-.swiper-pagination > .swiper-pagination-bullet {
+.swiper-pagination>.swiper-pagination-bullet {
   width: 40px;
   height: 3px;
   border-radius: 0px;
 }
 
-.swiper-pagination{
-  margin-top:'40px'
+.swiper-pagination {
+  margin-top: "40px";
 }
 
-iframe, iframe html{
+iframe,
+iframe html {
   overflow: hidden !important;
 }
 
-.scroll-margin{
+.scroll-margin {
   scroll-margin-top: 120px;
 }
-@media (max-width: 500px) {
-  .counter-section div {
-    padding-left: 0px;
-    padding-right: 0px;
-    text-align: center;
-  }
+
+.counter-section  > div {
+  @apply flex flex-col items-center justify-start gap-y-5  border-r md:[&:nth-child(4n)]:border-none lg:[&:nth-child(4n)]:border-r last:border-none border-[#ffffff1a] py-5 px-4 md:px-0;
 }

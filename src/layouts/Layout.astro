@@ -20,15 +20,33 @@ const routePath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:title" content="CloudExtel - India's Leading Network as a Service (NaaS) Provider">
-    <meta property="og:description" content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more..">
-    <meta property="og:image" content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg">
-    <meta property="og:url" content="https://cloudextel.com">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CloudExtel - India's Leading Network as a Service (NaaS) Provider">
-    <meta name="twitter:description" content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more..">
-    <meta name="twitter:image" content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg">
+    <meta
+      property="og:title"
+      content="CloudExtel - India's Leading Network as a Service (NaaS) Provider"
+    />
+    <meta
+      property="og:description"
+      content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more.."
+    />
+    <meta
+      property="og:image"
+      content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg"
+    />
+    <meta property="og:url" content="https://cloudextel.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CloudExtel - India's Leading Network as a Service (NaaS) Provider"
+    />
+    <meta
+      name="twitter:description"
+      content="At CloudExtel, we're Reinventing Digital Infrastructure with our cutting-edge solutions like Small Cells, Fiber, FTTH, and more.."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cloudextel.com/wp-content/uploads/2023/08/Logo.svg"
+    />
 
     <title>{title}</title>
 
@@ -72,10 +90,14 @@ const routePath = Astro.url.pathname;
           }
         ]
       }
-      </script>      
+    </script>
   </head>
   <body id="mainBody">
-    {(routePath.includes("media") ||routePath.includes("policies") ) ? null : <Navbar />}
+    {
+      routePath.includes("media") || routePath.includes("policies") ? null : (
+        <Navbar />
+      )
+    }
     <Sidenav />
     <slot />
     <Footer />
@@ -138,10 +160,10 @@ const routePath = Astro.url.pathname;
 
     function detectMob() {
       const isMobileDevice =
-        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+        /Android|iPhone|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
           navigator.userAgent
         );
-      const isSmallScreen = window.innerWidth <= 768;
+      const isSmallScreen = window.innerWidth <= 500;
       return isMobileDevice || isSmallScreen;
     }
   </script>
