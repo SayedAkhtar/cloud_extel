@@ -9,9 +9,9 @@ const links = [
   { name: "Contact Us", href: "/contact-us", active: false },
 ];
 links.forEach((link) => {
-  if (link.href !== "/" &&(
-    routePath.includes(link.href) ||
-    (routePath === link.href))
+  if (
+    link.href !== "/" &&
+    (routePath.includes(link.href) || routePath === link.href)
   ) {
     link.active = true;
   }
@@ -23,7 +23,7 @@ if (routePath === "/" && links[0] !== undefined) {
 
 <div
   id="sidebar"
-  class="fixed inset-0 bg-[#233852] text-gray-300 z-50 flex flex-col p-6 w-full md:max-w-[35%] left-[150%]
+  class="fixed inset-0 bg-[#233852] text-gray-300 z-50 flex flex-col p-6 w-full md:max-w-[45%] lg:max-w-[35%] left-[150%]
   animation duration-700 ease-in-out"
 >
   <!-- Close Button -->

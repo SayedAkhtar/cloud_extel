@@ -75,5 +75,5 @@ iframe html {
 }
 
 .counter-section  > div {
-  @apply flex flex-col items-center justify-start gap-y-5  border-r md:[&:nth-child(4n)]:border-none lg:[&:nth-child(4n)]:border-r last:border-none border-[#ffffff1a] py-5 px-4 md:px-0;
+  @apply flex flex-col items-center justify-start gap-y-5  border-r md:[&:nth-child(3n)]:border-none lg:[&:nth-child(4n)]:border-r last:border-none border-[#ffffff1a] py-5 px-4 md:px-0;
 }

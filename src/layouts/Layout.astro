@@ -138,6 +138,8 @@ const routePath = Astro.url.pathname;
         if (target.checked) {
           if (detectMob()) {
             sidebar.style.left = "0%";
+          } else if (window.innerWidth >= 700 && window.innerWidth <= 1000) {
+            sidebar.style.left = "55%";
           } else {
             sidebar.style.left = "65%";
           }
