@@ -43,9 +43,7 @@ try {
     }
   );
 
-  mediaSortedData = mediaSortedData.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  mediaSortedData = mediaSortedData.sort((a, b) => b.date - a.date);
   pressSortedData = pressSortedData.sort(
     (
       a: { date: string | number | Date },

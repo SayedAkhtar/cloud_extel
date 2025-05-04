@@ -1,7 +1,123 @@
-import { useState, type Key } from "react";
+import { useEffect, useState, type Key } from "react";
+import _ from "lodash";
 
 const MediaTabLayout = ({ mediaData, pressData }: any) => {
   const [activeTab, setActiveTab] = useState("news");
+  const [ajaxMediaData, setAjaxMediaData] = useState<
+    {
+      article_name: string;
+      link: string;
+      meta_text: string;
+      date: string;
+      image: string;
+    }[]
+  >(mediaData);
+  const [ajaxPressData, setAjaxPressData] = useState<
+    {
+      article_name: string;
+      link: string;
+      meta_text: string;
+      date: string;
+      image: string;
+    }[]
+  >(pressData);
+  function formatDate(dateStr: string) {
+    // Extract year, month, and day
+    const year = dateStr != null ? dateStr.slice(0, 4) : "2010";
+    const month = dateStr != null ? dateStr.slice(4, 6) : "01";
+    const day = dateStr != null ? dateStr.slice(6, 8) : "01";
+
+    // Month names array
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    // Format date
+    return `${day} ${monthNames[_.toNumber(month) - 1]} ${year.slice(-2)}`;
+  }
+
+  useEffect(() => {
+    mediaDataSorted();
+  }, []);
+
+  const mediaDataSorted = async () => {
+    let tempMedia: {
+      article_name: string;
+      link: string;
+      meta_text: string;
+      date: string;
+      image: string;
+    }[] = [];
+    let tempPress: {
+      article_name: string;
+      link: string;
+      meta_text: string;
+      date: string;
+      image: string;
+    }[] = [];
+    const categoryResponse = await fetch(
+      import.meta.env.PUBLIC_API_URL + "wp-json/wp/v2/categories",
+    );
+    const categoriesJson = await categoryResponse.json();
+    const categories: any = {};
+    categoriesJson.forEach((category: any) => {
+      categories[category.name] = category.id;
+    });
+
+    const response = await fetch(
+      import.meta.env.PUBLIC_API_URL +
+        "wp-json/wp/v2/posts?per_page=100&_embed=1",
+    );
+
+    const posts = await response.json();
+    posts.forEach(
+      (element: {
+        title: { rendered: any };
+        acf: { article_link: any; published_date: any };
+        content: { rendered: any };
+        thumbnail_url: any;
+        categories: string | string[];
+        _embedded: any;
+      }) => {
+        const post = {
+          article_name: element.title.rendered,
+          link: element.acf.article_link,
+          meta_text: element.content.rendered,
+          date: element.acf.published_date,
+          image: !_.isEmpty(element._embedded["wp:featuredmedia"])
+            ? element._embedded["wp:featuredmedia"][0]?.source_url
+            : null,
+        };
+        if (element.categories.includes(categories["Media"])) {
+          tempMedia.push(post);
+        }
+        if (element.categories.includes(categories["Press"])) {
+          tempPress.push(post);
+        }
+      },
+    );
+    tempMedia = tempMedia.sort((a, b) => parseInt(b.date) - parseInt(a.date));
+    tempPress = tempPress.sort(
+      (
+        a: { date: string | number | Date },
+        b: { date: string | number | Date },
+      ) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+    setAjaxMediaData(tempMedia);
+    setAjaxPressData(tempPress);
+  };
+
   return (
     <>
       <main className="relative mt-[80px] flex h-auto min-h-[340px] w-screen items-center bg-[url('/images/blogs/bg.jpeg')] bg-cover md:mt-[120px]">
@@ -67,7 +183,7 @@ const MediaTabLayout = ({ mediaData, pressData }: any) => {
           <div>
             {activeTab === "news" && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-                {mediaData.map((card: any, index: Key) => (
+                {ajaxMediaData.map((card: any, index: Key) => (
                   <div
                     key={index}
                     className="rounded-none border bg-white p-4 shadow-sm"
@@ -93,7 +209,7 @@ const MediaTabLayout = ({ mediaData, pressData }: any) => {
                             }}
                           ></p>
                           <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                            <span>{card.date}</span>
+                            <span>{formatDate(card.date)}</span>
                             <span className="font-medium text-blue-600">→</span>
                           </div>
                         </div>
@@ -106,14 +222,16 @@ const MediaTabLayout = ({ mediaData, pressData }: any) => {
 
             {activeTab === "press" && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-                {pressData.map((card: any, index: Key) => (
+                {ajaxPressData.map((card: any, index: Key) => (
                   <a href={card.link} target="_blank">
                     <div
                       key={index}
                       className="flex min-h-[204px] flex-col items-center justify-center rounded-none border bg-white p-6 shadow-sm"
                     >
                       <div className="flex w-full items-center justify-between">
-                        <span className="text-[#37C4CD]">{card.date}</span>
+                        <span className="text-[#37C4CD]">
+                          {formatDate(card.date)}
+                        </span>
                       </div>
 
                       <h3

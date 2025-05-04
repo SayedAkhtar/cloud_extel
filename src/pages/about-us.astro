@@ -19,7 +19,7 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         >
           <a
             href="#who-we-are"
-            class="text-primary-color font-semibold border-b-4 border-primary-color pb-4"
+            class="text-primary-color font-semibold border-b-4 pb-4"
             >Who We Are</a
           >
           <a
@@ -508,7 +508,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
       document.querySelectorAll<HTMLAnchorElement>("#about-nav nav > a");
     const clearAnchors = () => {
       navElements.forEach((element: HTMLAnchorElement) => {
-        element.classList.remove("border-b-4", "border-primary-color");
+        element.classList.remove(
+          "border-b-4",
+          "border-primary-color",
+          "text-primary-color",
+          "font-semibold"
+        );
       });
     };
     const firstSection = document.querySelector<HTMLDivElement>("#who-we-are");
@@ -526,7 +531,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         clearAnchors();
         document
           .querySelector("#about-nav a[href='#who-we-are']")
-          ?.classList.add("border-b-4", "border-primary-color");
+          ?.classList.add(
+            "border-b-4",
+            "border-primary-color",
+            "text-primary-color",
+            "font-semibold"
+          );
       }
       if (
         secondSection &&
@@ -536,7 +546,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         clearAnchors();
         document
           .querySelector("#about-nav a[href='#why-cloudextel']")
-          ?.classList.add("border-b-4", "border-primary-color");
+          ?.classList.add(
+            "border-b-4",
+            "border-primary-color",
+            "text-primary-color",
+            "font-semibold"
+          );
       }
       if (
         thirdSection &&
@@ -546,7 +561,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         clearAnchors();
         document
           .querySelector("#about-nav a[href='#our-legacy']")
-          ?.classList.add("border-b-4", "border-primary-color");
+          ?.classList.add(
+            "border-b-4",
+            "border-primary-color",
+            "text-primary-color",
+            "font-semibold"
+          );
       }
       if (
         fourthSection &&
@@ -556,7 +576,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         clearAnchors();
         document
           .querySelector("#about-nav a[href='#our-team']")
-          ?.classList.add("border-b-4", "border-primary-color");
+          ?.classList.add(
+            "border-b-4",
+            "border-primary-color",
+            "text-primary-color",
+            "font-semibold"
+          );
       }
       if (
         fifthSection &&
@@ -566,7 +591,12 @@ import AboutBoardMembers from "../components/AboutBoardMembers";
         clearAnchors();
         document
           .querySelector("#about-nav a[href='#our-board']")
-          ?.classList.add("border-b-4", "border-primary-color");
+          ?.classList.add(
+            "border-b-4",
+            "border-primary-color",
+            "text-primary-color",
+            "font-semibold"
+          );
       } else {
       }
     });
