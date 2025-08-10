@@ -45,29 +45,31 @@ const JobsListing = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
 
   useEffect(() => {
-    const tempJobs: Job[] = [];
-    fetch(import.meta.env.PUBLIC_API_URL + "wp-json/wp/v2/job")
-      .then((res) => res.json())
-      .then((data) => {
-        data.forEach((job: any, index: number) => {
-          if (job.acf.position != "Senior Project Manager") {
-            tempJobs.push({
-              sr_no: index + 1,
-              lob: job.acf.lob,
-              position: job.acf.position,
-              location: job.acf.location,
-              employment_type: _.capitalize(job.acf.employment_type),
-              requisition_date: job.acf.requisition_date
-                ? formatDate(job.acf.requisition_date)
-                : "Not Tracked",
-              linkedin_url: job.acf.linkedin_url,
-              know_more_url: job.acf.pdf_job_file,
-            });
-          }
-        });
-        setJobs(tempJobs);
-      });
+    loadMoreJobs();
   }, []);
+
+  async function loadMoreJobs() {
+    const res = await fetch(
+      import.meta.env.PUBLIC_API_URL + "wp-json/wp/v2/job",
+    );
+    const data = await res.json();
+    const newJobs: Job[] = data.map((job: any) => {
+      return {
+        sr_no: job.id,
+        lob: job.acf.lob,
+        position: job.acf.position,
+        location: job.acf.location,
+        employment_type: _.capitalize(job.acf.employment_type),
+        requisition_date: job.acf.requisition_date
+          ? formatDate(job.acf.requisition_date)
+          : "Not Tracked",
+        linkedin_url: job.acf.linkedin_url,
+        know_more_url: job.acf.pdf_job_file,
+      };
+    });
+    setJobs(newJobs);
+    console.log("Jobs loaded:", jobs);
+  }
   return (
     <>
       <div className="hidden md:block">
@@ -75,45 +77,51 @@ const JobsListing = () => {
           className="no-scrollbar overflow-y-hidden overflow-x-scroll py-8 transition-all"
           id="jobs"
         >
-          <table className="w-full border-collapse border-spacing-0">
-            <tbody className="space-y-11 divide-y divide-gray-300">
-              <tr>
-                <td className="px-6 py-4 text-gray-600">Position</td>
-                <td className="px-6 py-4 text-gray-600">Location</td>
-                <td className="px-6 py-4 text-gray-600">Department</td>
-                <td className="px-6 py-4 text-gray-600">Posted On</td>
-                <td></td>
-              </tr>
-              {jobs.map((job) => {
-                return (
-                  <tr>
-                    <td className="px-6 py-12 font-medium text-gray-900">
-                      <h6 className="para">
-                        <b>{job?.position}</b>
-                      </h6>
-                      {!_.isEmpty(job?.know_more_url) && (
-                        <a
-                          className="text-primary-color"
-                          href={job.know_more_url}
-                          target="_blank"
-                        >
-                          Know More
-                        </a>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 text-gray-600">{job.location}</td>
-                    <td className="px-6 py-4 text-gray-600">{job.lob}</td>
-                    <td className="px-6 py-4 text-gray-600">
-                      {job.requisition_date}
-                    </td>
-                    <td className="px-6 py-4">
-                      <JobApplicationModalButton job={job} />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <div className="w-full">
+            <div className="flex w-full border-b border-gray-300 bg-white font-semibold text-gray-600">
+              <div className="flex-1 px-6 py-4">Position</div>
+              <div className="flex-1 px-6 py-4">Location</div>
+              <div className="flex-1 px-6 py-4">Department</div>
+              <div className="flex-1 px-6 py-4">Posted On</div>
+              <div className="flex-1 px-6 py-4"></div>
+            </div>
+            <div>
+              {jobs.map((job) => (
+                <div
+                  key={job.sr_no}
+                  className="flex w-full items-center border-b border-gray-300 hover:bg-gray-100"
+                >
+                  <div className="flex-1 px-6 py-12 font-medium text-gray-900">
+                    <h6 className="para">
+                      <b>{job?.position}</b>
+                    </h6>
+                    {!_.isEmpty(job?.know_more_url) && (
+                      <a
+                        className="text-primary-color"
+                        href={job.know_more_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Know More
+                      </a>
+                    )}
+                  </div>
+                  <div className="flex-1 px-6 py-4 text-gray-600">
+                    {job.location}
+                  </div>
+                  <div className="flex-1 px-6 py-4 text-gray-600">
+                    {job.lob}
+                  </div>
+                  <div className="flex-1 px-6 py-4 text-gray-600">
+                    {job.requisition_date}
+                  </div>
+                  <div className="flex-1 px-6 py-4">
+                    <JobApplicationModalButton job={job} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <span
           className="flex cursor-pointer items-center justify-center gap-2 text-center font-semibold text-primary-color"
